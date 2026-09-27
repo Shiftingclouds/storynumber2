@@ -34,7 +34,7 @@ You text Dario back one word, [i]alive[/i], and get back a wolf, a skull, and a 
     #Text Marc-André: "It was nothing. Go back to your life."
       *set guarded %+10
       *text me It was nothing. Sorry I woke you. Go back to your life.
-      *text marc Ok. Take care of yourself, Julien.
+      *text marc Ok. Take care of yourself, {marcname}.
       You put the phone face down. It's the kindest lie you know how to tell.
     #Text Marc-André: "It wasn't nothing. I don't know what it was yet."
       *set guarded %-10

@@ -321,7 +321,7 @@ In the middle of the street, in the middle of the traffic that has stopped, stan
 *if called = "marc"
   It buzzes again: a call. Toronto. Marc-André. You let it ring, and then you answer, because you can't not.
 
-  "Julien?" His voice is strange, dazed. "I don't know why I'm calling. I was asleep. I just woke up with the strongest feeling that I had to hear your voice. Like I'd forgotten something about you, and just remembered it." A pause. "Are you okay? It sounds like a riot."
+  "{marcname}?" His voice is strange, dazed. "I don't know why I'm calling. I was asleep. I just woke up with the strongest feeling that I had to hear your voice. Like I'd forgotten something about you, and just remembered it." A pause. "Are you okay? It sounds like a riot."
 
   "I'm okay," you say. "I'll call you. I promise." And for the first time in two years you mean it.
 

@@ -323,11 +323,13 @@ You take out your phone. Your thumb knows where it wants to go before you do.
     You hang up. Your hand is shaking, and not from the cold.
   #Call Marc-André. It's three in the morning in Toronto too.
     *set called "marc"
+    *if name = "Julien"
+      *set marcname "Sébastien"
     *set guarded %-10
     *set wry %-5
     It rings four times. You're about to hang up when he answers, thick with sleep.
 
-    "...Julien?" He never did learn to stop calling you by the first name he thought you had, the night you met, at a bar where you were pretending to be someone else. "Is everything okay? It's three in the morning."
+    "...{marcname}?" He never did learn to stop calling you by the first name he thought you had, the night you met, at a bar where you were pretending to be someone else. "Is everything okay? It's three in the morning."
 
     "I know."
 

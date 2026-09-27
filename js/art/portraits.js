@@ -81,6 +81,10 @@
       pendant: "bell", bg: ["#35495c", "#1a2531"], motif: "glass", jaw: 0 },
     manon: { skin: "fair", hair: "salt", style: "braid", eyes: "hazel", brows: 2, browScar: true, clothes: "leather", cloth: ["#3b2d24", "#271d17", "#17110d"],
       tee: "#5a6b52", bg: ["#23402c", "#0e1d13"], motif: "moon", jaw: 1, cheek: true },
+    rosa: { skin: "olive", hair: "salt", style: "updo", eyes: "dark", brows: 2, clothes: "cardigan", cloth: ["#34303a", "#231f28", "#141217"],
+      shirt: "#efe3cf", earrings: "#e8c35a", cross: true, wrinkles: true, bg: ["#e0b04a", "#9a6420"], motif: "window", jaw: 0, resting: "smile", cheek: true },
+    mathis: { skin: "fair", hair: "brown", style: "short", small: true, eyes: "blue", brows: 1, clothes: "robe", cloth: ["#8b9098", "#6a6f78", "#4a4e56"],
+      trim: "#6a6f78", freckles: true, bg: ["#2c3f58", "#121c2a"], motif: "glass", jaw: 0, nose: "button" },
     angel: { angel: true, bg: ["#f7d77a", "#b0782a"] }
   };
 

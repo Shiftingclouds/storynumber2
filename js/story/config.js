@@ -12,10 +12,10 @@
     c_six_notes: { title: "Six notes", text: "The Keyman hums the same six notes, over and over, while he cuts keys." },
     c_bellmark: { title: "The bell bruise", text: "Each victim has a bruise at the temple the exact shape of the lip of a handbell. A Carillon Hush-bell, rung hard enough to kill." },
     c_wolfhair: { title: "Wolf hair", text: "Grey wolf hair, clenched in the victim's fist." },
-    c_voice: { title: "The last memory", text: "Aïmé tasted it: cold hands, the ring of a bell, and a young man's voice, soft, with an accent. “Sorry, love.”" },
+    c_voice: { title: "The last memory", text: "Aimé tasted it: cold hands, the ring of a bell, and a young man's voice, soft, with an accent. “Sorry, love.”" },
     c_kandi_worn: { title: "Ruari's bracelets", text: "Ruari Strachan wears bracelets of plastic pony beads, rave kandi from 1998, stacked up both wrists." },
     c_kandi_bead: { title: "A plastic bead", text: "A pink plastic pony bead in the snow beside Guy Hébert's body." },
-    c_bite: { title: "Under the bruise", text: "Under the bell bruise on Mireille Caron's temple, Aïmé found two punctures, very small, very neat." },
+    c_bite: { title: "Under the bruise", text: "Under the bell bruise on Mireille Caron's temple, Aimé found two punctures, very small, very neat." },
     c_pelt: { title: "Not a wolf's", text: "Dario, holding the hair to the light: “That's not one of us. It's old. Dead hair. That came off a pelt.”" },
     c_pelt_room: { title: "The trophy room", text: "At the Beaver Club, a grey wolf pelt hangs among the furs. Someone has cut squares out of it." },
     c_tidying: { title: "A little tidying", text: "Honora Strachan, over dinner: the Hush's failing has left “loose ends,” and the Club is “seeing to a little tidying.”" },
@@ -65,13 +65,13 @@
 
     /* regard (-100..100) and desire (0..100) */
     rel_lazare: 0, rel_dario: 0, rel_rose: 0, rel_nadim: 0, rel_fleurette: 10, rel_aime: 20, rel_gisele: 0, rel_honora: 0,
-    rel_ruari: 0, rel_clarke: 0, rel_keyman: 0, rel_bourdon: 0, rel_agathe: 0, rel_manon: 0, rel_lucille: 40,
+    rel_ruari: 0, rel_clarke: 0, rel_keyman: 0, rel_bourdon: 0, rel_agathe: 0, rel_manon: 0, rel_lucille: 40, rel_rosa: 0, rel_mathis: 0,
     des_lazare: 0, des_dario: 0, des_rose: 0, des_nadim: 0, des_ruari: 0,
 
     /* met */
     met_lazare: false, met_dario: false, met_rose: false, met_nadim: false, met_fleurette: false, met_aime: false, met_gisele: false,
     met_honora: false, met_ruari: false, met_clarke: false, met_keyman: false, met_lucille: false, met_bourdon: false,
-    met_agathe: false, met_manon: false, met_angel: false,
+    met_agathe: false, met_manon: false, met_angel: false, met_rosa: false, met_mathis: false,
 
     /* intimacy */
     kissed_lazare: false, kissed_dario: false, kissed_rose: false, kissed_nadim: false, kissed_ruari: false,
@@ -79,7 +79,7 @@
     three_kiss: false, romance: "",
 
     /* night one */
-    dentist: "", has_photo: false, photo: "", lutin: "", turned_back: 0, called: "", saved_agathe: "", window_talk: "", has_notebook: false, n1_memory: "", n1_gave_name: false, told_djinn: false, n1_ride: "", n1_reply_dario: "", n1_reply_lazare: "",
+    dentist: "", marcname: "Julien", has_photo: false, photo: "", lutin: "", turned_back: 0, called: "", saved_agathe: "", window_talk: "", has_notebook: false, n1_memory: "", n1_gave_name: false, told_djinn: false, n1_ride: "", n1_reply_dario: "", n1_reply_lazare: "",
     opened_by: "", n1_nadim: "", n1_lied: false, n1_with: "", bell_failed: false,
     /* night two */
     meme_told: false, mireille_kind: false, know_true_name: false, meme_way: "", n2_crowd: "", met_mireille: false, keyman_asked: false, n2_ruari: "", serge_promise: false, meme_key: false, clarke_moved: false, n2_stance: "", plate_got: false, plate_how: "", has_key: false, took_hair: false, aime_tasted: false, n2_escort: "", saw_scarf: false,
@@ -95,7 +95,7 @@
     bourdon_deal: false, read_register: false, know_keyman: false, angel_heard: false, ally_angel: false, reconciled: false,
     lazare_left_carillon: false, agathe_turned: false, manon_safe: false, manon_cut: false, lazare_inside: false,
     lazare_rehushed: false, lazare_restored: false, honora_alliance: "", canoe_alt: 5, canoe_crashed: false, change_rung: false,
-    visited_parents: false,
+    visited_parents: false, mathis_out: false, n6_lane: "", nadim_taken: false, bourdon_knows: false,
     /* night seven */
     keyman_known: false, keyman_forgiven: false, keyman_safe: false, keyman_taken: false, accused: "", ruari_fate: "",
     honora_turned: false, clarke_turned: false, invited_rose: false, ally_rose: false,
@@ -119,7 +119,7 @@
     hands: [0, 100], nerve: [0, 100], charm: [0, 100], wits: [0, 100], lore: [0, 100],
     hush: [0, 100], wishes: [0, 3], hours: [0, 6], rose_lead: [0, 10], canoe_alt: [0, 10]
   };
-  ["lazare", "dario", "rose", "nadim", "fleurette", "aime", "gisele", "honora", "ruari", "clarke", "keyman", "bourdon", "agathe", "manon", "lucille"].forEach(function (p) {
+  ["lazare", "dario", "rose", "nadim", "fleurette", "aime", "gisele", "honora", "ruari", "clarke", "keyman", "bourdon", "agathe", "manon", "lucille", "rosa", "mathis"].forEach(function (p) {
     clamp["rel_" + p] = [-100, 100];
   });
   ["lazare", "dario", "rose", "nadim", "ruari"].forEach(function (p) { clamp["des_" + p] = [0, 100]; });
@@ -184,7 +184,7 @@
       }
     },
     aime: {
-      name: function () { return "Aïmé Bélanger"; }, short: "Aïmé", epithet: "A ghoul, and the undertaker's son",
+      name: function () { return "Aimé Bélanger"; }, short: "Aimé", epithet: "A ghoul, and the undertaker's son",
       desc: function (v) {
         return "<p>A ghoul, twenty-nine, the son of Salon funéraire Bélanger & Fils in Verdun. He sat behind you in Secondaire 3. He eats a mouthful of the dead and inherits their last memories. He sells some of them on the Missing Line, and hates himself a little for it.</p>" +
           "<p>He listens to true-crime podcasts, can't lie to save his life, and would do most things for you. " + hush("He's had a crush on you since you were fifteen.", v.rel_aime >= 50) + "</p>";
@@ -246,6 +246,24 @@
           (v.c_bell_stolen ? "<p>A Hush-bell went missing from her armory.</p>" : "");
       }
     },
+    rosa: {
+      name: function () { return "Rosa Ferrante"; }, short: "Rosa", epithet: "Of rue Jarry",
+      desc: function (v) {
+        return "<p>Sixty-three, of rue Jarry in Saint-Léonard, in the same brown-brick duplex since 1988. She makes the coffee too strong, goes to Saint-Bernardin at ten every Sunday, and is married to Vito, a retired tile-setter who lives in the basement workshop.</p>" +
+          "<p>" + hush("She had a son, Lorenzo, born 25 February 1994. The Carillon took him when he was ten, and the Hush took him out of her.", v.thaw) + "</p>" +
+          (v.n6_parents === "told" ? "<p>A stranger in her kitchen told her his name was Lorenzo. She didn't know him. She told him to come back on Sunday anyway.</p>" : "") +
+          (v.n6_parents === "birthday" ? "<p>She lit a candle on a cake she'd bought for nobody and sang happy birthday to a stranger. She doesn't know why she cried.</p>" : "");
+      }
+    },
+    mathis: {
+      name: function () { return "Mathis Tremblay"; }, short: "Mathis", epithet: "A novice of the Carillon",
+      desc: function (v) {
+        return "<p>A novice of the Carillon, ten, eleven in June, with a pudding-bowl haircut and enormous eyes. He came to the towers at eight and doesn't remember before. He can hear the great bell.</p>" +
+          "<p>He keeps a crayon drawing of a woman with yellow hair and a green coat in front of a red door. " + hush("His mother was unmade from him in September 2023.", v.read_register) + "</p>" +
+          (v.mathis_promise ? "<p>You promised to help him find her.</p>" : "") +
+          (v.mathis_out ? "<p>He walked out of the towers with you.</p>" : "");
+      }
+    },
     manon: {
       name: function () { return "Manon Lefebvre"; }, short: "Manon", epithet: "Second of the Sept-Ans",
       desc: function (v) {
@@ -297,7 +315,7 @@
   var map = [
     { night: 1, id: "n1_door", title: "The door", branches: { finesse: "Opened it by hand", force: "Drilled it", back: "Turned back" } },
     { night: 1, id: "n1_with", title: "After the bells", branches: { lazare: "Went with Lazare", dario: "Went with Dario", ran: "Ran for the van", played: "Played them off each other" } },
-    { night: 2, id: "n2_plate", title: "Nadim's name", branches: { clarke: "Handed it to the Conductor", stole: "Palmed it for Nadim", bargained: "Made it your fee", conned: "Tricked the Conductor", favor: "Spent Aïmé's favor", lost: "Kept out of it" } },
+    { night: 2, id: "n2_plate", title: "Nadim's name", branches: { clarke: "Handed it to the Conductor", stole: "Palmed it for Nadim", bargained: "Made it your fee", conned: "Tricked the Conductor", favor: "Spent Aimé's favor", lost: "Kept out of it" } },
     { night: 2, id: "n2_escort", title: "Walked home by", branches: { lazare: "Lazare", dario: "Dario", both: "Both of them", friends: "Your friends" } },
     { night: 3, id: "n3_first", title: "The first hour", branches: { dario: "Saint-Jude", lazare: "The patrol", rose: "Le Mardi Gras", nadim: "The bridge", gisele: "The Buanderie", club: "The Beaver Club", aime: "The funeral home", keyman: "The Keyman" } },
     { night: 4, id: "n4_dance", title: "The dance", branches: { won: "You led", lost: "He led" } },
@@ -345,7 +363,7 @@
     var out = [];
     if (v.night >= 1) out.push("<b>Night One.</b> A caller with your father's words sent you to the fort on Île Sainte-Hélène. You opened a Lacroix lock and let out Nadim, a djinn bound since 1967, and the Hush began to fail. Lazare of the Carillon found out you can't be Hushed. Dario of the Sept-Ans arrived with his wolves. " +
       ({ lazare: "You left with Lazare.", dario: "You left with Dario.", ran: "You ran.", played: "You played them against each other and slipped away." }[v.n1_with] || "") + " A ghost named Fleurette welcomed you to the Veillée.");
-    if (v.night >= 2) out.push("<b>Night Two.</b> Mémé told you a Lacroix must open the lock, and a Lacroix must close it. On the Missing Line you met Aïmé, the Conductor, Ruari and the Keyman. " + (v.plate_got ? "You won back Nadim's name-plate, and he granted you a wish." : "Nadim granted you a wish.") + " A woman who'd been unmade was found dead with a bell bruise and wolf hair in her fist.");
+    if (v.night >= 2) out.push("<b>Night Two.</b> Mémé told you a Lacroix must open the lock, and a Lacroix must close it. On the Missing Line you met Aimé, the Conductor, Ruari and the Keyman. " + (v.plate_got ? "You won back Nadim's name-plate, and he granted you a wish." : "Nadim granted you a wish.") + " A woman who'd been unmade was found dead with a bell bruise and wolf hair in her fist.");
     if (v.night >= 3) out.push("<b>Night Three.</b> You had six hours before dawn and spent them as you chose. At dawn a second body lay at the foot of the mountain stairs.");
     if (v.night >= 4) out.push("<b>Night Four.</b> You danced with the devil" + (v.danced_won ? ", and led." : ", and he led.") + (v.know_affair ? " You found Lazare and Dario in the coat room." : "") + " At midnight the Hush let go for an hour: <b>the Thaw</b>. Lazare remembered he is Enzo Ferrante. " + (v.path === "bells" ? "You followed Lazare to the towers." : v.path === "wolves" ? "You followed Dario to Saint-Jude." : ""));
     if (v.night >= 5) out.push(v.path === "bells"
@@ -445,7 +463,7 @@
       { type: "bar", label: "Lore", value: v.lore, note: "What you know about the Veillée." }
     ] });
     var fav = [];
-    [["favor_aime", "Aïmé"], ["favor_clarke", "the Conductor"], ["favor_gisele", "Gisèle"], ["favor_rose", "Rose"], ["favor_honora", "Honora Strachan"], ["favor_manon", "Manon"]].forEach(function (f) {
+    [["favor_aime", "Aimé"], ["favor_clarke", "the Conductor"], ["favor_gisele", "Gisèle"], ["favor_rose", "Rose"], ["favor_honora", "Honora Strachan"], ["favor_manon", "Manon"]].forEach(function (f) {
       if (v[f[0]]) fav.push("A favor from " + f[1]);
     });
     if (v.owe_rose) fav.push("You owe Rose one yes.");
@@ -460,7 +478,7 @@
 
   function hintFallback(e) {
     var m;
-    if ((m = /^favor_(\w+)$/.exec(e))) return "Requires a favor from " + ({ aime: "Aïmé", clarke: "the Conductor", gisele: "Gisèle", rose: "Rose", honora: "Honora", manon: "Manon" }[m[1]] || m[1]);
+    if ((m = /^favor_(\w+)$/.exec(e))) return "Requires a favor from " + ({ aime: "Aimé", clarke: "the Conductor", gisele: "Gisèle", rose: "Rose", honora: "Honora", manon: "Manon" }[m[1]] || m[1]);
     if ((m = /^(ded_\w+)$/.exec(e)) && deductions[m[1]]) return "Requires a deduction: “" + deductions[m[1]].title.replace(/^Theory: /, "") + "” (connect clues in your Journal)";
     if ((m = /^(c_\w+)$/.exec(e)) && clues[m[1]]) return "Requires a clue: " + clues[m[1]].title;
     if ((m = /^wishes\s*>=?\s*1$/.exec(e))) return "Requires a wish";
@@ -482,7 +500,7 @@
     opposed: opposed,
     statNames: {
       hands: "Hands", nerve: "Nerve", charm: "Charm", wits: "Wits", lore: "Lore", hush: "The Hush", wishes: "Wishes",
-      rel_lazare: "Lazare", rel_dario: "Dario", rel_rose: "Rose", rel_nadim: "Nadim", rel_fleurette: "Fleurette", rel_aime: "Aïmé",
+      rel_lazare: "Lazare", rel_dario: "Dario", rel_rose: "Rose", rel_nadim: "Nadim", rel_fleurette: "Fleurette", rel_aime: "Aimé",
       rel_gisele: "Gisèle", rel_honora: "Honora", rel_ruari: "Ruari", rel_clarke: "the Conductor", rel_keyman: "the Keyman",
       rel_bourdon: "the Bourdon", rel_agathe: "Agathe", rel_manon: "Manon", rel_lucille: "Mémé",
       des_lazare: "Lazare's desire", des_dario: "Dario's desire", des_rose: "Rose's desire", des_nadim: "Nadim's desire", des_ruari: "Ruari's desire"

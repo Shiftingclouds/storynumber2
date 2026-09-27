@@ -233,6 +233,7 @@ You wake at dawn because somebody is standing at the foot of your bed.
 
 It's the small boy with the pudding-bowl haircut, from the stairs. He's holding a tray with a bowl of soup and a heel of bread and a glass of milk, very carefully, with his tongue between his teeth. Behind him the hunter on the stool is asleep with his chin on his chest.
 
+*meet mathis
 "Brother Lazare said to bring you breakfast," the boy whispers. "He said you'd be hungry, and grumpy, and to not mind." He puts the tray on your knees. "I'm Mathis."
 
 "Hi, Mathis."
