@@ -288,8 +288,6 @@ It's heavy cream stock with a deckled edge, and a brass beaver embossed at the t
 
   "She's here," says Nadim. "Zeina. I felt her at noon, through the stone, across the whole island." The coals flare. "Creditor. Get her out. Whatever it costs. I'll hold this city asleep for a thousand years if you get her out."
   *set rel_nadim +10
-*else
-  You tell Nadim, where he is, however you can reach him. You feel it when he hears: every light on your street flickering at once, and a heat in the air like July.
 *set nadim_sister true
 
 *comment ---------------------------------------------------------------- THE PLAN
@@ -553,18 +551,15 @@ Saturday night, very late. Easter Eve.
 Outside every church on the island, at the Vigil, they light a new fire in the dark: a brazier on the steps, and the priest lights the Paschal candle from it, and the candle goes into the dark church, and everybody's little candle gets lit from it, one after another, until the whole church is full of light.
 
 No bells. The bells are still in Rome. They come back in the morning.
-*if easter_due
-  And in the morning, at dawn, your seven Easters come due.
+And in the morning, at dawn, your seven Easters come due.
 
-  You sit on the steps of Saint-Willibrord in Verdun at midnight, with a little candle somebody gave you, and watch the fire in the brazier, and think about it.
+You sit on the steps of Saint-Willibrord in Verdun at midnight, with a little candle somebody gave you, and watch the fire in the brazier, and think about it.
 
-  Confession. Communion. Before dawn. [i]The curse doesn't care what you believe. It counts.[/i]
+Confession. Communion. Before dawn. [i]The curse doesn't care what you believe. It counts.[/i]
 
-  Or the mountain. The pack. The sun coming up over the east end. And never being alone again.
+Or the mountain. The pack. The sun coming up over the east end. And never being alone again.
 
-  Or something else.
-*else
-  You sit on the steps of Saint-Willibrord in Verdun at midnight, with a little candle somebody gave you, and watch the fire in the brazier, and wait for morning.
+Or something else.
 
 *page_break Chapter Thirteen
 *goto_scene ch13

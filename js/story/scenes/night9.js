@@ -26,8 +26,10 @@ NB.scene("night9", String.raw`
   *set dfit -1
 *if (role_crowd = "fleurette") or (role_crowd = "clarke")
   *set cfit 3
-*elseif (role_crowd = "aime") or (role_crowd = "honora") or (role_crowd = "gisele") or (role_crowd = "dario")
+*elseif (role_crowd = "aime") or (role_crowd = "honora")
   *set cfit 2
+*elseif (role_crowd = "gisele") or (role_crowd = "dario")
+  *set cfit 1
 *if fleurette_plan
   *set cfit +1
 *if role_bells = "lazare"
@@ -96,7 +98,6 @@ Every building's a screen. Place des Arts is running a light show up its whole g
   "Something good, I hope."
 
   He looks at you for a long moment. "Okay," he says. "The tent. I'll keep them by the tent."
-  *set crowd_safe true
 *elseif dentist != ""
   At the soup tent, a man in a very good coat is holding two paper cups of soup: Philippe, the dentist. He waves at you across the crowd with a cup, and spills it, and laughs. You wave back.
 *if called = "marc"
@@ -233,7 +234,7 @@ You can help hold the door, or you can go through it. You haven't got time for b
 
 *if dfit >= 3
   *set door_held true
-*if cfit >= 2
+*if cfit >= 3
   *set crowd_safe true
 *if bfit >= 2
   *set bells_stopped true

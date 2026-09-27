@@ -112,6 +112,9 @@
     chapter: 0, ch10_lunch: "", ch10_dinner: "", meme_key_back: false, funeral: "", time_lazare: 0, time_dario: 0, time_rose: 0, time_nadim: 0, time_serge: 0,
     easter_due: false, mc_wolf: false, easter_how: "", angel_judgment: false, nadim_sister: false, mathis_mother: false,
     hw_thursday: "", zeina_free: false, aime_safe: false, hs_door: "", hs_decoy: "", hs_cellar: "", hs_beside: "", price_freed: false, radiator_fixed: false,
+    /* part three: the long light */
+    meme_gone: false, meme_fort: false, rosa_knows: false, lilac_test: "", rose_yes: "", nadim_q: "", know_song_name: false, final_romance: "",
+    sj_fire: "", sj_bell: "", sj_crowd: "", sj_beside: "", sj_mountain: "", angel_end: "", last_before: "", fleurette_sj: false,
 
     /* New Game+ memories (set from the meta store when a New Game+ begins) */
     ngplus: false, runs: 0, mem_enzo: false, mem_keyman: false, mem_killer: false, mem_accord: false, mem_bells: false, mem_wolves: false
@@ -499,7 +502,7 @@
     eyebrow: "Montréal · February",
     subtitle: "Nine nights, and everything after",
     motto: "Le fort a besoin de son gardien.",
-    sceneList: ["night1", "night2", "night2b", "night3", "night3b", "night3c", "night4", "night4b", "night5a", "night6a", "night5b", "night6b", "night7", "night7b", "night8", "night8b", "night9", "night9b", "ch10", "ch11", "ch12", "ch13", "endings"],
+    sceneList: ["night1", "night2", "night2b", "night3", "night3b", "night3c", "night4", "night4b", "night5a", "night6a", "night5b", "night6b", "night7", "night7b", "night8", "night8b", "night9", "night9b", "ch10", "ch11", "ch12", "ch13", "ch14", "ch15", "endings"],
     startVars: startVars,
     clamp: clamp,
     opposed: opposed,
