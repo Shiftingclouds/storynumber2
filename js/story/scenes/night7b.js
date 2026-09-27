@@ -483,7 +483,7 @@ You stand beside him at the rail. The cold's savage. Down below, the city: the o
     *set rose_bargain true
     *node n7_rose bargained
     *set wits +2
-    Rose looks at you for a long time.
+    Rose looks at you.
 
     "A devil holding a whole city's sleep," he says. "Do you know what you're asking?"
 
@@ -608,7 +608,7 @@ She puts her hand out, and touches the chain round your neck, through your shirt
 *if has_serge_key
   You take the other one out of your pocket, the keeper's key, the big brass one with the cross in a circle, and show her.
 
-  She looks at it for a long time. "Serge's," she says. "Aurèle's. And now yours. Both of them." Her mouth trembles, and firms. "Good. Then you'll need to know what the little one's for."
+  She looks at it. "Serge's," she says. "Aurèle's. And now yours. Both of them." Her mouth trembles, and firms. "Good. Then you'll need to know what the little one's for."
 "The big lock on the fort only knows two things," she says. "Open, and shut. With the djinn inside, or without. That's what they paid him for." Her fingers tighten on the little key through your shirt. "But Aurèle couldn't live with it. So he made a third thing, and hid it round my neck for fifty years. The little key doesn't open the lock, and it doesn't close it. It turns it into a question."
 
 "A question?"

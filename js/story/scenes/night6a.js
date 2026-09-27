@@ -864,7 +864,7 @@ Agathe listens to you at the armory door at half past midnight with her arms cro
 
 "Not cut. Nick. So they part at the first pull."
 
-She looks at you for a long time. You can see her faith in her face, holding her up like a load-bearing wall, and you can see the cracks in it: the gap on the peg, the tag in neat handwriting, [i]RETURNED[/i], the way the other hunters look at her in the refectory.
+She looks at you, and doesn't hurry. You can see her faith in her face, holding her up like a load-bearing wall, and you can see the cracks in it: the gap on the peg, the tag in neat handwriting, [i]RETURNED[/i], the way the other hunters look at her in the refectory.
 
 "If the angel speaks," she says slowly, "then I'll know. Won't I? Whether it's the devil, like he says. Or..." She stops. She goes to the rack and takes down a small curved knife, the kind for trimming rope. "Ten ropes. Just above the sally, where they can't see the cut. God forgive me." She looks at you. "If it's the devil, {name}, I'll ring the bell over you myself."
 
@@ -956,7 +956,7 @@ And from the other tower, in the silence, something begins.
 *page_break
 "No," you say. "Let them ring."
 
-Lazare looks at you for a long time. You can't read his face.
+Lazare doesn't look away. You can't read his face.
 
 "You're afraid of it," he says.
 
@@ -1108,7 +1108,7 @@ Lazare takes his bell out of his coat pocket.
 
 It's brass, the size of a teacup, on its worn leather cord. He's carried it every day since he was ten. You've seen him with it in his fist on the Main at the Thaw, and in the snow at the fort on Friday with Agathe, and hanging against his chest in the coat room. You've seen him touch it without knowing he was touching it, the way other men touch a wedding ring.
 
-He looks at it for a long time. Then he looks at you.
+He looks at it. Then he looks at you.
 
 *choice
   *selectable_if ((rel_lazare >= 45) or reconciled or (n6_parents = "told")) #"Put it down. Come with me. Now. You don't owe them another night."
@@ -1206,7 +1206,7 @@ It's Mathis. In his grey nightshirt, barefoot, with his crayon drawing in his fi
   #"Not tonight. It's not safe out there, Mathis. But I'll come back for you. I promise."
     *set rel_mathis +5
     *set guarded %+5
-    Mathis looks at you for a long time with his enormous eyes. Then he nods, once, like a small soldier.
+    Mathis looks at you with his enormous eyes. Then he nods, once, like a small soldier.
 
     "You promised twice now," he says. "That's two." And he turns and goes back up the stairs with the drawing in his fist, and doesn't look back.
     *remember mathis You left him in the tower, and promised to come back. He's counting.

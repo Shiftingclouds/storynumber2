@@ -521,7 +521,7 @@ The fire stands up.
 That's the only way to say it. The coals draw in and up and together, and the smoke pulls tight around them like a coat being shrugged on, and then there is a man standing in the middle of the vault: forty, maybe, or four thousand. Brown skin, black hair falling in waves to his shoulders, a short dark beard. A charcoal robe whose collar is embroidered in gold thread that catches the light like embers. His eyes are amber all the way through, and they're still burning.
 
 *meet nadim
-He looks at his hands for a long time. He opens and closes them. At the edges he's already fraying back into smoke, like a man standing in a strong wind.
+He looks at his hands for a while. He opens and closes them. At the edges he's already fraying back into smoke, like a man standing in a strong wind.
 
 *temp asks 0
 *label nadim_questions

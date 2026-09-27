@@ -168,10 +168,10 @@ The whole laundromat is looking at you. The dryers go round.
     *set guarded %+10
     *set rel_nadim -10
     *set rel_bourdon +10
-    Nobody says anything for a long time. Dario looks at his hands. Aimé puts the date squares down.
+    Nobody speaks. Dario looks at his hands. Aimé puts the date squares down.
     *if laz_free
       Lazare says, very quietly, "He'll be in the dark again. Fifty-nine more years."
-    Gisèle looks at you for a long time over her glasses. "Well," she says at last. "You're a Lacroix." It isn't a compliment. It isn't quite an insult, either. "Your grandfather would understand you. God help you."
+    Gisèle looks at you over her glasses. "Well," she says at last. "You're a Lacroix." It isn't a compliment. It isn't quite an insult, either. "Your grandfather would understand you. God help you."
   #"We break it. Let him go. Let the city see. Whatever happens after, it happens with everybody awake."
     *set intent "break"
     *set reckless %+10
@@ -241,7 +241,7 @@ You pull it out on its chain, from under your shirt: the little gold cross, and 
 
     "It knows the song. The song is its name. My grandfather stole it with a tuning fork." You look at her. "I think it'd like to give it back, properly. To everyone."
 
-    Gisèle looks at you for a long time. "Aurèle's grandson," she says again, and shakes her head. "God help the angels."
+    Gisèle holds your eyes. "Aurèle's grandson," she says again, and shakes her head. "God help the angels."
   *if (invited_rose) #Rose. He's been singing people into things for three hundred years. And he can go anywhere now.
     *set voice "rose"
     *set reqs +1
@@ -352,7 +352,7 @@ She counts them off.
     *if laz_self
       Lazare doesn't hesitate. "Yes," he says. "I know every rope in both towers. I know which ringers will follow me." He looks at you. "And I know the one bell they can't ring without me."
     *else
-      Lazare looks at you for a long time. "I don't remember why," he says slowly. "But when you say [i]the bells[/i], my hands know what you mean." He looks at them. "I'll ring whatever you ask."
+      Lazare studies you. "I don't remember why," he says slowly. "But when you say [i]the bells[/i], my hands know what you mean." He looks at them. "I'll ring whatever you ask."
   *if (agathe_turned) #Agathe. She knows the tower and the band. They'll follow her.
     *set role_bells "agathe"
     Agathe nods once. "I'll take the fifth and cut anybody else's rope who tries to ring over us," she says. "I'm very good at ropes now."
@@ -401,7 +401,7 @@ She counts them off.
   #Nobody. It's a Lacroix lock. A Lacroix goes alone.
     *set role_beside "none"
     *set guarded %+10
-    Nobody says anything. Gisèle looks at you for a long time and then looks away, and you think it's the saddest you've ever seen her look.
+    Nobody says anything. Gisèle studies you and then looks away, and you think it's the saddest you've ever seen her look.
 
 *page_break
 It's one in the morning when they start to go.

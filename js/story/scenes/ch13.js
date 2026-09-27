@@ -58,7 +58,7 @@ Father Lemieux. Seventy-eight. He's been at Saint-Willibrord since 1990. He buri
 
 "I need to make my confession, Father. Before dawn. It's... it's important. I'm sorry."
 
-He looks at you for a long time in the doorway, in his dressing gown. Then he steps back and holds the door open.
+He looks at you in the doorway, in his dressing gown. Then he steps back and holds the door open.
 
 "Nobody's ever knocked on this door at half past four in the morning to go to confession," he says. "In thirty-six years. Come in. I'll put the kettle on. God won't mind if we do it in the kitchen."
 
@@ -83,7 +83,7 @@ You don't know what to say. You haven't done this since 2019. You haven't done i
   #"I'm afraid, Father. That's all. I'm so afraid of what's coming."
     *set guarded %-10
     *set wits +2
-    Father Lemieux is quiet for a long time.
+    Father Lemieux doesn't answer right away.
 
     "So am I," he says. "Every morning. Since those bells started at three thirty-three." He puts his hand over yours on the kitchen table. "Being afraid isn't a sin, son. It's just the price of paying attention."
 

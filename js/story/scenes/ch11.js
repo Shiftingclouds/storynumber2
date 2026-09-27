@@ -90,7 +90,7 @@ Lazare is standing on the sidewalk across the street from the church in a borrow
 *choice speak
   #"Go in. Sit with her. You don't have to believe anything. You just have to sit next to your mother."
     *set rel_lazare +10
-    Lazare looks at you for a long time. Then he crosses the street, and goes up the steps, and in.
+    Lazare looks at you. Then he crosses the street, and goes up the steps, and in.
 
     You wait on the sidewalk. At eleven, the doors open and people come out into the grey, and among them, a small round woman in a black coat, holding the arm of a tall man in a borrowed coat, talking up at him nonstop, and he's bending his head down to listen, and he's smiling.
     *remember lazare His first Mass as Lorenzo Ferrante, in the fourth pew on the left, next to his mother.
@@ -345,14 +345,14 @@ She tells you. The six notes of the Lacroix song aren't a song. They're a name. 
   #"Why would I need to bind an angel?"
     *set rel_gisele +5
     *set wits +2
-    Gisèle looks at you for a long time. "You heard the bells last night," she says. "At three thirty-three. Every night." She taps ash. "Something's coming home at Easter. And it's been waiting fifty-nine years to say what it thinks of us."
+    Gisèle holds your eyes. "You heard the bells last night," she says. "At three thirty-three. Every night." She taps ash. "Something's coming home at Easter. And it's been waiting fifty-nine years to say what it thinks of us."
   #"Teach me. Properly. All of it."
     *set rel_gisele +10
     *set lore +3
     She teaches you. For three hours, among the dryers, with a tuning fork she's had in a drawer since 1966, [i]his[/i] tuning fork, she says, and doesn't explain how she has it. By midnight you can hear it: the name inside the note, when she strikes the fork on the edge of the washer.
   #"You kept his tuning fork. For sixty years."
     *set rel_gisele +15
-    Gisèle doesn't say anything for a long time. Then she takes it out of her cardigan pocket, where it's been the whole time, and looks at it.
+    Gisèle doesn't say anything. Then she takes it out of her cardigan pocket, where it's been the whole time, and looks at it.
 
     "He left it on my kitchen table," she says. "The night before. In '67. He said, [i]keep this, Gisèle, so I can't use it again.[/i]" She turns it in her fingers. "Stupid man. Stupid, beautiful man."
 *goto week_end

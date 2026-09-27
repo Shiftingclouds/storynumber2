@@ -126,7 +126,7 @@ Lazare is standing in the middle of the study with his hands at his sides, and h
     *set rel_bourdon -10
     *set wry %-10
     *set nerve +2
-    The Bourdon looks at you for a long time.
+    The Bourdon holds your eyes.
 
     "Yes," he says at last. "It is. You're quite right." He doesn't argue. That's the worst part. "I've never found a word for it I could live with. [i]Mercy[/i] is the one I use to sleep."
 
@@ -313,7 +313,7 @@ Agathe is standing in the armory door in her black coat, and she looks as if she
 *elseif saved_agathe = "pulled"
   She looks at you. "You pulled me out of the way of a wolf," she says. "At the fort. I never said thank you properly." A long breath. "So I'm going to trust you. God knows there's nobody in this tower I can."
 *else
-  She looks at you for a long time, as if deciding something. "Lazare trusts you," she says finally. "I've never seen him trust anyone. So."
+  She studies you, as if deciding something. "Lazare trusts you," she says finally. "I've never seen him trust anyone. So."
 
 "The Register," Agathe says. "The book on the Bourdon's lectern. Every name the Hush has ever unmade. If that bell's been used on the unmade, then whoever's using it is working from that book. Somebody's reading it. Somebody's choosing." She swallows. "The Bourdon keeps the key on his person. Always. He goes down to Compline at nine tonight. Forty minutes. His study's empty for forty minutes."
 
@@ -367,7 +367,7 @@ He's changed out of his party clothes into his hunter's black, but he isn't wear
 
     "I'm already in it. Aren't I."
 
-    He looks at you for a long time in the dark. "Tomorrow," he says. "Tomorrow night. If I can." A breath. "If you're there."
+    He watches you in the dark. "Tomorrow," he says. "Tomorrow night. If I can." A breath. "If you're there."
   #"Say your name."
     *set rel_lazare +10
     *set des_lazare +5

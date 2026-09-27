@@ -366,7 +366,7 @@ There's a bruise on his left temple the exact shape of the lip of a bell.
 And clenched in his right fist, grey wolf hair.
 
 *page_break
-Nobody says anything for a long time. Dario kneels down in the snow beside the boy. He doesn't touch him.
+The silence goes on. Dario kneels down in the snow beside the boy. He doesn't touch him.
 
 "That's not us," says Réjean, behind you, hoarse. "Dario. That's not us. The one that got him in the church, that was Sandrine's cousin, and he only knocked him down. I saw the kid get up. I saw him run out the side with the others." He's pleading. "That's not us."
 
@@ -414,7 +414,7 @@ He's very gentle with the boy. He and Dario lift him onto the stretcher together
   #"Only if you want to. You don't have to. Not for me."
     *set rel_aime +10
     *set guarded %-5
-    Aimé looks at you for a long time.
+    Aimé studies you.
 
     "Nobody ever says that," he says. "That I don't have to." He looks down at the sheet. "I want to. For him. Somebody should know what happened to him, and it should be somebody who'll say it right." He swallows. "At the home. Properly. Not in a yard."
   #"Yes. Please. Someone did this to frame the pack, and he saw who."
@@ -500,7 +500,7 @@ You've got an afternoon. You can do one thing properly.
 
       "Last night you put yourself between a knife and a seventeen-year-old boy you'd have told me you barely knew. You said, [i]take me instead[/i]." You look at her. "That's who you are. Whatever you remember or don't. That's all."
 
-      She looks at her tea for a long time. "I was a Sister of Providence for twenty-two years," she says, slowly. "I taught grade three." She lifts her eyes to you. "That sounds like something I'd do."
+      She studies her tea. "I was a Sister of Providence for twenty-two years," she says, slowly. "I taught grade three." She lifts her eyes to you. "That sounds like something I'd do."
     #Ask her about the convent. Let her talk about the things she still has.
       *set wits +2
       She talks. About Hochelaga, and the grade threes, and a girl called Josianne who could never tell her b from her d, and the Tuesday in March she walked out in her habit and took the 18 bus. It's all there, up to 2016, clear and bright. And then nothing. She stops, frowning, like a woman who's walked into a room and forgotten why.
@@ -525,7 +525,7 @@ You've got an afternoon. You can do one thing properly.
     #"Thank you. For last night. For putting yourself in front of Luc."
       *set rel_manon +5
       *set guarded %-5
-      Manon looks at you for a long time over her reading glasses.
+      Manon looks at you over her reading glasses.
 
       "I was a Sister of Providence for twenty-two years," she says. "You learn one thing, if you learn anything. You stand in front of the children." She goes back to the crossword. "Nobody thanks you. It isn't that kind of job."
     #"How long have you known about him and Lazare?"

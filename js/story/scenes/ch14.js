@@ -153,7 +153,7 @@ It's full. You didn't think it would be. You thought it'd be you and Ghislaine a
 *if n9_fell != "gisele"
   And, at the very back, alone, in her purple cardigan, with an unlit du Maurier in her fingers, Gisèle Pépin.
 
-  She comes up to you after, at the door, in the spring rain. She doesn't say anything for a long time.
+  She comes up to you after, at the door, in the spring rain. She says nothing for a while.
 
   "I sent a cake to his," she says finally. "Nobody ate it." She looks at the hearse. "This time I came."
 
@@ -207,7 +207,7 @@ At the end, everyone sings. Not a hymn. Six notes, down and up and held, over an
     #"Be the young man who comes for lunch. That's a good thing to be. That's a son, whatever they call it."
       *set rel_lazare +10
       *set wits +2
-      Lazare looks at you for a long time. Then he nods. "A son, whatever they call it," he says. He looks out of the window. "My mother calls me [i]caro[/i]. It means dear. It's what she called me when I was small." He almost smiles. "It'll do."
+      Lazare studies you. Then he nods. "A son, whatever they call it," he says. He looks out of the window. "My mother calls me [i]caro[/i]. It means dear. It's what she called me when I was small." He almost smiles. "It'll do."
     #"Ask them. Not me. Ask your mother if she wants to know."
       *set rel_lazare +5
       *set rel_rosa +10
@@ -249,7 +249,7 @@ She's smaller than her brother, and fiercer, and her smoke is darker, with gold 
 *choice speak
   #"The city keeps him there. I'm the one who visits."
     *set rel_nadim +5
-    Zeina looks at you for a long time. "In my country," she says, "we had a word for the man who holds the key and says it's the door's fault." She picks up her coat. "Drive. I want to see him."
+    Zeina looks at you. "In my country," she says, "we had a word for the man who holds the key and says it's the door's fault." She picks up her coat. "Drive. I want to see him."
   #"Yes. And I think about it every Thursday."
     *set rel_nadim +10
     *set guarded %-5
@@ -273,7 +273,7 @@ She's smaller than her brother, and fiercer, and her smoke is darker, with gold 
 *choice speak
   #"I'm just the one who opened the door."
     *set rel_nadim +5
-    Zeina looks at you for a long time. "In my country," she says, "that's what we'd have called a king." She turns back to her cribbage. "Sit. Thérèse is cheating. Watch her for me."
+    Zeina doesn't look away. "In my country," she says, "that's what we'd have called a king." She turns back to her cribbage. "Sit. Thérèse is cheating. Watch her for me."
   #"I'm his friend."
     *set rel_nadim +10
     *set des_nadim +5

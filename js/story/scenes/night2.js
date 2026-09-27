@@ -106,7 +106,7 @@ She thinks you're your father. You look enough like him now: you've known that s
     *set rel_lucille +5
     "It's me, Mémé," you say. "It's {name}. Serge's boy. Your grandson."
 
-    She looks at you for a long time. You watch her try. You watch the name go into her like a key into a lock that's rusted, and not turn, and not turn.
+    She looks at you, steadily. You watch her try. You watch the name go into her like a key into a lock that's rusted, and not turn, and not turn.
 
     "Serge's boy," she repeats. "Serge has a boy?" And then, slowly, wonderingly, touching your face: "He'd be so tall now."
 

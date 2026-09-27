@@ -431,7 +431,7 @@ Two punctures. Tiny, neat, a centimetre apart. You'd never see them unless you w
     #"No. You don't have to. Not for me."
       *set rel_aime +15
       *set guarded %-5
-      He looks at you for a long time. "Nobody's ever said that to me," he says. "That I don't have to." He puts the sheet back over her face, gently. "Thank you."
+      He looks at you. "Nobody's ever said that to me," he says. "That I don't have to." He puts the sheet back over her face, gently. "Thank you."
 *page_break
 "There's something else," Aimé says. "From before. From what I tasted on the platform." He's holding the edge of the sheet. "She had a daughter. She really did. She wasn't confused. The last clear thing in her, right under the cold, was a little girl at a kitchen table doing homework. Josée. Her name was Josée." He looks up. "She'd be fifty now. Somewhere. Not knowing she ever had a mother."
 

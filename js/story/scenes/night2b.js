@@ -92,7 +92,7 @@ Six brass studs. A song lock. And four hours ago, in a care home on Bannantyne, 
     *set rel_nadim +15
     *set charm +3
     *node n2_plate bargained
-    The Conductor looks at you for a long time. Then he laughs, low and genuine, and shakes his head.
+    The Conductor gives you a long look. Then he laughs, low and genuine, and shakes his head.
 
     "You'd make a fine porter," he says. "You'd make a finer Conductor." He spreads his hands. "Very well. A fee freely named and freely agreed. That isn't giving anything away. It's business." He looks at Nadim, and his voice changes. "It's been business for sixty-eight years. Let's call it settled."
 

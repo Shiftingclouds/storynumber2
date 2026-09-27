@@ -119,7 +119,7 @@ He looks at you.
   #"I think you should get as far away from those towers as you can."
     *set rel_lazare -5
     *set guarded %+10
-    Lazare looks at his glass for a long time. "Maybe," he says. "Maybe you're right." But he doesn't sound like he thinks so.
+    Lazare looks at his glass. "Maybe," he says. "Maybe you're right." But he doesn't sound like he thinks so.
 *set week +1
 *goto week_end
 
@@ -152,7 +152,7 @@ After the tam-tams, when the sun's gone down behind the mountain and the drummer
   #"What about Enzo?"
     *set rel_dario +10
     *set wits +2
-    Dario's quiet for a long time.
+    Dario's quiet a while.
     *if laz_ok
       "I don't know," he says. "I ask myself every day. I love him. I've loved him since I was nine. And I love you." He looks at you, finally. "I'm asking you to move in. I'm not asking you to make me choose. I don't know if I can." A pause. "Maybe you could ask him too. What he thinks."
     *else
@@ -210,7 +210,7 @@ Lazare takes a piece of paper out of his breast pocket, folded small, and unfold
     *set rel_dario +5
     *set guarded %+10
     *set throuple_ready false
-    Nobody says anything for a long time. The lilac tree drops a petal on the tablecloth.
+    Nobody says anything. The lilac tree drops a petal on the tablecloth.
 
     "Okay," says Dario, finally, and his voice is rough. "Okay. I get it." He looks at Lazare. Lazare's looking at you, with his face very still.
 
@@ -346,7 +346,7 @@ Your father takes all of them. He whistles while he works. He's put the Polaroid
   #"No. Stay home. I just got you back."
     *set rel_keyman +5
     *set guarded %+10
-    He looks at you for a long time. "I just got you back too," he says quietly. "That's why I'm asking."
+    He looks at you, and keeps looking. "I just got you back too," he says quietly. "That's why I'm asking."
 *set week +1
 *goto week_end
 
@@ -399,7 +399,7 @@ She's on top of the jukebox at Chez Normande, in a white gown, for summer, and a
     *remember fleurette In May, she asked for the Saint-Jean: her name on every screen, one song, and then to go. You promised.
   #"Stay. Don't go. We'll stand in front of the fire together."
     *set rel_fleurette +10
-    Fleurette looks at you for a long time. "You sweet, stupid boy," she says softly. "All right. I'll stand with you. But if it comes to it..." She looks at the jukebox. "If it comes to it, I'd like the screens."
+    Fleurette takes a long look at you. "You sweet, stupid boy," she says softly. "All right. I'll stand with you. But if it comes to it..." She looks at the jukebox. "If it comes to it, I'd like the screens."
     *set fleurette_sj true
 *set week +1
 *goto week_end

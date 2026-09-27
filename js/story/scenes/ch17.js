@@ -428,7 +428,7 @@ The fire stops.
   *if mc_wolf
     *set mc_wolf false
 *else
-  The angel looks at you for a long time, standing alone in the fire with your arms out.
+  The angel looks at you, standing alone in the fire with your arms out.
 
   [b]YES,[/b] it says. [b]I SEE.[/b]
 

@@ -70,7 +70,7 @@ The Line opens after the last métro. But the Keyman sleeps down there. And whoe
     *set n7_with "alone"
     *set guarded %-5
     *if laz_free
-      Lazare looks at you for a long time. Then he nods. "Text me," he says. "Every hour. Or I'm coming down there with a bell I don't own any more."
+      Lazare watches you. Then he nods. "Text me," he says. "Every hour. Or I'm coming down there with a bell I don't own any more."
     *else
       Nobody argues. You wish, a little, somebody would.
   *if (laz_free) #Take Lazare. He knows the bells. If someone comes with one, he'll know it before you will.
@@ -184,7 +184,7 @@ He doesn't know he's doing it. He's refilling the pot from a jug, and it comes o
 
     You hold out your hand.
 
-    He looks at it for a long time. Then he gets up, and takes the cigar box down from the shelf by the cot, and takes out the folded page, soft as cloth, and puts it in your hand without a word. You lay it against the stub. The teeth fit.
+    He studies it. Then he gets up, and takes the cigar box down from the shelf by the cot, and takes out the folded page, soft as cloth, and puts it in your hand without a word. You lay it against the stub. The teeth fit.
     *clue c_torn_page
 
     "[i]Voir S.[/i]," he reads, off your grandfather's page, very slowly, as if he's learning to read. "See S." He touches the letter. "Who's S?"
@@ -294,7 +294,7 @@ You don't know what you're going to do until you do it.
   #"Mom brought me one. The next day. She said you'd sent it." (It isn't true. It's the kindest lie you know.)
     *set rel_keyman +10
     *set wry %-5
-    He looks at you for a long time. He knows. You can see that he knows; he was always a better liar than you, and he always knew when you were doing it.
+    He looks at you, steadily. He knows. You can see that he knows; he was always a better liar than you, and he always knew when you were doing it.
 
     "Kath," he says. "Is she..."
 
@@ -328,7 +328,7 @@ He looks at you, and waits. Like a man in a dock.
     *set keyman_forgiven true
     *set rel_keyman +15
     *set wry %-10
-    He shuts his eyes. He doesn't say anything for a long time. When he does, it's very quiet.
+    He shuts his eyes. He doesn't say anything for a while. When he does, it's very quiet.
 
     "I don't deserve it," he says.
 

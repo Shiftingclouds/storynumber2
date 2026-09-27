@@ -133,7 +133,7 @@ A young one. Black coat, a bell in his hand, standing at the edge of the crowd u
 
     "Go home, Anselme," you say. "Or have some soup. But not this. Not tonight."
 
-    He looks at you for a long time. Then he goes. Toward the soup.
+    He holds your eyes a moment longer than is comfortable. Then he goes. Toward the soup.
   #Leave him. You've got a fort to get to.
     *set guarded %+5
     You leave him under his streetlight with his bell and his white face. You've got a fort to get to. You hope, going down into the métro, that somebody else notices him.

@@ -305,7 +305,7 @@ The door held. The bells are quiet. Up above, somewhere, the whole of the Veill√
   *else
     "Unlock him," you say to Honora. "Or I don't touch the lock at all, and you can explain to half a million people at three thirty-three why you didn't."
 
-    Honora looks at you for a long time. Then she takes a small iron key from her glove, and tosses it to you, underhand, like a coin to a porter.
+    Honora looks at you, steadily. Then she takes a small iron key from her glove, and tosses it to you, underhand, like a coin to a porter.
   Your father wakes as the cuffs come off. He looks at you, dazed, and then at the room, and at the fire in the air, and his face does something you'll remember for the rest of your life.
 
   "Nadim," he says.
@@ -526,7 +526,7 @@ He's there. Of course he's there. At the bottom of the stairs, or in the doorway
 
 "Hold it. The Hush. Let him go, and hold it yourself."
 
-Rose looks at you for a long time. Then he takes off his gloves, both of them, finger by finger, and gives them to you to hold, and walks to the three bands of brass and puts his bare burning hands on them.
+Rose meets your eyes. Then he takes off his gloves, both of them, finger by finger, and gives them to you to hold, and walks to the three bands of brass and puts his bare burning hands on them.
 
 The fire comes out of the bands like a man coming up out of water. Nadim stands on the brick floor, solid, in his 1967 suit, and stares at the devil.
 

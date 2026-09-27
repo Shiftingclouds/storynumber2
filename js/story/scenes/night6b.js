@@ -194,7 +194,7 @@ Rose looks at you with his dark red eyes. "Why are you doing this?" he says. "No
   #"Because somebody has to. Nobody came for my father."
     *set rel_rose +10
     *set nerve +2
-    Rose looks at you for a long time. "True," he says quietly. "And sadder than the other answer would have been." He takes out his pen and writes. "Your father would be very proud. For whatever that's worth, from me."
+    Rose looks at you, and keeps looking. "True," he says quietly. "And sadder than the other answer would have been." He takes out his pen and writes. "Your father would be very proud. For whatever that's worth, from me."
   #"Because I wanted to see if you'd ask me that."
     *set des_rose +10
     *set rel_rose +5
@@ -945,7 +945,7 @@ Dario gets the cake out of the canoe. The box is a bit crushed. The cassata insi
 
 "Your mamma gave me this yesterday," he says. "She said, [i]give it to your friend. Maybe he's somebody.[/i]"
 
-Lazare looks at the cake for a long time.
+Lazare looks at the cake for a while.
 
 Then he looks at Dario. And all of it's there in his face, all at once: the roof in Rosemont, the knife, seven years of [i]Enzo[/i] in the dark.
 
@@ -1118,7 +1118,7 @@ He doesn't go back to the towers. That's the thing. He could. Nobody's stopping 
     *set n6_lazare "verdun"
     *set rel_lazare +5
     *set des_lazare +5
-    Lazare looks at you for a long time. "Your place," he says. As if it's a word in a foreign language he's always wanted to learn.
+    Lazare takes a long look at you. "Your place," he says. As if it's a word in a foreign language he's always wanted to learn.
   #"Ask him, Dario. Don't ask me. Ask him where he wants to go."
     *set n6_lazare "asked"
     *set rel_lazare +5
@@ -1126,7 +1126,7 @@ He doesn't go back to the towers. That's the thing. He could. Nobody's stopping 
     *set wits +2
     Dario looks at you. Then at Lazare. "Where do you want to go?" he says, and it's the first time, you think, that anyone's asked Lazare Desautels that question since he was ten years old.
 
-    Lazare is quiet for a long time. "Somewhere I can sleep," he says finally. "Somewhere nobody rings anything." He looks at the two of you. "Somewhere you both are."
+    Lazare is quiet. "Somewhere I can sleep," he says finally. "Somewhere nobody rings anything." He looks at the two of you. "Somewhere you both are."
 
 *page_break
 Gisèle takes the canoe up out of the lane at six, back to the Pointe, with five old women waving and one smoking. You watch it go, a red canoe going up over the roofs of Saint-Léonard into the pink sky, over the duplexes and the fig trees and the steeple of Saint-Bernardin, which it avoids by a very wide margin.

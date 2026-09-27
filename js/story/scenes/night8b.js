@@ -159,7 +159,7 @@ He doesn't kiss you. Not yet. He stands in your kitchen in his borrowed sweater 
 
 *label laz_sleep
 *page_break
-He looks at you for a long time. And then something in his face goes soft and open, like a door somebody's finally stopped holding shut.
+He looks at you. And then something in his face goes soft and open, like a door somebody's finally stopped holding shut.
 
 "Yes," he says. "Yes. I'd like that more than anything."
 
@@ -188,7 +188,7 @@ He drives you up the mountain. Not the Westmount side, not the Club's side: the 
   #"I didn't fix it. You did. You never stopped saying his name."
     *set rel_dario +10
     *set des_dario +5
-    He looks at you for a long time in the green light from the dashboard.
+    He looks at you in the green light from the dashboard.
 
     "You're not allowed to be nice to me tonight," he says hoarsely. "I'll cry in the truck. And then you'll have seen me cry in the truck."
   #"Is that why you brought me up here? To thank me?"
@@ -435,7 +435,7 @@ He crosses the street to you. The snow doesn't land on him; it turns to steam an
 
   "And?"
 
-  Rose looks at you for a long time in the snow-light from the window, with his red-coal eyes.
+  Rose looks at you in the snow-light from the window, with his red-coal eyes.
 
   "I can't lie," he says. "So I'm not going to say anything at all."
 *else
@@ -504,7 +504,7 @@ Later, at the end of the bar, with the karaoke off and Normande counting the til
     Aimé laughs, and goes pink to the ears, and looks at his beer. "It was a very good pencil case," he says. "I used to look at it instead of Mr. Tessier."
   #"Aimé. I love you. Not like that. But I love you. You know that?"
     *set rel_aime +10
-    He looks at you for a long time. Then he nods, slowly, and smiles, a real smile, crooked, a little sad. "Yeah," he says. "Yeah. I know. That's okay. That's actually... that's okay." He clinks his glass against yours. "Best friend's better than a crush. Crushes are for Secondaire 3."
+    He doesn't look away. Then he nods, slowly, and smiles, a real smile, crooked, a little sad. "Yeah," he says. "Yeah. I know. That's okay. That's actually... that's okay." He clinks his glass against yours. "Best friend's better than a crush. Crushes are for Secondaire 3."
   #Kiss him on the cheek. Don't say anything.
     *set rel_aime +10
     You lean over and kiss him on the cheek, over the stubble, next to his glasses. He goes absolutely still, and then very red, and then he laughs, and puts his hand over the place.
@@ -630,7 +630,7 @@ You sit down on the warm rock beside him. You can feel the heat of him, like sit
   #"What do you want? Not what you owe me. What do you want?"
     *set rel_nadim +10
     *set des_nadim +5
-    Nadim looks at you for a long time.
+    Nadim looks at you, and keeps looking.
 
     "Nobody's asked me that," he says, "since before this forest was cut down to build ships for Solomon's temple." He looks at the cedars. "I want my sister. Zeina. She was sold two years after me, in a different market, to a different man. I don't know where. I've been listening for her through the stone for sixty-eight years." His hands tighten on his knees. "And I want to be asked things. Just that. To be asked, and to be able to say no."
     *goto ask_consent
@@ -646,7 +646,7 @@ You sit down on the warm rock beside him. You can feel the heat of him, like sit
 *page_break
 "If I turned the lock into a question," you say. "If I asked you to hold the Hush. Not forever. Not in the dark. On terms. Your terms. And you could say no."
 
-Nadim is quiet for a long time. The sea goes on being blue. Somewhere up the slope, a bird you don't know the name of says something twice.
+Nadim doesn't answer right away. The sea goes on being blue. Somewhere up the slope, a bird you don't know the name of says something twice.
 *if (rel_nadim >= 40) or (window_talk = "free") or (window_talk = "invite") or (bridge_nadim and (rel_nadim >= 25))
   *set nadim_consent true
   "Yes," he says.
@@ -678,7 +678,7 @@ The sun's getting lower. The cedars' shadows are getting long. You can feel it: 
     #"Keep it. You'll need everything you've got tomorrow."
       *set rel_nadim +10
       *set des_nadim +5
-      Nadim looks at you for a long time. Then he closes his hand on the smoke, and it goes back into him, and he glows, very slightly, like a coal someone's breathed on.
+      Nadim takes a long look at you. Then he closes his hand on the smoke, and it goes back into him, and he glows, very slightly, like a coal someone's breathed on.
 
       "No one," he says, "has ever given a djinn back his own power." He looks at his hand. "I'll remember that. Tomorrow. And after, if there is one."
 *else

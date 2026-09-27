@@ -33,7 +33,7 @@ You bring the date squares from the Portuguese bakery. A lot. She eats one, very
     "Yes, Mémé."
 
     "Good. I'll ask for it once more. Not yet."
-She's quiet for a long time. Then: "The bells go on Thursday," she says. "To Rome. They always come back on Sunday. But this year..." She looks at you. "This year I don't think they're coming back alone."
+She's quiet. Then: "The bells go on Thursday," she says. "To Rome. They always come back on Sunday. But this year..." She looks at you. "This year I don't think they're coming back alone."
 *set rel_lucille +5
 
 *page_break
@@ -103,7 +103,7 @@ The silence is enormous. The whole basilica is full of it. And Lazare Desautels,
   #"What does it sound like? The nothing?"
     *set rel_lazare +10
     *set lore +2
-    He thinks about it for a long time, in the silence, with the candles.
+    He takes his time, in the silence, with the candles.
 
     "Like being ten," he says finally. "In my bed on Jarry. Before they came." He looks at you. "I'd forgotten there was a before."
   #Don't say anything. Hold his hand in the silence until he stops shaking.

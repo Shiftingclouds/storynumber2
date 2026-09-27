@@ -204,7 +204,7 @@ You sit. She takes your hand.
     #"Can I keep it a little longer, Mémé? I think I might still need it."
       *set rel_lucille +5
       *set wits +2
-      She looks at you for a long time.
+      She meets your eyes.
 
       "Yes," she says. "Yes. Keep it. You're the one who opens things." She closes your hand over it. "Just bring it when I ask. I'll ask once more. You'll know when."
 *page_break
@@ -279,7 +279,7 @@ Afterward, Rosa corners you in the pantry doorway, by the frame with the pencil 
   "You," she says. "You're the one who said it was his birthday. And I lit a candle for a stranger and sang."
 *else
   "You," she says. "You're the one who brought him home."
-She looks at you for a long time with her son's eyebrows.
+She looks at you with her son's eyebrows.
 
 *choice speak
   #"He brought himself home. I just held the door."
@@ -512,7 +512,7 @@ He sits at a plastic table by the window and drinks a double-double for the firs
   #"What do you want to do first? Now you're out?"
     *set rel_nadim +10
     *set wits +2
-    He thinks about it for a long time, turning the paper cup round and round.
+    He thinks about it, turning the paper cup round and round.
 
     "Find Zeina," he says. "My sister. And then..." He looks out of the window at Wellington Street in the snow. "The monorail. I know it's gone. I want to stand where it was."
   #Don't ask him anything. Just watch him eat a Timbit.

@@ -93,7 +93,7 @@ Manon has a glass of red wine she hasn't touched and a plate she has. She watche
     *set rel_manon +10
     *set guarded %-5
     *set favor_manon true
-    She's quiet for a long time. Down the table, Johnny Tabarnak is telling a story about a bishop that has everyone screaming.
+    She lets the silence sit. Down the table, Johnny Tabarnak is telling a story about a bishop that has everyone screaming.
 
     "Every day," says Manon. "The way you miss a person who hurt you. You don't miss what they did. You miss who you were when you still thought they wouldn't." She looks at you, properly, for the first time. "Nobody's asked me that in seven years. They all ask why I left. You asked what I lost." She lifts the glass at last. "I owe you one for that, locksmith. And I pay my debts."
     *remember manon You asked her if she missed God. Nobody had, in seven years.
