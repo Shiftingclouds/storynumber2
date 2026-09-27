@@ -114,7 +114,7 @@
     hw_thursday: "", zeina_free: false, aime_safe: false, hs_door: "", hs_decoy: "", hs_cellar: "", hs_beside: "", price_freed: false, radiator_fixed: false,
     /* part three: the long light */
     meme_gone: false, meme_fort: false, rosa_knows: false, lilac_test: "", rose_yes: "", nadim_q: "", know_song_name: false, final_romance: "",
-    sj_fire: "", sj_bell: "", sj_crowd: "", sj_beside: "", sj_mountain: "", angel_end: "", last_before: "", fleurette_sj: false, ringer_plan: false, throuple_yes: false, moved_in: "", bourdon_ask: "", aime_quit: false,
+    sj_fire: "", sj_bell: "", sj_crowd: "", sj_beside: "", sj_mountain: "", angel_end: "", last_before: "", fleurette_sj: false, ringer_plan: false, throuple_yes: false, moved_in: "", bourdon_ask: "", aime_quit: false, rose_fate: "", fire_held: false, sj_zeina: "", song_how: "",
 
     /* New Game+ memories (set from the meta store when a New Game+ begins) */
     ngplus: false, runs: 0, mem_enzo: false, mem_keyman: false, mem_killer: false, mem_accord: false, mem_bells: false, mem_wolves: false
@@ -530,7 +530,7 @@
     hush: hush,
     achievements: achievements,
     endings: endings,
-    cards: ["1", "2", "3", "4", "5a", "6a", "5b", "6b", "7", "8", "9", "thaw", "vault", "morning", "title"],
+    cards: ["1", "2", "3", "4", "5a", "6a", "5b", "6b", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "thaw", "vault", "morning", "title"],
     romanceable: ["lazare", "dario", "rose", "nadim"],
     statScreen: statScreen,
     narratorFacts: narratorFacts,

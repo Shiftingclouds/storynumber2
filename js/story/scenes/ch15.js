@@ -1,6 +1,6 @@
 NB.scene("ch15", String.raw`
 *mood eve
-*chapter 15 Lilacs [morning]
+*chapter 15 Lilacs [15]
 *temp week 1
 *temp laz_ok true
 *temp dar_ok true

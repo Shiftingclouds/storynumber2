@@ -1,6 +1,6 @@
 NB.scene("ch11", String.raw`
 *mood snow
-*chapter 11 The Forty Days [morning]
+*chapter 11 The Forty Days [11]
 *temp week 1
 *temp laz_ok true
 *temp dar_ok true

@@ -471,7 +471,175 @@
     snow(c, 160, 44);
   };
 
-  var IDS = ["1", "2", "3", "4", "5a", "6a", "5b", "6b", "7", "8", "9", "thaw", "vault", "morning", "title"];
+
+  /* ---------------- Parts Two and Three ---------------- */
+
+  function mountainWithCross(c, baseY, col, lit) {
+    c.poly([[40, baseY], [70, baseY - 18], [92, baseY - 26], [110, baseY - 24], [134, baseY - 14], [170, baseY]], col);
+    c.rect(95, baseY - 38, 2, 12, lit || "#ffffff"); c.rect(92, baseY - 35, 8, 2, lit || "#ffffff");
+  }
+
+  function pyre(c, x, baseY, w, h, col) {
+    c.poly([[x - w / 2, baseY], [x - w / 6, baseY - h], [x + w / 6, baseY - h], [x + w / 2, baseY]], col);
+    for (var i = 0; i < 8; i++) c.line(x - w / 2 + i * (w / 8), baseY, x - w / 8 + i * (w / 32), baseY - h + 2, P.shade(col, 0.15));
+  }
+
+  function wingedBell(c, x, y, s, t) {
+    bell(c, x, y, 8 * s, 8 * s, ["#f0c860", "#c9962e", "#8a6418"]);
+    var wy = y + 2 * s;
+    c.poly([[x - 4 * s, wy], [x - 11 * s, wy - 3 * s - t], [x - 9 * s, wy + 1], [x - 5 * s, wy + 2 * s]], "#ffffff");
+    c.poly([[x + 4 * s, wy], [x + 11 * s, wy - 3 * s - t], [x + 9 * s, wy + 1], [x + 5 * s, wy + 2 * s]], "#ffffff");
+  }
+
+  // Chapter Ten, Ash: grey dawn on the first of March, a man against the fort wall.
+  painters["10"] = function (c) {
+    sky(c, ["#3a3f52", "#6a6878", "#a89aa0", "#d8c0b0"], 50);
+    c.ellipse(150, 48, 10, 10, function (px, py) { return P.dither(px, py, 0.4) ? "#fff0d8" : "#f0d8c0"; });
+    c.vgrad(0, 46, W, 12, ["#5a6078", "#7a7c90"]);
+    for (var fx = 0; fx < W; fx += 9) c.hline(fx, fx + 4, 50 + (fx % 5), "#9aa0b8");
+    c.vgrad(0, 56, W, 24, ["#d8d8e0", "#b8b8c8", "#9898b0"]);
+    // the old fort wall, stone
+    c.rect(0, 40, 70, 30, "#4a4652");
+    for (var sy = 42; sy < 70; sy += 4) for (var sx = (sy % 8 ? 0 : 3); sx < 70; sx += 8) c.hline(sx, sx + 6, sy, "#3a3642");
+    // a man sitting against it, knees up
+    c.ellipse(78, 56, 2, 2, "#1a1620");
+    c.poly([[75, 59], [81, 59], [84, 66], [90, 66], [90, 69], [76, 69]], "#1a1620");
+    // a wisp of smoke rising from the powder house, far off
+    for (var k = 0; k < 20; k++) c.set(40 + Math.round(Math.sin(k / 3) * 2), 38 - k, P.dither(k, 0, 0.5) ? "#8a8898" : "#aaa8b8");
+    snow(c, 30, 101, ["#ffffff", "#e8e8f0"]);
+  };
+
+  // Chapter Eleven, The Forty Days: a church tower at 3:33, rings of sound over slush.
+  painters["11"] = function (c) {
+    sky(c, ["#060814", "#10182e", "#1c2644"], H);
+    stars(c, 40, 111, 30);
+    skyline(c, 0, W, 66, 111, { min: 6, max: 18, lit: 0.18 });
+    // the tower
+    c.rect(86, 18, 20, 48, "#1e2238");
+    c.poly([[84, 18], [96, 4], [108, 18]], "#262a44");
+    c.rect(95, 0, 2, 5, "#c8c0a0"); c.rect(93, 2, 6, 1, "#c8c0a0");
+    c.ellipse(96, 30, 6, 6, "#e8e0c0"); c.ellipse(96, 30, 5, 5, "#fff8e0");
+    c.line(96, 30, 96, 26, INK); c.line(96, 30, 99, 31, INK);
+    c.rect(90, 42, 12, 10, "#0e1020");
+    bell(c, 96, 43, 8, 7, ["#c9962e", "#a67822", "#6e4e14"]);
+    for (var r2 = 0; r2 < 4; r2++) c.ring(96, 47, 16 + r2 * 12, 17 + r2 * 12, ["#fff2a8", "#e2b64a", "#a88a3a", "#6a5a2a"][r2]);
+    c.vgrad(0, 66, W, 14, ["#3a3a4a", "#2a2a36"]);
+    for (var x = 0; x < W; x += 6) c.hline(x, x + 3, 70 + (x % 3), "#5a5a6e");
+  };
+
+  // Chapter Twelve, Holy Week: the bells fly to Rome over the city at dusk.
+  painters["12"] = function (c) {
+    sky(c, ["#1a1a44", "#4a3a6a", "#b86a7a", "#f0a870"], 60);
+    skyline(c, 0, W, 66, 121, { min: 8, max: 24, lit: 0.2, cols: ["#1a1428", "#221a30", "#140e20"] });
+    // two towers of Notre-Dame, dark, bells gone
+    c.rect(20, 30, 12, 36, "#140e20"); c.rect(44, 30, 12, 36, "#140e20");
+    c.rect(22, 34, 8, 6, "#3a2a4a"); c.rect(46, 34, 8, 6, "#3a2a4a");
+    // the bells flying east, in a line
+    var pts = [[70, 40, 1.2, 2], [96, 30, 1.0, 1], [120, 22, 0.9, 2], [142, 16, 0.8, 1], [162, 12, 0.7, 2], [180, 9, 0.6, 1]];
+    pts.forEach(function (b) { wingedBell(c, b[0], b[1], b[2], b[3]); });
+    c.vgrad(0, 66, W, 14, ["#2a2238", "#1a1428"]);
+  };
+
+  // Chapter Thirteen, Easter: sunrise on the mountain, the pack on the lookout wall.
+  painters["13"] = function (c) {
+    sky(c, ["#3a4a8a", "#c87a9a", "#ffb870", "#ffe8a0"], 58);
+    c.ellipse(150, 58, 16, 16, function (px, py) { return P.dither(px, py, 0.5) ? "#fff8d0" : "#ffe890"; });
+    for (var i = 0; i < 6; i++) c.line(150, 58, 150 + Math.cos(-0.3 - i * 0.5) * 70, 58 + Math.sin(-0.3 - i * 0.5) * 70, "#fff0c0");
+    c.vgrad(0, 62, W, 18, ["#c87a8a", "#8a5a7a", "#4a3a5a"]);
+    for (var rx = 96; rx < W; rx += 6) c.hline(rx, rx + 3, 66 + (rx % 4), "#ffd8a0");
+    skyline(c, 90, W, 62, 131, { min: 3, max: 8, lit: 0.05, cols: ["#6a4a6a", "#5a3a5a", "#7a5a70"] });
+    c.poly([[0, 80], [0, 50], [40, 44], [80, 52], [96, 62], [96, 80]], "#2a2240");
+    c.rect(0, 58, 90, 4, "#4a4058");
+    wolf(c, 12, 58, 0.9, "#1a1428", true);
+    wolf(c, 36, 58, 0.8, "#221a30", false);
+    wolf(c, 58, 58, 0.9, "#1a1428", true);
+    person(c, 80, 58, 12, "#1a1428");
+    c.rect(20, 18, 2, 10, "#ffffff"); c.rect(17, 21, 8, 2, "#ffffff");
+  };
+
+  // Chapter Fourteen, The Thaw: river ice breaking up under the bridge in April.
+  painters["14"] = function (c) {
+    sky(c, ["#6a8ac8", "#9ab8e0", "#d0e0f0"], 44);
+    c.rect(0, 30, W, 2, "#3a4a6a");
+    for (var bx = 0; bx < W; bx += 8) {
+      c.line(bx, 30, bx + 8, 20 + Math.round(Math.abs(Math.sin(bx / 40)) * 5), "#3a4a6a");
+      c.line(bx + 8, 30, bx, 20 + Math.round(Math.abs(Math.sin((bx + 8) / 40)) * 5), "#3a4a6a");
+    }
+    c.rect(50, 30, 4, 14, "#3a4a6a"); c.rect(140, 30, 4, 14, "#3a4a6a");
+    c.vgrad(0, 44, W, 36, ["#1a3050", "#10203a"]);
+    var r = P.rng(141);
+    for (var f = 0; f < 22; f++) {
+      var fx = Math.floor(r() * W), fy = 46 + Math.floor(r() * 30), fw = 6 + Math.floor(r() * 16), fh = 2 + Math.floor(r() * 4);
+      c.poly([[fx, fy], [fx + fw, fy - 1], [fx + fw + 2, fy + fh], [fx + 1, fy + fh + 1]], r() < 0.5 ? "#e8f0ff" : "#c8d8f0");
+    }
+    // crocuses on the bank
+    c.rect(0, 74, W, 6, "#5a6a3a");
+    for (var k = 4; k < W; k += 7) { c.set(k, 73, "#b88ae8"); c.set(k + 1, 73, "#ffe070"); }
+  };
+
+  // Chapter Fifteen, Lilacs: the tam-tams under the angel monument, lilacs everywhere.
+  painters["15"] = function (c) {
+    sky(c, ["#5aa0e8", "#8ac0f0", "#c8e0f8"], 50);
+    c.poly([[0, 50], [50, 30], [110, 24], [170, 34], [192, 44], [192, 50]], "#4a8a4a");
+    // the monument and its angel
+    c.rect(92, 20, 8, 34, "#8a8a90"); c.rect(88, 50, 16, 6, "#7a7a80");
+    c.ellipse(96, 16, 3, 3, "#c0a040");
+    c.poly([[93, 16], [86, 10], [92, 14]], "#c0a040"); c.poly([[99, 16], [106, 10], [100, 14]], "#c0a040");
+    c.vgrad(0, 50, W, 30, ["#5a9a4a", "#4a8a3a"]);
+    var r = P.rng(151);
+    for (var i = 0; i < 26; i++) person(c, Math.floor(r() * W), 64 + Math.floor(r() * 14), 9 + Math.floor(r() * 4), ["#3a2a4a", "#6a3a3a", "#2a3a5a"][i % 3], { arm: [3, -2] });
+    // lilac bushes at both edges
+    [[10, 46], [22, 52], [176, 46], [186, 54], [160, 56]].forEach(function (b) {
+      c.ellipse(b[0], b[1], 10, 8, function (px, py) { return P.dither(px, py, 0.5) ? "#b88ad8" : (P.dither(px + 1, py, 0.5) ? "#e0c8f0" : "#6a4a8a"); });
+    });
+  };
+
+  // Chapter Sixteen, The Longest Days: blue midnight, a green edge in the north, the pyre on the mountain.
+  painters["16"] = function (c) {
+    sky(c, ["#0e2a5a", "#1a4a7a", "#2a6a7a", "#6ab89a"], 50);
+    stars(c, 12, 161, 20, ["#ffffff", "#dde8ff", "#b8c8e8"]);
+    mountainWithCross(c, 58, "#0a1a30", "#ffffff");
+    pyre(c, 118, 46, 14, 12, "#1a1208");
+    skyline(c, 0, W, 70, 161, { min: 6, max: 16, lit: 0.45 });
+    c.rect(0, 70, W, 10, "#0a1424");
+    // swifts
+    [[40, 14], [52, 10], [150, 18], [164, 12], [172, 20]].forEach(function (g) { c.set(g[0], g[1], INK); c.set(g[0] - 2, g[1] - 1, INK); c.set(g[0] + 2, g[1] - 1, INK); c.set(g[0] - 1, g[1], INK); c.set(g[0] + 1, g[1], INK); });
+  };
+
+  // Chapter Seventeen, La Saint-Jean: the angel coming down on the bonfire.
+  painters["17"] = function (c) {
+    sky(c, ["#060a20", "#10183a", "#2a2050"], H);
+    stars(c, 30, 171, 30);
+    c.poly([[0, 80], [0, 58], [60, 50], [132, 50], [192, 58], [192, 80]], "#0e0c1a");
+    pyre(c, 96, 60, 30, 10, "#2a1a0a");
+    // the column of white fire
+    c.poly([[82, 52], [110, 52], [104, 0], [88, 0]], function (px, py) { return P.dither(px, py, 0.55) ? "#fff8e0" : (P.dither(px, py + 1, 0.5) ? "#ffd070" : "#ff9040"); });
+    // wings of light
+    c.poly([[88, 22], [40, 6], [56, 20], [30, 22], [60, 30], [86, 30]], function (px, py) { return P.dither(px, py, 0.35) ? "#fff4c0" : null; });
+    c.poly([[104, 22], [152, 6], [136, 20], [162, 22], [132, 30], [106, 30]], function (px, py) { return P.dither(px, py, 0.35) ? "#fff4c0" : null; });
+    // eyes in the fire
+    [[96, 12], [92, 20], [100, 20], [96, 28], [93, 36], [99, 36]].forEach(function (e) { c.set(e[0], e[1], "#3a6aff"); });
+    var r = P.rng(172);
+    for (var i = 0; i < 70; i++) person(c, Math.floor(r() * W), 68 + Math.floor(r() * 12), 8 + Math.floor(r() * 4), r() < 0.5 ? "#06040c" : "#140e22");
+    c.ring(96, 56, 36, 38, "#fff0c0");
+  };
+
+  // Epilogue: Nuit blanche 2027. The screens, the moon, the crowd, one small wolf in a tuque.
+  painters["18"] = function (c) {
+    sky(c, ["#0a0a1a", "#1a1438", "#2a1e52"], H);
+    moon(c, 160, 14, 7, "#fff4d6", "#4a3a8a");
+    skyline(c, 0, W, 58, 181, { min: 12, max: 30, lit: 0.6, win: ["#ffffff", "#ffe9b8", "#ff9ad8"] });
+    c.rect(40, 18, 40, 22, "#1a1030"); c.rect(42, 20, 36, 18, "#ff9ad8");
+    c.rect(46, 26, 28, 2, "#ffffff"); c.rect(50, 30, 20, 2, "#ffffff");
+    c.rect(0, 58, W, 22, "#e8ecf8");
+    var r = P.rng(182);
+    for (var i = 0; i < 50; i++) person(c, Math.floor(r() * W), 70 + Math.floor(r() * 10), 9 + Math.floor(r() * 6), r() < 0.5 ? "#141024" : "#241a34");
+    wolf(c, 110, 74, 0.6, "#6a6a78", true);
+    c.rect(122, 60, 4, 2, "#c41d38"); c.set(124, 59, "#ffffff");
+    snow(c, 90, 183);
+  };
+
+  var IDS = ["1", "2", "3", "4", "5a", "6a", "5b", "6b", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "thaw", "vault", "morning", "title"];
 
   var cache = {};
   function draw(id) {

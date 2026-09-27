@@ -1,6 +1,6 @@
 NB.scene("ch10", String.raw`
 *mood snow
-*chapter 10 Ash [morning]
+*chapter 10 Ash [10]
 *temp laz_ok true
 *temp lunch false
 *temp dead ""

@@ -1,6 +1,6 @@
 NB.scene("ch13", String.raw`
 *mood eve
-*chapter 13 Easter [morning]
+*chapter 13 Easter [13]
 *temp laz_ok true
 *temp dar_ok true
 *temp nadim_out false

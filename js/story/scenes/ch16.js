@@ -1,6 +1,6 @@
 NB.scene("ch16", String.raw`
 *mood eve
-*chapter 16 The Longest Days [morning]
+*chapter 16 The Longest Days [16]
 *temp laz_ok true
 *temp dar_ok true
 *temp serge_free false

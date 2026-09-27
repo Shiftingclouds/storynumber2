@@ -1,6 +1,6 @@
 NB.scene("ch12", String.raw`
 *mood bells
-*chapter 12 Holy Week [morning]
+*chapter 12 Holy Week [12]
 *temp laz_ok true
 *temp dar_ok true
 *temp serge_free false

@@ -1,6 +1,6 @@
 NB.scene("ch14", String.raw`
 *mood snow
-*chapter 14 The Thaw [morning]
+*chapter 14 The Thaw [14]
 *temp laz_ok true
 *temp dar_ok true
 *temp serge_free false
