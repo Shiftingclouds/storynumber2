@@ -16,6 +16,8 @@ const RUNS = Number(opt("runs", 3000));
 const BASE_SEED = Number(opt("seed", 1));
 const VERBOSE = !!opt("verbose", false);
 const UNTIL = opt("until", null);
+const FOCUS = !!opt("focus", false);
+const SKILLS = ["hands", "nerve", "charm", "wits", "lore"];
 const MAX_PAGES = 6000;
 
 const NB = loadNB({ quiet: true });
@@ -68,8 +70,57 @@ function mulberry(a) {
 
 const NAMES = ["Theo", "Luc", "Remy", "Oli", "Sasha", "Noah"];
 
-function pickOption(page, rng, strategy, bias) {
+// Static gains of each option: the *set lines inside its body.
+const gainCache = new Map();
+function optionGains(scene, idx) {
+  const key = scene + ":" + idx;
+  if (gainCache.has(key)) return gainCache.get(key);
+  const lines = story.scenes[scene].lines;
+  const L = lines[idx];
+  const g = {};
+  for (let k = idx + 1; k < (L.blockEnd || lines.length); k++) {
+    const M = lines[k];
+    if (M.kind !== "cmd" || M.cmd !== "set") continue;
+    const m = /^(\w+)\s+(%?[+-])\s*(\d+)/.exec((M.args || "").trim());
+    if (m) g[m[1]] = (g[m[1]] || 0) + (m[2].includes("-") ? -1 : 1) * Number(m[3]);
+  }
+  gainCache.set(key, g);
+  return g;
+}
+
+// Check tracking: for options gated on a skill, how often were they enabled when shown?
+const checkStats = new Map(); // optionKey -> {skill, expr, shown:{skill:n}, enabled:{skill:n}}
+function trackChecks(page, sceneName, focus) {
+  const sc = story.scenes[sceneName];
+  for (const c of page.choices) {
+    const L = sc.lines[c.line];
+    if (!L || !L.opt) continue;
+    for (const mod of L.opt.mods) {
+      if (mod.type !== "selectable_if") continue;
+      for (const sk of SKILLS) {
+        if (!new RegExp("\\b" + sk + "\\s*>=").test(mod.expr)) continue;
+        const k = c.reuseKey;
+        const e = checkStats.get(k) || { where: sceneName + ":" + L.n, expr: mod.expr, shown: {}, enabled: {} };
+        const f = focus || "any";
+        e.shown[f] = (e.shown[f] || 0) + 1;
+        if (c.enabled) e.enabled[f] = (e.enabled[f] || 0) + 1;
+        checkStats.set(k, e);
+      }
+    }
+  }
+}
+
+function pickOption(page, rng, strategy, bias, focus, sceneName) {
   const enabled = page.choices.map((c, i) => ({ c, i })).filter((x) => x.c.enabled);
+  if (strategy === "focus") {
+    let best = null, bestScore = -Infinity;
+    for (const x of enabled) {
+      const g = optionGains(sceneName, page.choices[x.i].line);
+      const score = (g[focus] || 0) * 10 + rng() * 3 - (x.c.html.indexOf("Turn around") >= 0 ? 100 : 0);
+      if (score > bestScore) { bestScore = score; best = x; }
+    }
+    return best.i;
+  }
   if (strategy === "coverage") {
     let best = null, bestScore = Infinity;
     for (const x of enabled) {
@@ -102,9 +153,10 @@ function tryDeductions(rt, rng) {
 for (let run = 0; run < RUNS; run++) {
   const seed = BASE_SEED * 100003 + run;
   const rng = mulberry(seed);
-  const strategy = run % 3 === 0 ? "coverage" : run % 3 === 1 ? "random" : "persona";
+  const focus = FOCUS ? SKILLS[run % SKILLS.length] : null;
+  const strategy = FOCUS ? "focus" : run % 3 === 0 ? "coverage" : run % 3 === 1 ? "random" : "persona";
   const bias = 0.35 + rng() * 1.3;
-  const ng = run % 5 === 4 ? { ngplus: true, runs: 1, wishes: 1, mem_enzo: rng() < 0.7, mem_keyman: rng() < 0.6, mem_killer: rng() < 0.5, mem_accord: rng() < 0.5, mem_bells: rng() < 0.5, mem_wolves: rng() < 0.5 } : null;
+  const ng = !FOCUS && run % 5 === 4 ? { ngplus: true, runs: 1, wishes: 1, mem_enzo: rng() < 0.7, mem_keyman: rng() < 0.6, mem_killer: rng() < 0.5, mem_accord: rng() < 0.5, mem_bells: rng() < 0.5, mem_wolves: rng() < 0.5 } : null;
   const rt = new NB.Runtime(story, { variants: true });
   const trail = [];
   const words = {};
@@ -118,12 +170,13 @@ for (let run = 0; run < RUNS; run++) {
       if (++pages > MAX_PAGES) throw new Error("Too many pages (loop?)");
       if (rng() < 0.15) tryDeductions(rt, rng);
       if (page.kind === "choice") {
-        if (rt.canUndo() && rng() < 0.08) {
+        trackChecks(page, rt.state.scene, focus);
+        if (!FOCUS && rt.canUndo() && rng() < 0.08) {
           page = rt.undo();
           wishesSpent++;
           continue;
         }
-        const i = pickOption(page, rng, strategy, bias);
+        const i = pickOption(page, rng, strategy, bias, focus, rt.state.scene);
         const key = page.choices[i].reuseKey;
         optionCount.set(key, (optionCount.get(key) || 0) + 1);
         trail.push(key);
@@ -182,6 +235,22 @@ if (opt("unshown", false)) {
     const L = story.scenes[s].lines[Number(i)];
     console.log(`  ${s}:${L.n} ${L.raw.slice(0, 90)}`);
   });
+}
+if (FOCUS) {
+  console.log("\nSkill checks, as seen by focused bots (pass rate for the bot focused on that skill):");
+  const rows = [];
+  for (const e of checkStats.values()) {
+    for (const sk of SKILLS) {
+      if (!new RegExp("\\b" + sk + "\\s*>=").test(e.expr)) continue;
+      const shown = e.shown[sk] || 0, en = e.enabled[sk] || 0;
+      rows.push({ where: e.where, expr: e.expr, sk, shown, rate: shown ? en / shown : null });
+    }
+  }
+  rows.sort((a, b) => (a.rate === null ? -1 : a.rate) - (b.rate === null ? -1 : b.rate));
+  for (const r of rows) {
+    const flag = r.rate === null ? "  NEVER SEEN by a " + r.sk + " bot" : r.rate < 0.5 ? "  <-- LOW" : "";
+    console.log(`  ${r.rate === null ? "  -" : String(Math.round(r.rate * 100)).padStart(3) + "%"}  ${r.sk.padEnd(5)} ${r.where.padEnd(14)} ${r.expr}${flag}`);
+  }
 }
 const n = Math.max(1, finished);
 console.log(`\nAverage per playthrough: ${Math.round(totalPages / n)} pages, ${Math.round(totalWords / n).toLocaleString()} words read`);

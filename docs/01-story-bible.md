@@ -168,9 +168,9 @@ the book. He is also the murderer.
   behind the MC in Secondaire 3 and has had a crush on him since. He eats a mouthful of the dead and inherits their
   last memories. He sells memories at the Missing Line and hates himself a little for it. He loves true-crime podcasts,
   is terrible at lying, and is loyal to the bone.
-- **Gisèle Pépin**, 71. Witch and head of the Buanderie coven. She chain-smokes du Maurier, curses like a sailor and
-  plays bingo on Tuesdays. She pilots the chasse-galerie. In 1966 she was the lover of Aurèle Lacroix, the MC's
-  grandfather. When he built the lock for the Compagnie, she never forgave him. She can weave a new Hush, but only
+- **Gisèle Pépin**, 86. Witch and head of the Buanderie coven. She chain-smokes du Maurier, curses like a sailor and
+  plays bingo on Tuesdays. She pilots the chasse-galerie. In 1956 she was Aurèle Lacroix's first love, before he
+  married Lucille. In 1966 he asked her help to build the Compagnie's lock; she refused, and never forgave him for building it. She can weave a new Hush, but only
   with consent.
 - **Honora Strachan**: President of the Beaver Club, turned in 1812, the widow of a North West Company partner. She's
   small and very polite, her manners are a scalpel, and she's very tired of the twentieth century. A member of the

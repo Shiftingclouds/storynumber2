@@ -27,6 +27,8 @@
     c_accord_signers: { title: "Who signed", text: "The Accord of '67 was signed by the Bourdon, Honora Strachan and the Conductor, and witnessed by Rose." },
     c_angel_word: { title: "The angel's word", text: "Jean-Baptiste: “The hand that rings the stolen bell drinks at the President's right side.”" },
     c_meme_hum: { title: "M\u00e9m\u00e9's song", text: "M\u00e9m\u00e9 hummed six notes as she drifted off. \u201cAur\u00e8le's song,\u201d she called it. \u201cHe put it in the lock.\u201d" },
+    c_ruari_sorry: { title: "Sorry, love", text: "Ruari, lifting his mouth from your throat, dizzy and soft: \u201cSorry, love.\u201d The exact words." },
+    c_torn_page: { title: "The torn page", text: "The Keyman keeps a page torn from a notebook, the only thing he came down the stairs with in 2011. The torn edge matches the page missing from Aur\u00e8le's notebook." },
     c_flinch: { title: "The Keyman flinched", text: "When you told the Keyman your name, he flinched as if you'd struck him." },
     c_serge_visits: { title: "Every week", text: "Nadim: a Lacroix came to his door every week for fifteen years and talked to him through the steel. Then, in 2011, he stopped." }
   };
@@ -36,9 +38,9 @@
     ded_planted: { title: "The hair was planted", text: "The wolf hair came off a dead pelt. Somebody wants the pack blamed.", from: [["c_wolfhair", "c_pelt"], ["c_wolfhair", "c_pelt_room"]] },
     ded_bell: { title: "A stolen Carillon bell", text: "The killer rings a Hush-bell, and one went missing from the Carillon's own armory.", from: [["c_bellmark", "c_bell_stolen"]] },
     ded_ruari_there: { title: "Ruari was there", text: "The bead in the snow came off Ruari Strachan's wrist.", from: [["c_kandi_bead", "c_kandi_worn"]] },
-    ded_ruari: { title: "Ruari is the killer", text: "Soft voice, an accent, “sorry, love”, and the one who drinks at Honora's right hand. Ruari Strachan.", from: [["c_voice", "c_kandi_worn"], ["c_angel_word", "c_kandi_worn"]] },
+    ded_ruari: { title: "Ruari is the killer", text: "Soft voice, an accent, “sorry, love”, and the one who drinks at Honora's right hand. Ruari Strachan.", from: [["c_voice", "c_kandi_worn"], ["c_angel_word", "c_kandi_worn"], ["c_voice", "c_ruari_sorry"]] },
     ded_list: { title: "The Compagnie chose them", text: "Every victim is in the Register, ticked in the Bourdon's hand. The killings aren't random. They're a list.", from: [["c_victim_list", "c_bourdon_list"]] },
-    ded_keyman: { title: "The Keyman is family", text: "A nameless old man on the Missing Line hums your grandfather's song, the one he put in the lock, and flinches at the name Lacroix.", from: [["c_six_notes", "c_meme_hum"], ["c_flinch", "c_meme_hum"]] },
+    ded_keyman: { title: "The Keyman is family", text: "A nameless old man on the Missing Line hums your grandfather's song, the one he put in the lock, and flinches at the name Lacroix.", from: [["c_six_notes", "c_meme_hum"], ["c_flinch", "c_meme_hum"], ["c_torn_page", "c_meme_hum"], ["c_torn_page", "c_six_notes"]] },
     ded_wolf: { title: "Theory: a wolf did it", text: "Wolf hair in the fist, a Carillon bell to cover it. A loup-garou who knows the hunters' tricks.", from: [["c_wolfhair", "c_bellmark"]], theory: true },
     ded_lazare: { title: "Theory: Lazare did it", text: "A Hush-bell bruise, and the one hunter with no alibi for the second night.", from: [["c_bellmark", "c_lazare_absent"]], theory: true }
   };
@@ -83,7 +85,7 @@
     meme_told: false, mireille_kind: false, know_true_name: false, meme_way: "", n2_crowd: "", met_mireille: false, keyman_asked: false, n2_ruari: "", serge_promise: false, meme_key: false, clarke_moved: false, n2_stance: "", plate_got: false, plate_how: "", has_key: false, took_hair: false, aime_tasted: false, n2_escort: "", saw_scarf: false,
     clarke_job: "",
     /* night three */
-    fleurette_open: false, hours: 6, patrolled: false, saw_rose: false, bridge_nadim: false, beaver_dinner: false, honora_contract: false, fed_ruari: false,
+    fleurette_open: false, keyman_told: false, luc_friend: false, shared_father: false, rose_invite: false, n3_order: "", mireille_daughter: false, n3_sang: "", feeder: "", rose_q: "", gisele_way: "", climbed: false, n3_last: "", hours: 6, patrolled: false, saw_rose: false, bridge_nadim: false, beaver_dinner: false, honora_contract: false, fed_ruari: false,
     visited_gisele: false, visited_aime: false, visited_keyman: false, visited_dario: false,
     /* night four */
     cufflinks: false, overheard: false, rose_lead: 5, danced_won: false, know_affair: false, thaw: false, mem_notes: false, n4_told_lazare: false, path: "",
@@ -189,8 +191,8 @@
     gisele: {
       name: function () { return "Gisèle Pépin"; }, short: "Gisèle", epithet: "Witch of the Buanderie",
       desc: function (v) {
-        return "<p>Seventy-one. She's the head of the coven that runs Buanderie Pépin, a laundromat in Pointe-Saint-Charles, and casts spells in the dryers. She smokes du Maurier and plays bingo on Tuesdays. She flies the chasse-galerie.</p>" +
-          "<p>" + hush("In 1966 she was your grandfather's lover. When Aurèle built the lock for the Compagnie, she never forgave him.", v.visited_gisele) + "</p>";
+        return "<p>Eighty-six. She's the head of the coven that runs Buanderie Pépin, a laundromat in Pointe-Saint-Charles, and casts spells in the dryers. She smokes du Maurier and plays bingo on Tuesdays. She flies the chasse-galerie.</p>" +
+          "<p>" + hush("In 1956 she was your grandfather's first love, before he married Lucille. In 1966 he came to her for help building a lock for the Compagnie. She told him no, and she never forgave him for building it anyway.", v.visited_gisele) + "</p>";
       }
     },
     honora: {
@@ -325,7 +327,7 @@
     { id: "q_killings", q: "Who's killing the unmade?", a: "The dead don't all come through my bar. But the ones who do say it was cold, and quick, and that he apologised. Whoever it is has manners. That narrows it down less than you'd think in this city.", when: function (v) { return v.c_bellmark; } },
     { id: "q_ruari", q: "What do you make of Ruari?", a: "Pretty boy, very sad, very old for his face. He came in the night of his turning in '98 with glitter still on his cheeks and asked me if it ever stopped hurting. I lied to him. He's been lying to himself since.", when: function (v) { return v.met_ruari; } },
     { id: "q_honora", q: "Can Honora Strachan be trusted?", a: "Honora is the only person I know who can say 'dear' so it sounds like a knife. You can trust her to do what's good for the Beaver Club. Figure out what that is, and you'll know what she'll do.", when: function (v) { return v.met_honora; } },
-    { id: "q_gisele", q: "Who's Gisèle Pépin?", a: "A witch with a laundromat and a mouth like a sailor's parrot. She and your grandfather were an item in '66. Ask her about the canoe. Better yet, don't. Let her offer.", when: function (v) { return v.night >= 3; } },
+    { id: "q_gisele", q: "Who's Gisèle Pépin?", a: "A witch with a laundromat and a mouth like a sailor's parrot. She was your grandfather's sweetheart in '56, before your mémé. Ask her about the canoe. Better yet, don't. Let her offer.", when: function (v) { return v.night >= 3; } },
     { id: "q_keyman", q: "Who is the Keyman?", a: "The old one who cuts keys on the Line? Nobody knows. He turned up in 2011 with no name and good hands. Now that you mention it, chéri, he has your hands.", when: function (v) { return v.met_keyman; }, clue: "c_flinch" },
     { id: "q_accord", q: "Who signed the Accord of '67?", a: "Three signatures, one witness. That's all the dead know. The ones who'd know more are very much alive and very careful. Ask the devil. He was there. He's always there.", when: function (v) { return v.night >= 3 && !v.c_accord_signers; }, codex: "accord" },
     { id: "q_enzo", q: "Who is Enzo?", a: "I heard that name once, in a back booth, two in the morning, from a big man with a broken nose who thought nobody was listening. He said it like a prayer. I'm dead, chéri, not stupid.", when: function (v) { return v.know_affair && !v.thaw; } },
@@ -472,7 +474,7 @@
     eyebrow: "Montréal · February",
     subtitle: "A dark romance in nine nights",
     motto: "Le fort a besoin de son gardien.",
-    sceneList: ["night1", "night2", "night2b", "night3", "night4", "night5a", "night6a", "night5b", "night6b", "night7", "night8", "night9", "endings"],
+    sceneList: ["night1", "night2", "night2b", "night3", "night3b", "night3c", "night4", "night5a", "night6a", "night5b", "night6b", "night7", "night8", "night9", "endings"],
     startVars: startVars,
     clamp: clamp,
     opposed: opposed,

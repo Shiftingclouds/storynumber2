@@ -646,11 +646,12 @@
       if (expr.charAt(1) === "+") val = cur + (100 - cur) * amt / 100;
       else val = cur - cur * amt / 100;
       val = Math.round(val);
-    } else if (/^[+\-*\/]/.test(expr) && !/^[+\-]\s*$/.test(expr)) {
+    } else if (/^[+\-*\/&]/.test(expr) && !/^[+\-]\s*$/.test(expr)) {
       cur = this.get(name);
       var rhs = this.evalExpr(expr.slice(1).trim());
       var op = expr.charAt(0);
-      if (op === "+") val = (typeof cur === "string") ? cur + rhs : Number(cur) + Number(rhs);
+      if (op === "&") val = String(cur) + String(rhs);
+      else if (op === "+") val = (typeof cur === "string") ? cur + rhs : Number(cur) + Number(rhs);
       else if (op === "-") val = Number(cur) - Number(rhs);
       else if (op === "*") val = Number(cur) * Number(rhs);
       else val = Number(cur) / Number(rhs);

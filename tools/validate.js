@@ -122,7 +122,7 @@ function main() {
           let e = m[2].trim();
           const relative = /^%[+-]/.test(e) || /^[+\-*\/]/.test(e);
           if (/^%[+-]/.test(e)) e = e.slice(2);
-          else if (/^[+\-*\/]/.test(e)) e = e.slice(1);
+          else if (/^[+\-*\/&]/.test(e)) e = e.slice(1);
           idsIn(e.trim(), where, temps);
           if (/^%[+-]/.test(m[2].trim()) && !cfg.clamp[m[1]]) warnings.push(`${where}: fairmath on unclamped '${m[1]}'`);
           if (relative && typeof cfg.startVars[m[1]] === "boolean") errors.push(`${where}: arithmetic on boolean '${m[1]}'`);
