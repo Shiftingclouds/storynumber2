@@ -184,7 +184,7 @@ the book. He is also the murderer.
   a son, a combination, a phrase. **He made the call.**
 - **Lucille "Mémé" Lacroix**, 88. The MC's grandmother, Aurèle's widow, in a care home in Verdun with dementia. At three
   in the morning she's lucid, and she knows things.
-- **Brother Clément Ouimet, the Bourdon.** Grand Master of the Carillon, 74, who raised Lazare. Gentle, tired and
+- **Brother Clément Ouimet, the Bourdon.** Grand Master of the Carillon, 81, who raised Lazare. Gentle, tired and
   sincere. He believes the Hush saved ten thousand lives, and he may be right. He chose the children to take. He
   signed the Accord at twenty-two. He's the antagonist, and he isn't a hypocrite.
 - **Sister Agathe Marchand**, 33. Lazare's hunting partner in the Carillon. She's loyal, funny in a flat way, the

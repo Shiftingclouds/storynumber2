@@ -32,6 +32,7 @@ const achievements = {};
 const errors = [];
 const pathDist = {};
 const stops = {};
+const statDist = {};
 let totalPages = 0, totalWords = 0, finished = 0, wishesSpent = 0, deductionsMade = 0;
 const wordsByScene = {};
 
@@ -192,6 +193,12 @@ for (let run = 0; run < RUNS; run++) {
       }
     }
     totalPages += pages;
+    if (UNTIL && rt.state.scene === UNTIL) {
+      const v = rt.state.vars;
+      const key = focus || "mixed";
+      const d = statDist[key] || (statDist[key] = {});
+      for (const sk of SKILLS.concat(["rel_lazare", "rel_dario", "rel_rose", "rel_nadim", "des_lazare", "des_dario", "des_rose", "des_nadim", "wishes"])) (d[sk] = d[sk] || []).push(v[sk]);
+    }
     for (const [k, v] of Object.entries(words)) { wordsByScene[k] = (wordsByScene[k] || 0) + v; totalWords += v; }
     finished++;
     if (page.kind === "ending") endings[page.ending] = (endings[page.ending] || 0) + 1;
@@ -250,6 +257,13 @@ if (FOCUS) {
   for (const r of rows) {
     const flag = r.rate === null ? "  NEVER SEEN by a " + r.sk + " bot" : r.rate < 0.5 ? "  <-- LOW" : "";
     console.log(`  ${r.rate === null ? "  -" : String(Math.round(r.rate * 100)).padStart(3) + "%"}  ${r.sk.padEnd(5)} ${r.where.padEnd(14)} ${r.expr}${flag}`);
+  }
+}
+if (UNTIL && Object.keys(statDist).length) {
+  console.log("\nStats on arriving at " + UNTIL + " (median / max):");
+  for (const [who, d] of Object.entries(statDist)) {
+    const parts = Object.entries(d).map(([k, arr]) => { const s2 = arr.slice().sort((x, y) => x - y); return k + " " + s2[Math.floor(s2.length / 2)] + "/" + s2[s2.length - 1]; });
+    console.log("  " + who.padEnd(6) + " " + parts.join("  "));
   }
 }
 const n = Math.max(1, finished);

@@ -88,6 +88,7 @@
     fleurette_open: false, keyman_told: false, luc_friend: false, shared_father: false, rose_invite: false, n3_order: "", mireille_daughter: false, n3_sang: "", feeder: "", rose_q: "", gisele_way: "", climbed: false, n3_last: "", hours: 6, patrolled: false, saw_rose: false, bridge_nadim: false, beaver_dinner: false, honora_contract: false, fed_ruari: false,
     visited_gisele: false, visited_aime: false, visited_keyman: false, visited_dario: false,
     /* night four */
+    outfit: "", gisele_tip: false, party_talks: 0, nadim_danced: false, coat_seen: false, thaw_side: "", philippe_saw: false, remembered_bell: false, n4_rose_q: 0,
     cufflinks: false, overheard: false, rose_lead: 5, danced_won: false, know_affair: false, thaw: false, mem_notes: false, n4_told_lazare: false, path: "",
     /* nights five & six */
     bourdon_deal: false, read_register: false, know_keyman: false, angel_heard: false, ally_angel: false, reconciled: false,
@@ -233,7 +234,7 @@
     bourdon: {
       name: function () { return "Brother Clément Ouimet"; }, short: "the Bourdon", epithet: "Grand Master of the Carillon",
       desc: function (v) {
-        return "<p>Grand Master of the Carillon, called the Bourdon after the great bell. Seventy-four, gentle and tired. He raised Lazare. He believes the Hush saved ten thousand lives, and he may be right.</p>" +
+        return "<p>Grand Master of the Carillon, called the Bourdon after the great bell. Eighty-one, gentle and tired. He raised Lazare. He believes the Hush saved ten thousand lives, and he may be right.</p>" +
           "<p>" + hush("He signed the Accord of '67 at twenty-two. He chose the children the Carillon took.", v.c_accord_signers || v.read_register) + "</p>";
       }
     },
@@ -472,9 +473,9 @@
   NB.config = {
     title: "Nuit Blanche",
     eyebrow: "Montréal · February",
-    subtitle: "A dark romance in nine nights",
+    subtitle: "Nine nights, and everything after",
     motto: "Le fort a besoin de son gardien.",
-    sceneList: ["night1", "night2", "night2b", "night3", "night3b", "night3c", "night4", "night5a", "night6a", "night5b", "night6b", "night7", "night8", "night9", "endings"],
+    sceneList: ["night1", "night2", "night2b", "night3", "night3b", "night3c", "night4", "night4b", "night5a", "night6a", "night5b", "night6b", "night7", "night8", "night9", "endings"],
     startVars: startVars,
     clamp: clamp,
     opposed: opposed,
