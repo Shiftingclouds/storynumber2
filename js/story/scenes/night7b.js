@@ -114,6 +114,7 @@ The Bourdon speaks next. He doesn't stand.
   Lazare looks at him for a long time, and doesn't say anything, and you can't tell, from his face, what it costs him not to.
 
 The Conductor clears his throat. "The Line," he says, in his porter's voice, "will stay neutral. The Line always has. But I will say this, for the record, at this table, where I have sat for fifty-nine years." He looks at you. "I sold that djinn in 1958. For forty dollars and a ride to Chicago. I have regretted it every day since, which is not the same as putting it right." His hands are flat on the tablecloth. "I'd like, before I die, to see it put right. I don't know that closing the lock is how."
+*codex warlocks
 
 Honora looks at him, and something passes between them, very cold.
 
@@ -454,6 +455,7 @@ He's leaning on the rail at the top of the steps in his black coat, with his can
 You stand beside him at the rail. The cold's savage. Down below, the city: the old town, the two towers of Notre-Dame, the long bright scar of the Main. Somewhere down there, your whole week.
 
 "I'm going to make you an offer," Rose says. "And I'm going to make it plainly, because you like plainness, and because I'm tired, which I never am." He turns to you. His red-coal eyes are very steady. "Invite me in."
+*codex demons
 
 *page_break
 "Not into your house," he says. "Though I wouldn't say no. Into the city. You can see me. You're a sleeper, or you were, and you can see me, and nobody's been able to see me well enough to invite me anywhere since 1967." He lifts one gloved hand toward the lights. "Say it, where the city can hear. [i]Come in, Rose.[/i] And on Saturday I'll stand at that lock beside you. I'll witness whatever you make there. I'll hold anything you need held." A pause. "I don't want your soul. I've got plenty. I want to be [i]asked[/i]."

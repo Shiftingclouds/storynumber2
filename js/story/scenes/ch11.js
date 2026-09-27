@@ -338,6 +338,7 @@ She tells you. The six notes of the Lacroix song aren't a song. They're a name. 
 
 "But a mortal can," says Gisèle. "A Lacroix can. You can sing it to its face." She looks at you through her smoke. "Do you understand what that means, boy? It means you can call it. It means you can calm it, or bind it, or let it go. With a song you've been humming in the van since you were twelve."
 *set lore +5
+*set know_song_name true
 *codex angel
 
 *choice speak

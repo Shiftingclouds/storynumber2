@@ -24,6 +24,8 @@ NB.scene("ch17", String.raw`
   *set ffit 3
 *elseif (sj_fire = "clarke") or (sj_fire = "agathe")
   *set ffit 2
+*else
+  *set ffit 1
 *if honora_turned
   *set ffit +1
 *if ffit >= 3
@@ -131,7 +133,7 @@ They come for the pyre. They mean to put the lamp on it, at midnight, when the a
 *elseif sj_fire = "agathe"
   The hunters meet them at the stone wall. Agathe, and six from the Carillon who'd follow her anywhere now, with iron, protecting something for the first time in their lives.
 *else
-  Nobody meets them. There's nobody at the wall but you.
+  The Bélangers meet them at the stone wall: Aimé's father and three uncles and a cousin, in black suits, grey-faced, very calm, standing round the pyre like men at a wake. It isn't much. It's what there is.
 
 *choice
   *selectable_if (nerve >= 65) #Walk out and meet them. On your own. The key, in front of the Club, one more time.
@@ -490,14 +492,6 @@ In the old town, Jean-Baptiste rings once, for joy.
 You close your hand round every curl of smoke you've got left.
 
 "Nadim," you say. "I wish it wasn't angry."
-*if nadim_free
-  Nothing happens. He's free. You released him. There's no debt, and no wish, and your hand's empty.
-
-  "Creditor," says Nadim, very gently, from the wall. "You gave them back. Remember?"
-
-  You remember. And the fire's still coming.
-  *set angel_end "judged"
-  *goto judged
 The djinn at the wall goes very still.
 
 "That's not a moment," he says. "That's fifty-nine years. That's a hundred and seventy." And then, very quietly: "But I can try."

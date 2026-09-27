@@ -92,6 +92,9 @@ The card table's covered in maps again: the mountain this time. Mount Royal, the
   *if (agathe_turned) #Agathe, and the hunters who'll follow her. They know iron better than anyone.
     *set sj_fire "agathe"
     "Iron," says Agathe. "We know iron." She looks at her hands. "It's the first time I'll be using it to protect something."
+  #The Bélangers. Every undertaker in the family since 1911, in black suits, standing round a fire like a wake.
+    *set sj_fire "belanger"
+    Monsieur Bélanger puts on his good coat. "We stand with the dead every day," he says. "We can stand with the living for one night."
 
 *page_break
 [b]The Bell.[/b] Who's in the tower of La Persévérance, with Jean-Baptiste, when it speaks?

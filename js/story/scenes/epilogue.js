@@ -79,8 +79,6 @@ You go round the city, the way you did a year ago, the way you always do now.
   *elseif price = "rose"
     *portrait rose smile
     [b]Rose[/b] is holding a city asleep in his bare hands, under an island in the river, in three bands of brass. He's very gentle with it.
-    *if price_freed
-      He isn't, any more. You let him out in Holy Week. He's back on the Main.
     You go on Thursdays. You bring him coffee. You hold the cup to his mouth.
   *else
     *portrait rose smirk
@@ -241,7 +239,7 @@ Where are you at 3:33?
     *ending wolf_heart
   *if (mc_wolf) #On the mountain, on four legs, in the snow, with the pack, howling at the screens.
     *ending seven_years
-  *if ((final_romance = "rose") and (price = "rose")) #At the fort, with coffee, holding the cup to a devil's mouth. It's always a quarter to midnight in there.
+  *if ((price = "rose") and ((des_rose >= 45) or (rel_rose >= 50))) #At the fort, with coffee, holding the cup to a devil's mouth. It's always a quarter to midnight in there.
     *ending last_dance
   *if ((final_romance = "rose") and (price != "rose")) #At Le Mardi Gras, where the door's open to anyone who can see it, and everyone can.
     *ending invited

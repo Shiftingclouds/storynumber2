@@ -314,6 +314,8 @@ The door held. The bells are quiet. Up above, somewhere, the whole of the VeillÃ
 
 *label choice
 *page_break
+*if wishes >= 3
+  *achieve thrifty
 *portrait nadim true
 It's three thirty.
 
