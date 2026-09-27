@@ -229,13 +229,39 @@ At the end, everyone sings. Not a hymn. Six notes, down and up and held, over an
 
 *label nadim
 *page_break
-*if zeina_free
+*if zeina_free and nadim_out
   *goto zeina
+*if zeina_free
+  *goto zeina_alone
+*goto debt
+
+*label zeina_alone
+*page_break
+*portrait zeina neutral
+Zeina lives at the laundromat.
+
+Nobody decided it. Thérèse drove her to Pointe-Saint-Charles in the canoe on Holy Saturday night, and she walked into Buanderie Pépin and looked at the dryers going round with their round glass eyes and said something in a language older than the cedars, and sat down at the card table, and hasn't really got up.
+
+She's smaller than her brother, and fiercer, and her smoke is darker, with gold in it like sparks. She plays cribbage with Thérèse for money and wins. And every Thursday at a quarter to four she puts on Gisèle's second-best coat and stands by the door, waiting for you and the van.
+
+"You keep him there," she says, the first time. Her English is from Marseille, 1960, very precise. It isn't a question.
+
+*choice speak
+  #"The city keeps him there. I'm the one who visits."
+    *set rel_nadim +5
+    Zeina looks at you for a long time. "In my country," she says, "we had a word for the man who holds the key and says it's the door's fault." She picks up her coat. "Drive. I want to see him."
+  #"Yes. And I think about it every Thursday."
+    *set rel_nadim +10
+    *set guarded %-5
+    Something in her fierce face shifts. Not softens. Shifts, the way a coal settles.
+
+    "Good," she says. "Think about it on the other days too." She picks up her coat. "Drive. I want to see him."
+*remember zeina In April she asked you, in the laundromat, whether you keep her brother in the fort. You answered.
 *goto debt
 
 *label zeina
 *page_break
-*portrait nadim smile
+*portrait zeina smirk
 Zeina lives at the laundromat.
 
 Nobody decided it. She just did. She came out of her lamp in the snow in Honora's garden on Holy Saturday and hit her brother and held on, and then Thérèse drove her to Pointe-Saint-Charles in the canoe, and she walked into Buanderie Pépin and looked at the dryers going round with their round glass eyes and said something in a language older than the cedars that Nadim, wincing, translates as [i]finally, a place with some sense[/i].

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Renders contact sheets of every portrait (all moods) and every title card into docs/art/ for review.
-//   node tools/art-preview.js [--only portraits|cards] [--id lazare] [--out dir]
+//   node tools/art-preview.js [--only portraits|cards] [--id lazare] [--prefix end_] [--out dir]
 "use strict";
 const fs = require("fs");
 const path = require("path");
@@ -12,6 +12,7 @@ const args = process.argv.slice(2);
 const opt = (k, d) => { const i = args.indexOf(k); return i >= 0 ? args[i + 1] : d; };
 const only = opt("--only", null);
 const oneId = opt("--id", null);
+const prefix = opt("--prefix", null);
 const outDir = path.resolve(opt("--out", path.join(ROOT, "docs/art")));
 
 const sandbox = { console, Math, JSON };
@@ -60,10 +61,10 @@ if (!only || only === "portraits") {
 }
 
 if ((!only || only === "cards") && NB.cards) {
-  const ids = oneId ? [oneId] : NB.cards.ids;
+  const ids = oneId ? [oneId] : NB.cards.ids.filter((id) => !prefix || id.startsWith(prefix));
   const tiles = ids.map((id) => NB.cards.draw(id));
   const s = sheet(tiles, oneId ? 1 : 2, NB.cards.W, NB.cards.H, 4);
-  const file = path.join(outDir, oneId ? `card-${oneId}.png` : "cards.png");
+  const file = path.join(outDir, oneId ? `card-${oneId}.png` : prefix ? `cards-${prefix.replace(/\W+/g, "")}.png` : "cards.png");
   fs.writeFileSync(file, encode(s.w, s.h, s.data, oneId ? 4 : 2));
   console.log("wrote " + path.relative(ROOT, file));
 }

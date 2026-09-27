@@ -82,6 +82,8 @@
     kids.push(el("div", { class: "tb" }, [el("b", { text: title }), body ? el("span", { text: body }) : null]));
     var t = el("div", { class: "t", role: "status" }, kids);
     box.appendChild(t);
+    // Keep the stack short: the oldest go first when a lot happens at once.
+    while (box.children.length > 4) box.removeChild(box.firstChild);
     setTimeout(function () { t.classList.add("out"); }, 4600);
     setTimeout(function () { if (t.parentNode) t.parentNode.removeChild(t); }, 5200);
   }
@@ -837,6 +839,10 @@
   }
 
   var PEOPLE_ORDER = ["lazare", "dario", "rose", "nadim", "fleurette", "aime", "gisele", "keyman", "honora", "ruari", "clarke", "lucille", "bourdon", "agathe", "manon", "angel"];
+  // The fixed order first, then anyone else the story knows (so new characters are never left out).
+  function peopleOrder() {
+    return PEOPLE_ORDER.concat(Object.keys(cfg().people).filter(function (id) { return id !== "mc" && PEOPLE_ORDER.indexOf(id) < 0; }));
+  }
 
   function renderJournal() {
     var v = $("nb-view-journal");
@@ -878,7 +884,7 @@
     grid.appendChild(el("button", { class: "nb-person you", type: "button", onclick: function () { ui.journalPerson = "mc"; renderJournal(); } }, [
       portrait("mc", "neutral", 96), el("span", { class: "nm", text: (v.name || "You") }), el("span", { class: "ep", text: "You" })
     ]));
-    PEOPLE_ORDER.forEach(function (id) {
+    peopleOrder().forEach(function (id) {
       if (!st.met[id]) return;
       var p = c.people[id];
       grid.appendChild(el("button", { class: "nb-person", type: "button", onclick: function () { ui.journalPerson = id; renderJournal(); } }, [
@@ -1004,11 +1010,13 @@
     var st = ui.rt.state;
     var v = st.vars;
     var c = cfg();
-    body.appendChild(el("div", { class: "nb-with-portrait" }, [portrait("fleurette", "smile", 128, "float"),
-      el("p", { html: "“Ask me anything, chéri. The dead hear everything that's said in bars.”" })]));
+    var gone = v.fleurette_fate === "gone";
+    body.appendChild(el("div", { class: "nb-with-portrait" }, [portrait("fleurette", gone ? "sad" : "smile", 128, "float"),
+      el("p", { html: gone ? "The jukebox at Chez Normande is dark. Her answers are still here, the ones you asked for. Nobody else is taking requests."
+        : "“Ask me anything, chéri. The dead hear everything that's said in bars.”" })]));
     var list = el("div", { class: "nb-qa" });
     c.questions.forEach(function (q) {
-      if (!q.when(v, st)) return;
+      if (gone ? !st.asked[q.id] : !q.when(v, st)) return;
       var asked = !!st.asked[q.id];
       var ans = el("div", { class: "a", hidden: !asked, html: "“" + esc(q.a) + "”" });
       list.appendChild(el("div", { class: "q" + (asked ? " asked" : "") }, [
@@ -1028,7 +1036,7 @@
     // online: anything at all
     var backend = ui.settings.backend === "claude" && ui.backends.claude ? "claude" : "api";
     var online = ui.settings.narration === "living" || ui.settings.ownWords;
-    if (online && (backend === "claude" || S.read("apikey", ""))) {
+    if (!gone && online && (backend === "claude" || S.read("apikey", ""))) {
       var input = el("input", { type: "text", id: "nb-askf", maxlength: "200", placeholder: "Ask her anything…" });
       var out = el("div", { class: "a free", role: "status" });
       var btn = el("button", { class: "nb-btn", type: "button", text: "Ask" });
@@ -1052,13 +1060,15 @@
 
   /* ---------------- ending, gallery, map ---------------- */
 
+  function endArt(id) { return NB.cards.ids.indexOf("end_" + id) >= 0 ? "end_" + id : "morning"; }
+
   function endingCard(page) {
     var c = cfg();
     var e = c.endings[page.ending];
     var found = Object.keys(ui.meta.endings).filter(function (k) { return c.endings[k]; }).length;
     var total = Object.keys(c.endings).length;
     return el("section", { class: "nb-ending", "aria-label": "Ending" }, [
-      pixImg(NB.cards.url("morning"), NB.cards.W * 3, NB.cards.H * 3, "nb-card", ""),
+      pixImg(NB.cards.url(endArt(page.ending)), NB.cards.W * 3, NB.cards.H * 3, "nb-card", ""),
       el("div", { class: "eyebrow", text: "An ending" }),
       el("h2", { text: e.title }),
       el("p", { text: e.desc }),
@@ -1088,7 +1098,8 @@
     ends.forEach(function (k) {
       var e = c.endings[k];
       var n = ui.meta.endings[k];
-      g.appendChild(el("div", { class: "nb-card-tile" + (n ? "" : " locked") }, [
+      g.appendChild(el("div", { class: "nb-card-tile" + (n ? " has-art" : " locked") }, [
+        n ? pixImg(NB.cards.url(endArt(k)), NB.cards.W, NB.cards.H, "nb-card thumb", "") : null,
         el("div", { class: "t", text: n ? e.title : "???" }),
         el("div", { class: "d", text: n ? e.desc : (e.clue || "Not yet found.") }),
         n ? el("div", { class: "c", text: "Reached " + n + (n === 1 ? " time" : " times") }) : null

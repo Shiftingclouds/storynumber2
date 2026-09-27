@@ -72,7 +72,7 @@
     /* met */
     met_lazare: false, met_dario: false, met_rose: false, met_nadim: false, met_fleurette: false, met_aime: false, met_gisele: false,
     met_honora: false, met_ruari: false, met_clarke: false, met_keyman: false, met_lucille: false, met_bourdon: false,
-    met_agathe: false, met_manon: false, met_angel: false, met_rosa: false, met_mathis: false,
+    met_agathe: false, met_manon: false, met_angel: false, met_rosa: false, met_mathis: false, met_zeina: false,
 
     /* intimacy */
     kissed_lazare: false, kissed_dario: false, kissed_rose: false, kissed_nadim: false, kissed_ruari: false,
@@ -272,6 +272,15 @@
           (v.mathis_out ? "<p>He walked out of the towers with you.</p>" : "");
       }
     },
+    zeina: {
+      name: function () { return "Zeina"; }, short: "Zeina", epithet: "A djinn of the cedars, Nadim's sister",
+      desc: function (v) {
+        return "<p>Nadim's younger sister, and fiercer. Sold two years after him, in 1960, to a man from Marseille, and kept in a brass lamp by the sea. She speaks English like a Marseille schoolmistress, plays cribbage for money, and wins.</p>" +
+          "<p>Her smoke is darker than her brother's, with gold in it like sparks. She lives at the laundromat now, because it's the only place in the city with any sense.</p>" +
+          (v.sj_zeina === "pyre" ? "<p>On the Saint-Jean the Club put her lamp on the pyre. The angel's fire went through it, and took their binding with it, and left her.</p>" : "") +
+          (v.sj_zeina === "taken" && v.zeina_free ? "<p>On the Saint-Jean, the lamp came back to you, and you opened it.</p>" : "");
+      }
+    },
     manon: {
       name: function () { return "Manon Lefebvre"; }, short: "Manon", epithet: "Second of the Sept-Ans",
       desc: function (v) {
@@ -368,6 +377,12 @@
     { id: "q_thaw", q: "What happened at the Thaw?", a: "For an hour the whole city remembered everything it had been made to forget. I had forty people in here crying at once. A woman found her brother. A man found out his wife was a vampire and asked her to dance. Then one o'clock came, and the bells rang, and most of them went home and forgot again.", when: function (v) { return v.thaw; } },
     { id: "q_remade", q: "Could the Hush be made again, some better way?", a: "Gisèle thinks so. A Hush everyone agreed to, instead of one that was bought. You'd need a witch to weave it, a voice to sing it, a key to lock it, and something with the power to hold it, freely given. Easy. Like getting the whole Village to agree on a brunch spot.", when: function (v) { return v.night >= 7; } },
     { id: "q_wish", q: "What should I do with my last wish?", a: "Don't waste it on a bad date, chéri. A wish unspent at the end of all this is worth more than a hundred at the start. Nadim knows it. He's just too proud to say it.", when: function (v) { return v.wish_unlocked && v.night >= 5; }, codex: "wishes" },
+    { id: "q_333", q: "Why do the bells ring at 3:33?", a: "Because something's counting, chéri. Three thirty-three is the hour the dead like best: late enough the living have gone to bed, early enough the bakers aren't up. Somebody wants the whole island to hear the clock. Nobody counts down for people who don't matter.", when: function (v) { return v.night >= 10; } },
+    { id: "q_angel", q: "What is the angel, really?", a: "It's what the bells were drowning out. Fifty-nine years of something up there trying to say one word, and the Carillon ringing over it every night so nobody'd hear. You don't shout down a thing like that for half a century and expect it to be in a good mood. Find out its name, chéri. Everything that's been ignored that long wants to be called by its name.", when: function (v) { return v.night >= 10; }, codex: "angel" },
+    { id: "q_easter", q: "The pack keeps counting my Easters. Should I worry?", a: "Seven Easters without your duties and the loup-garou comes for you. That's what the curés told the lumberjacks. In the Veillée it isn't a scare, it's a calendar. There's more than one way to square it: a priest, a wolf, a devil, a wish. Pick before Sunday, chéri. Sunday picks for you.", when: function (v) { return v.night >= 11 && v.night <= 13; } },
+    { id: "q_zeina", q: "What's Zeina like?", a: "Like her brother with the sulk taken out and the teeth left in. She came into my bar once, before her lamp, in 1960, and told the band they were playing too slowly. They were. I liked her enormously.", when: function (v) { return v.nadim_sister; } },
+    { id: "q_heart", q: "How do I know who it's going to be?", a: "The same way everyone does. Not the big nights, chéri: the Tuesdays. The dishes. The walk home. Whoever you keep choosing in the ordinary weeks, that's who'll be at your door when the long light comes. You can't cram for love. I tried.", when: function (v) { return v.night >= 11 && v.night <= 16; } },
+    { id: "q_sj", q: "What happens on the Saint-Jean?", a: "A bonfire on the mountain and half a million people singing Vigneault, badly. And this year, an angel. If I were you I'd want somebody at the fire, somebody at a bell, somebody with the crowd, and somebody beside me. And a song that knows what it's singing to.", when: function (v) { return v.night >= 14 && v.night <= 17; } },
     { id: "q_name", q: "What would you want, if you could have anything?", a: "My name on a big screen on Sainte-Catherine, lit up, with the whole Village standing under it. Madame Fleurette, one night only. And then I'd like to finally go and see what comes after. I've been waiting a long time for my cue.", when: function (v) { return v.rel_fleurette >= 30 && v.night >= 5; } }
   ];
 
@@ -482,7 +497,7 @@
     var looks = NB.portraits && NB.portraits.lookLabels;
     sections.push({ rows: [{ type: "id", items: [
       ["Name", esc((v.name || "?") + " Lacroix")],
-      ["Night", v.night ? v.night + " of 9" : "—"],
+      ["Where", !v.night ? "—" : v.night <= 9 ? "Night " + v.night + " of 9" : v.night <= 13 ? "Part Two: Lent" : v.night <= 17 ? "Part Three: The Long Light" : "Epilogue"],
       ["The Hush", v.hush + "%"],
       ["Wishes", v.wish_unlocked ? String(v.wishes) : "—"]
     ] }] });

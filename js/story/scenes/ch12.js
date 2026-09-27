@@ -454,18 +454,32 @@ And on a table beside him, in a circle of iron filings, a brass lamp. Old. Beaut
   You come up the servants' stairs into the cold with Aimé on your arm and the lamp in your hands, and nobody stops you, because everybody in Strachan House is at the front door, or on an island in the river, looking the wrong way.
 
   In the garden, under the snow, by the dark hedge, you set the lamp down.
-  *if hs_beside = "nadim"
-    Nadim kneels in the snow in front of it.
+  *if nadim_out
+    *if hs_beside = "nadim"
+      Nadim kneels in the snow in front of it.
+    *else
+      And the air goes hot, and Nadim is there, somehow, kneeling in the snow in front of it, as if he's been pulled across the island on a thread.
+    He puts his hand on the brass. He says her name.
+
+    The lamp opens. Smoke comes out of it: dark, and gold, and fierce, a woman's shape, a face with his eyes. She looks at him. He looks at her.
+
+    "[i]Zeina,[/i]" he says.
+
+    She says something in a language older than the cedars, and hits him, hard, on the chest, with both fists, and then she's holding on to him, and the snow for ten metres around the two of them turns to steam, and you walk Aimé to the car, and don't look back, because some things aren't yours to watch.
+    *meet zeina
+    *remember nadim On Holy Saturday, in the snow in Honora's garden, he said his sister's name, and she hit him, and held on.
+    *remember zeina On Holy Saturday, in the snow in Honora's garden, she came out of the lamp, and hit her brother, and held on.
   *else
-    And the air goes hot, and Nadim is there, somehow, kneeling in the snow in front of it, as if he's been pulled across the island on a thread.
-  He puts his hand on the brass. He says her name.
+    You put your hand on the brass. It's hot. Under your palm, under the snow, under the whole island, you can feel something straining toward it from a vault in the river, like a dog at the end of a chain.
 
-  The lamp opens. Smoke comes out of it: dark, and gold, and fierce, a woman's shape, a face with his eyes. She looks at him. He looks at her.
+    You say her name. You've heard him say it, once, in a dream, among the cedars.
 
-  "[i]Zeina,[/i]" he says.
+    The lamp opens. Smoke comes out of it: dark, and gold, and fierce, a woman's shape, a face with his eyes. She doesn't look at you. She looks east, over the hedge, over the roofs, toward the river and the island and the fort, for a long time.
 
-  She says something in a language older than the cedars, and hits him, hard, on the chest, with both fists, and then she's holding on to him, and the snow for ten metres around the two of them turns to steam, and you walk Aimé to the car, and don't look back, because some things aren't yours to watch.
-  *remember nadim On Holy Saturday, in the snow in Honora's garden, he said his sister's name, and she hit him, and held on.
+    Then she hits you, hard, on the chest, with both fists, and then she's holding on to you, and the snow for ten metres around the two of you turns to steam. You understand that the first one was for him. So was the second. She's been waiting sixty-eight years to hit somebody, and he isn't here.
+    *meet zeina
+    *remember zeina On Holy Saturday, in Honora's garden, you opened her lamp. She looked toward the fort for a long time before she looked at you.
+    *remember nadim On Holy Saturday you opened his sister's lamp. He felt it from the vault. He didn't say anything, the next Thursday. He didn't have to.
   *set rel_nadim +20
   *set des_nadim +5
 *elseif aime_safe

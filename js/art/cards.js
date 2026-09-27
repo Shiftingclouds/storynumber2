@@ -639,7 +639,481 @@
     snow(c, 90, 183);
   };
 
-  var IDS = ["1", "2", "3", "4", "5a", "6a", "5b", "6b", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "thaw", "vault", "morning", "title"];
+  /* ---------------- the endings: one card each ---------------- */
+
+  // A tiny 3×5 font for signs and screens.
+  var FONT = {
+    A: "010101111101101", B: "110101110101110", C: "011100100100011", D: "110101101101110", E: "111100110100111",
+    F: "111100110100100", G: "011100101101011", H: "101101111101101", I: "111010010010111", L: "100100100100111",
+    M: "101111111101101", N: "110101101101101", O: "010101101101010", R: "110101110101101", S: "011100010001110",
+    T: "111010010010010", U: "101101101101111", V: "101101101101010", W: "101101111111101", Y: "101101010010010",
+    "3": "111001011001111", ":": "000010000010000", " ": "000000000000000", "+": "000010111010000"
+  };
+  function text(c, s, x, y, col) {
+    for (var i = 0; i < s.length; i++) {
+      var g = FONT[s[i]] || FONT[" "];
+      for (var k = 0; k < 15; k++) if (g[k] === "1") c.set(x + i * 4 + (k % 3), y + Math.floor(k / 3), col);
+    }
+  }
+  function glow(c, x, y, rx, ry, col, t) { c.ellipse(x, y, rx, ry, function (px, py) { return P.dither(px, py, t || 0.25) ? col : null; }); }
+  function fort(c, x, baseY, col, door) {
+    c.poly([[x, baseY], [x, baseY - 22], [x + 26, baseY - 32], [x + 52, baseY - 22], [x + 52, baseY]], col);
+    for (var sy = baseY - 20; sy < baseY; sy += 4) for (var sx = x + 1 + (sy % 8 ? 0 : 3); sx < x + 51; sx += 7) c.hline(sx, sx + 5, sy, P.shade(col, -0.12));
+    c.poly([[x + 20, baseY], [x + 20, baseY - 14], [x + 26, baseY - 18], [x + 32, baseY - 14], [x + 32, baseY]], door || "#1a141c");
+  }
+  function van(c, x, baseY, col) {
+    c.rect(x, baseY - 9, 22, 9, col); c.rect(x + 14, baseY - 12, 8, 4, col); c.rect(x + 16, baseY - 11, 5, 2, "#6a8cc0");
+    c.rect(x + 2, baseY, 4, 2, INK); c.rect(x + 15, baseY, 4, 2, INK);
+    c.rect(x + 3, baseY - 6, 9, 2, P.shade(col, -0.25));
+  }
+  function cup(c, x, y, col) { c.rect(x, y, 3, 3, col || "#f0e8d8"); c.set(x + 3, y + 1, col || "#f0e8d8"); c.set(x + 1, y - 2, "#c8c8d0"); c.set(x + 2, y - 3, "#c8c8d0"); }
+  function rose(c, x, y) { c.set(x, y, "#e0203a"); c.set(x + 1, y, "#b0102a"); c.set(x, y - 1, "#ff3a5a"); c.vline(x, y + 1, y + 4, "#2a6a2a"); }
+  function tuque(c, x, y) { c.rect(x, y, 4, 2, "#c41d38"); c.set(x + 1, y - 1, "#ffffff"); c.hline(x, x + 3, y + 2, "#ffffff"); }
+  function sally(c, x, top, bot) {
+    c.vline(x, top, bot, "#d8c8a0");
+    for (var y = bot - 12; y < bot - 3; y++) c.set(x, y, ["#c41d38", "#ffffff", "#2a4aa8"][Math.floor((y - bot) / 3 + 6) % 3]);
+    c.set(x - 1, bot - 8, "#c41d38"); c.set(x + 1, bot - 8, "#2a4aa8");
+  }
+  function sparks(c, n, seed, x0, x1, y0, y1, cols) {
+    var r = P.rng(seed);
+    for (var i = 0; i < n; i++) c.set(x0 + Math.floor(r() * (x1 - x0)), y0 + Math.floor(r() * (y1 - y0)), (cols || ["#ffd36a", "#ff8a3a", "#fff2b0"])[i % 3]);
+  }
+
+  var ENDINGS = {};
+
+  // You turned back and slept: a bedroom window; outside, a canoe crosses the moon and nobody sees.
+  ENDINGS.sleep_through = function (c) {
+    c.fill("#0c0e1e");
+    c.rect(96, 8, 70, 46, "#1a1f3c");
+    c.vgrad(98, 10, 66, 42, ["#0a0f2a", "#1a2458", "#2a2a60"]);
+    stars(c, 14, 201, 30, ["#ffffff", "#bcd0ff", "#8fa4d8"]);
+    c.rect(0, 0, 96, 80, "#0c0e1e"); c.rect(166, 0, 26, 80, "#0c0e1e"); c.rect(96, 0, 70, 8, "#0c0e1e");
+    moon(c, 146, 22, 6, "#fff4d6", "#3a4a90");
+    c.poly([[120, 26], [140, 26], [137, 28], [123, 28]], "#07050c"); [124, 129, 134].forEach(function (x) { person(c, x, 26, 5, "#07050c"); });
+    skyline(c, 98, 164, 52, 202, { min: 4, max: 14, lit: 0.1 });
+    c.rect(130, 8, 2, 46, "#2a2f50"); c.rect(96, 30, 70, 2, "#2a2f50");
+    c.rect(94, 54, 74, 3, "#3a3f60");
+    // the bed, a sleeper under the covers
+    c.rect(10, 52, 90, 20, "#2a2440"); c.rect(10, 50, 90, 4, "#3a3458");
+    c.poly([[24, 50], [90, 50], [96, 58], [20, 60]], "#4a4470");
+    c.ellipse(20, 50, 6, 4, "#e8e0f0"); c.ellipse(24, 48, 3, 3, "#5a4030");
+    c.rect(4, 44, 6, 28, "#3a2a20");
+    // the phone on the nightstand, lit: a missed call
+    c.rect(104, 62, 12, 10, "#2a1e18"); c.rect(107, 60, 5, 2, "#9fd0ff"); c.set(109, 59, "#ffffff");
+    c.rect(0, 72, W, 8, "#14121e");
+  };
+
+  // Sleeper: a figure in the snow looking at the Veillée and not seeing it; ghosts pass right through.
+  ENDINGS.sleeper = function (c) {
+    sky(c, ["#1a1e30", "#2a2e44", "#3a3e58"], 60);
+    skyline(c, 0, W, 60, 211, { min: 10, max: 26, lit: 0.12, cols: ["#1a1c2a", "#202232", "#16182a"] });
+    c.vgrad(0, 60, W, 20, ["#9aa0b8", "#7a8098"]);
+    // everything magic is washed out and faint
+    [[40, 70], [60, 72], [150, 70]].forEach(function (p) { person(c, p[0], p[1], 16, "#b8c0d8"); });
+    for (var i = 0; i < 10; i++) c.set(20 + i * 17, 20 + (i * 7) % 20, "#8a9ab8");
+    wolf(c, 118, 74, 0.8, "#8a90a8", false);
+    // you, sharp and ordinary, walking with coffee, eyes down
+    person(c, 96, 76, 20, "#07060c");
+    cup(c, 101, 64, "#e8e0d0");
+    snow(c, 60, 212, ["#ffffff", "#d8dce8", "#b8c0d0"]);
+  };
+
+  // Unmade: the vault door open on the dark; your key ring and your flashlight in the snow.
+  ENDINGS.unmade = function (c) {
+    sky(c, ["#05060e", "#0e1024", "#1a1c38"], 50);
+    stars(c, 30, 221, 30);
+    c.vgrad(0, 50, W, 30, ["#8a92b0", "#5a6080", "#3a4060"]);
+    fort(c, 70, 58, "#2a2832", "#000000");
+    // the flashlight, dropped, beam across the snow
+    c.rect(56, 68, 6, 2, "#3a3a44"); c.set(62, 68, "#fff4c8");
+    c.poly([[62, 68], [130, 62], [130, 76], [62, 70]], function (px, py) { return P.dither(px, py, 0.2) ? "#fff0c8" : null; });
+    // the key ring in the light
+    c.ring(100, 70, 3, 2, "#d9a441"); c.line(102, 70, 108, 70, "#d9a441"); c.set(107, 71, "#d9a441"); c.set(105, 71, "#d9a441");
+    // footprints going in, none coming out
+    for (var f = 0; f < 6; f++) { c.set(20 + f * 9, 74 - f, "#5a6080"); c.set(23 + f * 9, 76 - f, "#5a6080"); }
+    snow(c, 40, 222);
+  };
+
+  // The Compagnie's Peace: the island asleep, every window dark; one lamp at the fort, the lock shut.
+  ENDINGS.compagnie_peace = function (c) {
+    sky(c, ["#04050e", "#0a0e22", "#141a38"], 56);
+    stars(c, 60, 231, 40);
+    skyline(c, 0, W, 50, 232, { min: 8, max: 26, lit: 0.0, cols: ["#0c0f1e", "#0a0c18", "#10132a"] });
+    c.vgrad(0, 50, W, 10, ["#0e1428", "#141c34"]);
+    c.vgrad(0, 60, W, 20, ["#7a88b0", "#5a6890"]);
+    fort(c, 72, 66, "#2a2834");
+    lamp(c, 98, 44, "#ffcf7a");
+    // the brass lock on the door
+    c.rect(96, 56, 5, 4, "#d9a441"); c.ring(98, 55, 2, 2, "#d9a441");
+    // a Compagnie figure in a long coat, walking away
+    person(c, 150, 74, 16, "#07060c"); c.rect(146, 62, 8, 1, "#07060c");
+    snow(c, 50, 233);
+  };
+
+  // The New Bourdon: Lazare at the rope in the tower; below, the city asleep; the bells gold.
+  ENDINGS.new_bourdon = function (c) {
+    c.fill("#120c10");
+    c.rect(0, 0, W, 6, "#3a2616"); c.rect(0, 40, W, 3, "#3a2616");
+    bell(c, 96, 6, 44, 30, ["#f6d680", "#d0a040", "#8a6420"]);
+    c.ellipse(96, 20, 3, 3, "#fff8e0");
+    // louvers, the sleeping city beyond
+    [[10, 10], [150, 10]].forEach(function (l) {
+      c.rect(l[0], l[1], 32, 28, "#0a0e22");
+      skyline(c, l[0], l[0] + 32, l[1] + 28, 241 + l[0], { min: 4, max: 12, lit: 0.0, cols: ["#141a30", "#10142a", "#181e38"] });
+      for (var y = l[1]; y < l[1] + 28; y += 4) c.hline(l[0], l[0] + 31, y, "#3a2616");
+    });
+    // the ringing floor, the rope, the ringer
+    c.rect(0, 70, W, 10, "#2c1c10");
+    sally(c, 96, 36, 64);
+    person(c, 96, 72, 22, "#050306", { arm: [0, -8], arm2: [0, -8] });
+    for (var r2 = 0; r2 < 3; r2++) c.ring(96, 22, 30 + r2 * 10, 18 + r2 * 6, ["#ffe8a0", "#c8a050", "#6a5020"][r2]);
+  };
+
+  // The Lock: the van parked outside the fort in the snow, empty; a light under the door.
+  ENDINGS.the_lock = function (c) {
+    sky(c, ["#060818", "#101a3a", "#20305a"], 56);
+    stars(c, 50, 251, 34);
+    moon(c, 30, 16, 6, "#fff4d6", "#3a4a90");
+    c.vgrad(0, 56, W, 24, ["#c9d6ef", "#9fb0d6", "#7d8fbd"]);
+    fort(c, 110, 64, "#3d3a45");
+    c.hline(130, 141, 63, "#ffcf7a"); c.hline(131, 140, 64, "#ffe9b8");
+    glow(c, 136, 64, 10, 3, "#ffcf7a", 0.2);
+    van(c, 40, 70, "#d8d4c8");
+    // snow piled on the van roof: it's been there a while
+    c.hline(40, 61, 60, "#ffffff"); c.hline(54, 61, 57, "#ffffff");
+    c.rect(44, 64, 4, 1, "#ffffff");
+    snow(c, 120, 252);
+  };
+
+  // White Night: the Hush falls. The crowd, the wolves, the ghosts, the canoe, and everyone sees.
+  ENDINGS.white_night = function (c) {
+    sky(c, ["#0a0a1a", "#1a1438", "#2a1e52"], H);
+    var cols = ["#ff4fd8", "#4ffff0", "#fff24f", "#8a6aff"];
+    for (var a = 0; a < 4; a++) c.ring(96, 96, 50 + a * 16, 70 + a * 10, cols[a]);
+    moon(c, 30, 16, 7, "#fff4d6", "#4a3a8a");
+    c.poly([[120, 16], [146, 16], [143, 19], [123, 19]], "#07050c"); [126, 132, 138].forEach(function (x) { person(c, x, 16, 6, "#07050c"); });
+    skyline(c, 0, W, 56, 261, { min: 10, max: 28, lit: 0.6, win: ["#ffffff", "#ffe9b8", "#ff9ad8"] });
+    c.rect(0, 56, W, 24, "#e8ecf8");
+    var r = P.rng(262);
+    for (var i = 0; i < 40; i++) person(c, Math.floor(r() * W), 68 + Math.floor(r() * 12), 9 + Math.floor(r() * 5), r() < 0.5 ? "#141024" : "#241a34", { arm: [2, -5] });
+    wolf(c, 70, 74, 0.8, "#2a2238", true); wolf(c, 150, 76, 0.7, "#2a2238", false);
+    [[40, 66], [110, 64], [170, 66]].forEach(function (g) { person(c, g[0], g[1], 14, "#b8d8ff"); glow(c, g[0], g[1] - 8, 5, 8, "#8ab8ff", 0.2); });
+    for (var f = 0; f < 12; f++) c.set(Math.floor(r() * W), 30 + Math.floor(r() * 24), "#8cff9e");
+  };
+
+  // Seven Years Late: wolves on the mountain in the snow, howling at the screens downtown.
+  ENDINGS.seven_years = function (c) {
+    sky(c, ["#0a0612", "#1e0c24", "#3a1430"], 50);
+    stars(c, 40, 271, 30);
+    moon(c, 160, 18, 11, "#fff0d0", "#8a3a4a");
+    skyline(c, 0, 120, 50, 272, { min: 6, max: 20, lit: 0.6, win: ["#ffffff", "#ff9ad8", "#9fd0ff"] });
+    c.rect(30, 30, 20, 10, "#ff9ad8"); c.rect(70, 34, 16, 8, "#9fd0ff");
+    c.poly([[0, 80], [0, 58], [70, 50], [140, 54], [192, 46], [192, 80]], "#d8d8e8");
+    c.poly([[0, 80], [0, 66], [80, 60], [192, 62], [192, 80]], "#b8b8d0");
+    wolf(c, 110, 60, 1.1, "#140a14", true);
+    wolf(c, 138, 60, 1.0, "#1e1020", true);
+    wolf(c, 160, 58, 0.9, "#140a14", false);
+    wolf(c, 82, 64, 0.7, "#3a2a3a", true);
+    tuque(c, 96, 45);
+    snow(c, 80, 273);
+  };
+
+  // The Remembering: the unmade come home. A street of lit doorways, figures stepping into them.
+  ENDINGS.the_remembering = function (c) {
+    sky(c, ["#1a1a44", "#4a3a6a", "#b86a7a", "#f0a870"], 40);
+    // a row of Montreal triplexes with outside stairs
+    for (var h = 0; h < 6; h++) {
+      var hx = h * 32;
+      c.rect(hx, 20, 30, 44, ["#6a3a2a", "#5a3226", "#7a4230"][h % 3]);
+      for (var fy = 24; fy < 60; fy += 13) { c.rect(hx + 4, fy, 6, 7, "#ffd88a"); c.rect(hx + 20, fy, 6, 7, h % 2 ? "#ffd88a" : "#3a2a30"); }
+      c.line(hx + 14, 64, hx + 24, 46, "#1a1418"); c.line(hx + 15, 64, hx + 25, 46, "#1a1418");
+      c.rect(hx + 12, 52, 6, 12, "#ffe9b8");
+      person(c, hx + 15, 64, 10, "#1a1020");
+    }
+    c.rect(0, 64, W, 16, "#3a3444");
+    c.hline(0, W - 1, 64, "#5a5264");
+    // the Register, open on the pavement, its names lifting off as light
+    c.rect(86, 70, 20, 7, "#e8e0c8"); c.vline(96, 70, 76, "#8a7a5a");
+    for (var i = 0; i < 16; i++) c.set(88 + (i * 5) % 17, 68 - i * 3, i % 2 ? "#fff2b0" : "#ffd88a");
+  };
+
+  // Three: a step behind rue Jarry at night, two men and you, a cake with candles, a cannoli.
+  ENDINGS.three = function (c) {
+    c.vgrad(0, 0, W, 50, ["#0a0e22", "#141c3a", "#1e2a4a"]);
+    stars(c, 20, 281, 20);
+    // brick back wall, a lit kitchen window, a fire escape
+    c.rect(0, 14, W, 50, "#4a2a22");
+    for (var y = 16; y < 64; y += 3) for (var x = (y % 6 ? 0 : 3); x < W; x += 7) c.hline(x, x + 5, y, "#5a3228");
+    c.rect(130, 20, 26, 20, "#ffd88a"); c.rect(142, 20, 2, 20, "#4a2a22"); c.rect(130, 30, 26, 2, "#4a2a22");
+    c.poly([[120, 40], [170, 40], [200, 80], [90, 80]], function (px, py) { return P.dither(px, py, 0.1) ? "#ffd88a" : null; });
+    // the lane, and the steps
+    c.rect(0, 64, W, 16, "#2a2632");
+    c.poly([[120, 40], [170, 40], [200, 80], [90, 80]], function (px, py) { return py >= 64 && P.dither(px, py, 0.1) ? "#8a7a60" : null; });
+    c.rect(40, 58, 110, 6, "#6a6470"); c.rect(34, 64, 122, 6, "#7a7480"); c.rect(28, 70, 134, 10, "#8a8490");
+    // three figures on the step, shoulders touching
+    person(c, 72, 64, 20, "#0a0610");
+    person(c, 90, 64, 18, "#140a18");
+    person(c, 108, 64, 22, "#0a0610");
+    c.set(112, 49, "#1a1020"); c.set(113, 50, "#1a1020"); // a big man's arm round a shoulder
+    // the cake, candles lit
+    c.rect(84, 66, 12, 4, "#f0e8d8"); c.hline(84, 95, 66, "#ff9ad8");
+    [86, 89, 92, 95].forEach(function (x) { c.vline(x, 63, 65, "#ffffff"); c.set(x, 62, "#ffd36a"); });
+    glow(c, 90, 62, 12, 6, "#ffd36a", 0.18);
+    c.rect(116, 68, 6, 2, "#e8c890"); c.set(117, 68, "#fff8e0");
+  };
+
+  // Enzo: two men on a step far off, sharing a cannoli; you walk home alone under a streetlight, glad.
+  ENDINGS.enzo = function (c) {
+    sky(c, ["#0a0e22", "#141c3a", "#2a2a50"], 50);
+    stars(c, 30, 291, 30);
+    skyline(c, 0, W, 50, 292, { min: 10, max: 26, lit: 0.3 });
+    c.rect(0, 50, W, 30, "#2a2632");
+    c.rect(0, 50, W, 3, "#4a4452");
+    // the step far off, two small figures leaning together
+    c.rect(150, 46, 20, 4, "#6a6470");
+    person(c, 157, 47, 8, "#0a0610"); person(c, 163, 47, 9, "#0a0610");
+    c.set(160, 40, "#ffd36a");
+    // the streetlight and you
+    c.vline(40, 20, 76, "#4a4452"); c.vline(41, 20, 76, "#3a3440"); c.hline(40, 48, 20, "#4a4452");
+    c.poly([[45, 23], [51, 23], [66, 78], [30, 78]], function (px, py) { return P.dither(px, py, 0.12) ? "#8a7a60" : null; });
+    glow(c, 48, 23, 6, 3, "#ffe9b8", 0.4); c.rect(47, 21, 3, 2, "#fff4c8");
+    person(c, 52, 76, 18, "#07060c", { arm2: [-2, 5] });
+    for (var f = 0; f < 5; f++) c.set(60 + f * 6, 78, "#4a4452");
+  };
+
+  // The Ringer: the ringing room, sallies striped red-white-blue, two ringers pulling.
+  ENDINGS.ringer = function (c) {
+    c.vgrad(0, 0, W, H, ["#2a1a10", "#3a2414", "#1e140c"]);
+    // tall window, morning light
+    c.rect(84, 4, 24, 40, "#8ac0f0"); c.poly([[84, 4], [96, -4], [108, 4]], "#8ac0f0");
+    c.rect(95, 4, 2, 40, "#3a2414"); c.rect(84, 22, 24, 2, "#3a2414");
+    c.poly([[84, 44], [108, 44], [130, 80], [62, 80]], function (px, py) { return P.dither(px, py, 0.12) ? "#fff0c8" : null; });
+    // boards on the wall
+    c.rect(10, 10, 30, 20, "#6a4a1a"); c.rect(12, 12, 26, 16, "#e8dcc0"); for (var l = 14; l < 28; l += 3) c.hline(14, 36, l, "#8a7a5a");
+    c.rect(150, 10, 30, 20, "#6a4a1a"); c.rect(152, 12, 26, 16, "#e8dcc0"); for (var l2 = 14; l2 < 28; l2 += 3) c.hline(154, 176, l2, "#8a7a5a");
+    // a circle of ropes
+    [30, 54, 138, 162].forEach(function (x) { sally(c, x, 0, 62); });
+    sally(c, 78, 0, 54); sally(c, 114, 0, 54);
+    person(c, 78, 76, 24, "#07050a", { arm: [0, -10], arm2: [0, -10] });
+    person(c, 114, 76, 22, "#07050a", { arm: [0, -10], arm2: [0, -10] });
+    c.rect(0, 76, W, 4, "#2c1c10");
+  };
+
+  // Wolf Heart: inside Saint-Jude, the long table, the pack, a karaoke mic at the altar.
+  ENDINGS.wolf_heart = function (c) {
+    c.vgrad(0, 0, W, H, ["#1a0c14", "#2a1220", "#140a10"]);
+    // the rose window, lit
+    c.ellipse(96, 18, 14, 14, "#1a0a12");
+    c.ellipse(96, 18, 12, 12, function (px, py) { return ["#ff4fd8", "#ffcf5a", "#4ab8ff", "#ff6a3a"][(Math.abs(px - 96) + Math.abs(py - 18)) % 4]; });
+    for (var s = 0; s < 8; s++) c.line(96, 18, 96 + Math.round(Math.cos(s / 8 * 6.283) * 12), 18 + Math.round(Math.sin(s / 8 * 6.283) * 12), "#1a0a12");
+    // string lights across the nave
+    for (var x = 0; x < W; x += 4) c.set(x, 34 + Math.round(Math.sin(x / 30) * 3), ["#ffcf5a", "#ff4fd8", "#9fd0ff"][x % 3]);
+    // the altar, a singer with a mic
+    c.rect(76, 40, 40, 6, "#4a2a30");
+    person(c, 96, 40, 14, "#050204", { arm: [3, -4] }); c.set(100, 29, "#c8c8d0");
+    // the long table and the pack
+    c.rect(20, 58, 152, 5, "#6a3a1a"); c.rect(20, 56, 152, 2, "#f0e8d8");
+    for (var p = 0; p < 9; p++) person(c, 26 + p * 18, 58, 12 + (p % 3), "#0a0406");
+    wolf(c, 10, 76, 0.8, "#1a0e14", false); wolf(c, 150, 78, 0.9, "#1a0e14", true);
+    for (var k = 0; k < 8; k++) { c.set(30 + k * 18, 55, "#ffd36a"); }
+    c.rect(0, 76, W, 4, "#241218");
+  };
+
+  // The Last Dance: the powder magazine, the devil holding the Hush, a cup at his lips, a clock at 11:45.
+  ENDINGS.last_dance = function (c) {
+    c.vgrad(0, 0, W, H, ["#1a0608", "#2a0a0e", "#120406"]);
+    for (var y = 4; y < H; y += 6) for (var x = (y % 12 ? 0 : 5); x < W; x += 11) c.rect(x, y, 9, 4, "#24090c");
+    // the clock, quarter to midnight
+    c.ellipse(160, 20, 10, 10, "#1a0a0e"); c.ellipse(160, 20, 8, 8, "#f2e6c8");
+    c.vline(160, 14, 20, INK); c.hline(154, 160, 20, INK);
+    // the devil, arms wide, bands of light through him
+    glow(c, 96, 46, 30, 30, "#6a1a10", 0.3);
+    person(c, 96, 74, 40, "#050103", { arm: [14, -10], arm2: [-14, -10] });
+    [34, 46, 58].forEach(function (by, i) { c.ring(96, by, 16 - i * 2, 2, "#ff6a3a"); });
+    c.set(94, 40, "#ff3a1a"); c.set(98, 40, "#ff3a1a");
+    // you, holding the cup up to him
+    person(c, 70, 76, 22, "#3a1a26", { arm: [10, -8] });
+    cup(c, 81, 60, "#f0e8d8");
+    rose(c, 120, 72); c.rect(116, 70, 3, 1, "#050103"); c.rect(123, 70, 3, 1, "#050103");
+  };
+
+  // Invited: Le Mardi Gras with its doors thrown open, red light on the snow, a line down the block.
+  ENDINGS.invited = function (c) {
+    sky(c, ["#0a0a1a", "#1a1030", "#2a1640"], 40);
+    stars(c, 20, 311, 20);
+    c.rect(40, 10, 112, 56, "#2a0a14");
+    for (var wy = 16; wy < 40; wy += 10) for (var wx = 48; wx < 146; wx += 14) c.rect(wx, wy, 8, 6, "#ff5a5a");
+    // neon sign
+    c.rect(66, 40, 60, 8, "#1a0408"); text(c, "MARDI GRAS", 67, 41, "#ff4fd8");
+    // the open doors, red light pouring out
+    c.rect(86, 50, 20, 16, "#ff9a7a"); c.rect(82, 50, 4, 16, "#4a0a14"); c.rect(106, 50, 4, 16, "#4a0a14");
+    c.poly([[86, 66], [106, 66], [140, 80], [52, 80]], function (px, py) { return P.dither(px, py, 0.35) ? "#ff6a5a" : "#8a2a3a"; });
+    c.rect(0, 66, 52, 14, "#d8d0e0"); c.rect(140, 66, 52, 14, "#d8d0e0");
+    // the devil in the doorway with a rose, and the line down the block
+    person(c, 96, 66, 16, "#050103", { arm: [4, -3] }); rose(c, 101, 57);
+    for (var i = 0; i < 9; i++) person(c, 150 + i * 5, 76 - (i % 2), 11 + (i % 3), i % 3 === 1 ? "#6a8ab8" : "#141024");
+    wolf(c, 14, 76, 0.6, "#141024", false);
+    snow(c, 40, 312);
+  };
+
+  // Smokeless Fire: the old wall of the fort; a man and a man made of smoke and coals, the city awake beyond.
+  ENDINGS.smokeless_fire = function (c) {
+    sky(c, ["#0a0a1a", "#1a1438", "#3a2050"], 50);
+    stars(c, 30, 321, 26);
+    skyline(c, 0, W, 50, 322, { min: 10, max: 28, lit: 0.6, win: ["#ffffff", "#ffe9b8", "#ff9ad8"] });
+    c.vgrad(0, 50, W, 8, ["#1a2448", "#223060"]);
+    for (var x = 0; x < W; x += 3) c.set(x, 53, "#ffcf7a");
+    c.rect(0, 60, W, 20, "#3a3642");
+    for (var sy = 62; sy < 80; sy += 4) for (var sx = (sy % 8 ? 0 : 3); sx < W; sx += 8) c.hline(sx, sx + 6, sy, "#2a2632");
+    // you, sitting on the wall
+    c.ellipse(80, 50, 2, 2, "#07060c"); c.poly([[77, 53], [83, 53], [84, 60], [76, 60]], "#07060c"); c.line(78, 60, 76, 66, "#07060c"); c.line(82, 60, 84, 66, "#07060c");
+    // Nadim beside you, coals and smoke
+    glow(c, 100, 50, 10, 14, "#ff6a1f", 0.3);
+    c.ellipse(100, 48, 2, 2, "#ff8a3a"); c.poly([[97, 51], [103, 51], [104, 60], [96, 60]], function (px, py) { return P.dither(px, py, 0.5) ? "#ff6a1f" : "#5a1a0a"; });
+    c.line(98, 60, 96, 66, "#5a1a0a"); c.line(102, 60, 104, 66, "#5a1a0a");
+    sparks(c, 24, 323, 90, 116, 20, 46);
+    // two paper cups of coffee on the wall
+    cup(c, 88, 57, "#f0e8d8");
+  };
+
+  // The Accord Unmade: the Accord of '67 coming apart into birds of light over the island.
+  ENDINGS.accord_unmade = function (c) {
+    sky(c, ["#1a1a44", "#4a3a6a", "#b86a7a", "#f0c080"], 60);
+    // the document, torn, its signatures lifting
+    c.poly([[70, 30], [110, 26], [114, 60], [74, 64]], "#e8e0c8");
+    for (var l = 0; l < 7; l++) c.line(76, 34 + l * 4, 106, 31 + l * 4, "#8a7a5a");
+    c.line(78, 58, 90, 56, "#2a2a6a"); c.line(94, 55, 108, 54, "#6a1a1a"); c.ellipse(100, 58, 3, 2, "#b0102a");
+    c.poly([[110, 26], [120, 20], [118, 40], [114, 60]], "#d8d0b8");
+    var r = P.rng(331);
+    for (var b = 0; b < 16; b++) {
+      var bx = 116 + Math.floor(r() * 70), by = 4 + Math.floor(r() * 36);
+      c.set(bx, by, "#fff8e0"); c.set(bx - 1, by - 1, "#fff8e0"); c.set(bx + 1, by - 1, "#fff8e0"); c.set(bx - 2, by - 1, "#ffe0a0"); c.set(bx + 2, by - 1, "#ffe0a0");
+    }
+    skyline(c, 0, W, 72, 332, { min: 6, max: 16, lit: 0.5 });
+    c.rect(0, 72, W, 8, "#2a2238");
+    for (var i = 0; i < 20; i++) person(c, Math.floor(r() * W), 80, 8, "#140e22", { arm: [2, -5] });
+  };
+
+  // Wintered: the Beaver Club; a tall frosted window, a figure in evening clothes, a glass of red.
+  ENDINGS.wintered = function (c) {
+    c.vgrad(0, 0, W, H, ["#1a1418", "#2a1e22", "#140e10"]);
+    // panelled walls
+    for (var p = 0; p < W; p += 24) c.rect(p, 0, 2, 70, "#3a2a1a");
+    // the window: a winter night that never ends, frost at the edges
+    c.rect(70, 6, 52, 58, "#3a2a1a");
+    c.vgrad(72, 8, 48, 54, ["#0a1024", "#1a2a4a", "#2a3a5a"]);
+    skyline(c, 72, 120, 62, 341, { min: 6, max: 20, lit: 0.2 });
+    for (var s = 0; s < 40; s++) c.set(72 + (s * 13) % 48, 8 + (s * 7) % 54, "#ffffff");
+    for (var fx = 72; fx < 120; fx++) { var d = 2 + Math.round(Math.abs(Math.sin(fx / 5)) * 4); for (var fy = 0; fy < d; fy++) { c.set(fx, 8 + fy, "#d8ecff"); c.set(fx, 61 - fy, "#bcd8ff"); } }
+    c.rect(95, 6, 2, 58, "#3a2a1a"); c.rect(70, 34, 52, 2, "#3a2a1a");
+    // you, in black tie, pale, at the window
+    person(c, 140, 76, 30, "#050305", { arm2: [-6, -2] });
+    c.ellipse(140, 50, 3, 3, "#d8d0d8"); c.set(139, 50, "#9a1a2a"); c.set(141, 50, "#9a1a2a");
+    c.set(133, 57, "#9a1a2a"); c.set(132, 56, "#e8e0e8"); c.set(134, 56, "#e8e0e8");
+    c.rect(0, 70, W, 10, "#2a0a10");
+    // a candelabra
+    [30, 36, 42].forEach(function (x) { c.vline(x, 52, 60, "#c8b070"); c.set(x, 51, "#ffcf5a"); });
+    c.hline(30, 42, 60, "#c8b070"); c.vline(36, 60, 70, "#c8b070");
+  };
+
+  // Last Stop: the Missing Line, the train in, a new conductor's cap on your head, TERMINUS.
+  ENDINGS.last_stop = function (c) {
+    c.fill("#120d1a");
+    for (var y = 0; y < 44; y++) for (var x = 0; x < W; x++) c.set(x, y, (x % 8 === 0 || y % 5 === 0) ? "#2a2a3a" : "#3b3550");
+    c.rect(0, 12, W, 4, "#c8a23a");
+    c.rect(56, 18, 80, 10, "#1c3f7a"); text(c, "TERMINUS", 80, 21, "#e8ecf5");
+    c.rect(0, 44, W, 36, "#2a2330"); c.hline(0, W - 1, 44, "#e8c14a");
+    // the train, doors open, lamps lit
+    c.rect(0, 24, 70, 20, "#2f5d8f"); c.rect(0, 26, 70, 3, "#5b8fc4");
+    for (var wx = 4; wx < 66; wx += 14) { c.rect(wx, 31, 10, 9, "#ffd88a"); c.rect(wx + 1, 32, 8, 7, "#ffeec2"); }
+    // you, in the Conductor's cap, lantern raised; the old man with a suitcase, going up the stairs
+    person(c, 96, 72, 22, "#08060c", { arm: [6, -6] });
+    c.rect(92, 49, 9, 2, "#1c3f7a"); c.hline(91, 102, 51, "#c8a23a");
+    lamp(c, 103, 58, "#ffcf6a");
+    c.poly([[150, 72], [192, 30], [192, 72]], "#3a3246");
+    for (var s = 0; s < 8; s++) c.hline(150 + s * 5, 155 + s * 5, 72 - s * 5, "#5a5266");
+    person(c, 170, 52, 14, "#08060c"); c.rect(173, 46, 4, 4, "#6a3a1a");
+  };
+
+  // Last Call: a jukebox in an empty bar; outside, on the big screen, her name in lights.
+  ENDINGS.last_call = function (c) {
+    c.vgrad(0, 0, W, H, ["#1a0a1a", "#2a1026", "#140810"]);
+    // the window onto Sainte-Catherine, and the screen
+    c.rect(96, 6, 90, 48, "#0a0a1a");
+    skyline(c, 96, 186, 54, 351, { min: 10, max: 30, lit: 0.5, win: ["#ff9ad8", "#ffe9b8", "#9fd0ff"] });
+    c.rect(106, 12, 70, 22, "#2a0a2a"); c.rect(108, 14, 66, 18, "#ff4fd8");
+    text(c, "FLEURETTE", 114, 19, "#ffffff");
+    glow(c, 141, 23, 40, 16, "#ff9ad8", 0.12);
+    for (var r2 = 0; r2 < 8; r2++) person(c, 104 + r2 * 10, 54, 8, "#140820", { arm: [2, -4] });
+    c.rect(94, 4, 2, 52, "#3a2030"); c.rect(186, 4, 2, 52, "#3a2030");
+    // the jukebox, lit, and a ghost taking her bow
+    c.poly([[20, 72], [20, 30], [34, 20], [48, 30], [48, 72]], "#6a2a1a");
+    c.poly([[23, 70], [23, 32], [34, 24], [45, 32], [45, 70]], function (px, py) { return ["#ffcf5a", "#ff6a3a", "#ff4fd8", "#4ab8ff"][Math.floor((py - 24) / 6) % 4]; });
+    c.rect(26, 44, 16, 10, "#1a0a0a"); for (var k = 0; k < 4; k++) c.hline(27, 40, 46 + k * 2, "#e8e0c8");
+    person(c, 66, 72, 22, "#c8d8ff", { skirt: true, arm: [5, -8] });
+    glow(c, 66, 58, 8, 14, "#a8c0ff", 0.22);
+    for (var f = 0; f < 10; f++) c.set(62 + (f * 3) % 10, 40 - f * 3, "#c8d8ff");
+    c.rect(0, 72, W, 8, "#2a0a14");
+  };
+
+  // Ashes: the mountain white with ash at dawn; on the stone wall, the things you bring every year.
+  ENDINGS.ashes = function (c) {
+    sky(c, ["#5a5a68", "#8a8490", "#b8aca8", "#d8c8b8"], 50);
+    c.ellipse(150, 44, 9, 9, function (px, py) { return P.dither(px, py, 0.5) ? "#f0e0d0" : "#d8c8b8"; });
+    skyline(c, 0, W, 50, 361, { min: 4, max: 14, lit: 0.0, cols: ["#6a6470", "#5a5462", "#7a7480"] });
+    c.vgrad(0, 50, W, 30, ["#e8e4e8", "#d0ccd4", "#b8b4c0"]);
+    // the ring where the pyre was
+    c.ring(60, 60, 26, 5, "#8a8490"); c.ellipse(60, 60, 8, 2, "#6a6470");
+    // the stone wall with the offerings
+    c.rect(100, 62, 92, 8, "#7a7480"); c.hline(100, 191, 62, "#9a94a0");
+    c.rect(110, 59, 6, 3, "#e8c890");                // a cannoli
+    c.rect(122, 59, 5, 3, "#c8a070");                // a date square
+    tuque(c, 134, 59);                                // a tuque
+    rose(c, 146, 60);                                 // a rose
+    cup(c, 156, 58, "#e8e8f0");                       // a beaker of tea
+    person(c, 176, 70, 18, "#2a2632");
+    for (var a = 0; a < 40; a++) c.set((a * 37) % W, (a * 13) % 50, "#e8e4e8");
+  };
+
+  // Le Gardien: the fort door, an old man on a kitchen chair beside it with a radio and a thermos.
+  ENDINGS.le_gardien = function (c) {
+    sky(c, ["#3a4a8a", "#8a7aa8", "#e8a8a0", "#ffd8a0"], 56);
+    c.ellipse(40, 50, 10, 10, function (px, py) { return P.dither(px, py, 0.5) ? "#fff0c0" : "#ffe0a0"; });
+    c.vgrad(0, 56, W, 24, ["#8ab86a", "#6a9a4a", "#4a7a3a"]);
+    fort(c, 90, 68, "#5d5866");
+    c.rect(114, 58, 5, 4, "#d9a441");
+    // the chair, the old man, the radio
+    c.rect(72, 62, 10, 2, "#6a4a2a"); c.vline(72, 62, 70, "#6a4a2a"); c.vline(81, 62, 70, "#6a4a2a"); c.vline(81, 52, 62, "#6a4a2a");
+    c.ellipse(77, 48, 3, 3, "#c8c0b8"); c.ellipse(77, 46, 3, 2, "#e8e8e8");
+    c.poly([[73, 51], [81, 51], [82, 62], [72, 62]], "#3a4a6a"); c.line(74, 62, 70, 70, "#2a2a3a"); c.line(79, 62, 75, 70, "#2a2a3a");
+    c.rect(62, 64, 7, 5, "#8a1a1a"); c.rect(63, 65, 3, 3, "#c8c8c8"); c.vline(68, 60, 64, "#c8c8c8");
+    for (var n = 0; n < 3; n++) c.set(60 - n * 3, 60 - n * 2, "#ffffff");
+    c.rect(86, 64, 3, 6, "#3a6a8a");
+    // you, walking up the path with a bag
+    person(c, 30, 76, 18, "#1a1620", { arm: [3, 3] });
+  };
+
+  // True Night: everything at once. Every bell, every wolf, the canoe, the angel, the key.
+  ENDINGS.true_night = function (c) {
+    sky(c, ["#0a0a2a", "#2a1e5a", "#6a3a7a", "#e8a070"], H);
+    for (var r2 = 0; r2 < 5; r2++) c.ring(96, 30, 20 + r2 * 16, 12 + r2 * 9, ["#fff8e0", "#ffe0a0", "#ffc070", "#ff9a6a", "#c86a8a"][r2]);
+    // a brass key, the bow a cross in a circle
+    c.ring(96, 28, 7, 7, "#f0c860"); c.ring(96, 28, 6, 6, "#c9962e");
+    c.rect(95, 22, 2, 12, "#f0c860"); c.rect(90, 27, 12, 2, "#f0c860");
+    c.rect(95, 35, 2, 16, "#f0c860"); c.rect(97, 46, 4, 2, "#f0c860"); c.rect(97, 42, 3, 2, "#f0c860");
+    wingedBell(c, 40, 16, 1, 2); wingedBell(c, 152, 16, 1, 1);
+    c.poly([[130, 40], [156, 40], [153, 43], [133, 43]], "#07050c"); [136, 142, 148].forEach(function (x) { person(c, x, 40, 6, "#07050c"); });
+    skyline(c, 0, W, 64, 371, { min: 8, max: 20, lit: 0.8, win: ["#ffffff", "#ffe9b8", "#ff9ad8"] });
+    c.rect(0, 64, W, 16, "#e8ecf8");
+    var r = P.rng(372);
+    for (var i = 0; i < 40; i++) person(c, Math.floor(r() * W), 72 + Math.floor(r() * 8), 8 + Math.floor(r() * 5), r() < 0.5 ? "#141024" : "#241a34", { arm: [2, -5] });
+    wolf(c, 20, 76, 0.7, "#2a2238", true); wolf(c, 164, 77, 0.6, "#2a2238", true);
+    sparks(c, 40, 373, 0, W, 0, 60, ["#fff8e0", "#ffe0a0", "#9fd0ff"]);
+  };
+
+  Object.keys(ENDINGS).forEach(function (k) { painters["end_" + k] = ENDINGS[k]; });
+
+  var IDS = ["1", "2", "3", "4", "5a", "6a", "5b", "6b", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "thaw", "vault", "morning", "title"].concat(Object.keys(ENDINGS).map(function (k) { return "end_" + k; }));
 
   var cache = {};
   function draw(id) {

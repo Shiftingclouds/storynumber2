@@ -333,6 +333,7 @@ a { color: var(--accent); }
 .nb-card-tile .d { font-size: .86rem; color: var(--ink-soft); margin-top: .2rem; }
 .nb-card-tile .c { font-family: var(--font-pixel); font-size: .55rem; text-transform: uppercase; color: var(--accent); margin-top: .5rem; }
 .nb-card-tile.locked { opacity: .6; border-style: dashed; }
+.nb-card-tile .nb-card.thumb { margin: -.2rem 0 .6rem; border-width: 1px; box-shadow: none; }
 
 /* the story map */
 .nb-map { display: flex; flex-direction: column; gap: 1rem; position: relative; }

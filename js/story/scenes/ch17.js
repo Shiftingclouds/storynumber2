@@ -158,6 +158,7 @@ They come for the pyre. They mean to put the lamp on it, at midnight, when the a
   *if sj_zeina = "taken"
     The lamp comes back to you. It's hot in your hands. You open it, and Zeina comes out, dark and gold and furious, and Nadim is there, and the two of them stand together by the wall and nobody from the Club comes within twenty metres of them again.
     *set zeina_free true
+    *meet zeina
   *if (ruari_fate = "") or (ruari_fate = "disowned")
     Ruari stands on the grass with his hands in his pockets and looks at you for a long time. Then he takes his hands out of his pockets, and takes off his bracelets, one by one, all of them, pink and green and yellow, and drops them in the grass, and walks away down the mountain in the dark.
     *set ruari_fate "gone"
@@ -576,6 +577,7 @@ The sun comes up at five, over the east end, over the refinery and the river, re
   *if angel_end != "judged"
     And on the pyre, in the ash, a brass lamp, blackened, split open. Empty. Zeina is standing beside it, in the smoke, looking at her hands. The angel's fire went through the lamp and out the other side, and took the Club's binding with it, and left her.
     *set zeina_free true
+    *meet zeina
 
 *page_break
 You sit on the grass on the mountain in the sunrise on the feast of the Baptist, and look at the city below.

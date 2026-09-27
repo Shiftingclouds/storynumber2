@@ -85,6 +85,8 @@
       shirt: "#efe3cf", earrings: "#e8c35a", cross: true, wrinkles: true, bg: ["#e0b04a", "#9a6420"], motif: "window", jaw: 0, resting: "smile", cheek: true },
     mathis: { skin: "fair", hair: "brown", style: "short", small: true, eyes: "blue", brows: 1, clothes: "robe", cloth: ["#8b9098", "#6a6f78", "#4a4e56"],
       trim: "#6a6f78", freckles: true, bg: ["#2c3f58", "#121c2a"], motif: "glass", jaw: 0, nose: "button" },
+    zeina: { skin: "brown", hair: "black", style: "long", eyes: "amber", glowEyes: true, brows: 2, lashes: true, clothes: "robe", cloth: ["#2a1c20", "#1a1014", "#0e080a"],
+      trim: "#f0c860", earrings: "#f0c860", lips: "#8a2a2a", bg: ["#3a2a08", "#0e0a04"], motif: "smoke", jaw: 0, eyeStyle: "narrow", nose: "long", resting: "smirk" },
     angel: { angel: true, bg: ["#f7d77a", "#b0782a"] }
   };
 
