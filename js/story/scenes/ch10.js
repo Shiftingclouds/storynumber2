@@ -21,7 +21,7 @@ Sunday, the first of March.
 You sleep until two in the afternoon, and when you wake up, the world is still there.
 
 That's the first thing. You lie in bed, in Verdun, and listen, and the radiator's
-*if keyman_safe or (keyman_fate = "gardien")
+*if radiator_fixed
   quiet, because your father fixed it,
 *else
   banging, the way it has since 2021,

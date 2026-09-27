@@ -32,6 +32,8 @@ const endings = {};
 const achievements = {};
 const errors = [];
 const pathDist = {};
+const TALLY = opt("tally", null) ? String(opt("tally")).split(",") : [];
+const tallies = {};
 const stops = {};
 const statDist = {};
 let totalPages = 0, totalWords = 0, finished = 0, wishesSpent = 0, deductionsMade = 0;
@@ -213,6 +215,7 @@ for (let run = 0; run < RUNS; run++) {
     else stops[rt.state.scene] = (stops[rt.state.scene] || 0) + 1;
     const v = rt.state.vars;
     pathDist[v.path || "(none)"] = (pathDist[v.path || "(none)"] || 0) + 1;
+    for (const t of TALLY) { const key = String(v[t]); (tallies[t] = tallies[t] || {})[key] = (tallies[t][key] || 0) + 1; }
     for (const a of Object.keys(rt.state.achievements)) achievements[a] = (achievements[a] || 0) + 1;
   } catch (e) {
     errors.push({ run, seed, msg: e.message || String(e), trail: trail.slice(-6) });
@@ -234,6 +237,7 @@ if (!UNTIL) {
   const missing = Object.keys(cfg.endings).filter((k) => !endings[k]);
   if (missing.length) console.log("  NEVER REACHED: " + missing.join(", "));
   console.log("\nPath:", JSON.stringify(pathDist));
+  for (const t of TALLY) console.log("Tally " + t + ":", JSON.stringify(tallies[t] || {}));
   console.log("\nAchievements:");
   for (const k of Object.keys(cfg.achievements)) console.log(`  ${(achievements[k] || 0).toString().padStart(6)}  ${k}`);
 }

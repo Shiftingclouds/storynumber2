@@ -412,6 +412,7 @@ You climb the stairs. You close the door. You put your hand on the steel plate a
 Up above, at three thirty-three, all over the island, half a million people blink, and look at each other, and laugh at nothing, and go home to bed.
 *if bourdon_deal or bourdon_knows
   "Thank you," the Bourdon says, behind you, in the snow. His voice is breaking. "On Sunday. I'll ring the great bell for the children. All of them. I swear it." He looks at the door. "And for your father. And for Rosa and Vito Ferrante."
+*set nadim_fate "held"
 *remember nadim At three thirty-three on Nuit blanche, you closed the bands on him. He said: come on Thursdays.
 *goto morning
 

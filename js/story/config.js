@@ -110,7 +110,8 @@
     keyman_fate: "", bourdon_fate: "", honora_fate: "", clarke_fate: "",
     /* part two: lent */
     chapter: 0, ch10_lunch: "", ch10_dinner: "", meme_key_back: false, funeral: "", time_lazare: 0, time_dario: 0, time_rose: 0, time_nadim: 0, time_serge: 0,
-    easter_due: false, mc_wolf: false, easter_how: "", angel_judgment: false, vignettes: "", nadim_sister: false, mathis_mother: false,
+    easter_due: false, mc_wolf: false, easter_how: "", angel_judgment: false, nadim_sister: false, mathis_mother: false,
+    hw_thursday: "", zeina_free: false, aime_safe: false, hs_door: "", hs_decoy: "", hs_cellar: "", hs_beside: "", price_freed: false, radiator_fixed: false,
 
     /* New Game+ memories (set from the meta store when a New Game+ begins) */
     ngplus: false, runs: 0, mem_enzo: false, mem_keyman: false, mem_killer: false, mem_accord: false, mem_bells: false, mem_wolves: false
@@ -498,7 +499,7 @@
     eyebrow: "Montréal · February",
     subtitle: "Nine nights, and everything after",
     motto: "Le fort a besoin de son gardien.",
-    sceneList: ["night1", "night2", "night2b", "night3", "night3b", "night3c", "night4", "night4b", "night5a", "night6a", "night5b", "night6b", "night7", "night7b", "night8", "night8b", "night9", "night9b", "ch10", "ch11", "endings"],
+    sceneList: ["night1", "night2", "night2b", "night3", "night3b", "night3c", "night4", "night4b", "night5a", "night6a", "night5b", "night6b", "night7", "night7b", "night8", "night8b", "night9", "night9b", "ch10", "ch11", "ch12", "ch13", "endings"],
     startVars: startVars,
     clamp: clamp,
     opposed: opposed,

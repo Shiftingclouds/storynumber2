@@ -49,6 +49,7 @@ Your phone doesn't stop.
 
 *page_break
 *if keyman_safe
+  *set radiator_fixed true
   Your father is in your apartment when you get home, fixing your radiator.
 
   He's on his back on the floor under the window with his head behind the pipes and a wrench in his hand, in your old jeans, which are too long for him, and he's humming. He's been at it for two hours, he says. It's been banging since 2021. It's a very badly fitted radiator.
