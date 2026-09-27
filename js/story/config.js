@@ -26,6 +26,7 @@
     c_bourdon_list: { title: "Fresh ink", text: "Beside each victim's name in the Register: a tick, in fresh ink, in the Bourdon's hand." },
     c_accord_signers: { title: "Who signed", text: "The Accord of '67 was signed by the Bourdon, Honora Strachan and the Conductor, and witnessed by Rose." },
     c_angel_word: { title: "The angel's word", text: "Jean-Baptiste: “The hand that rings the stolen bell drinks at the President's right side.”" },
+    c_meme_hum: { title: "M\u00e9m\u00e9's song", text: "M\u00e9m\u00e9 hummed six notes as she drifted off. \u201cAur\u00e8le's song,\u201d she called it. \u201cHe put it in the lock.\u201d" },
     c_flinch: { title: "The Keyman flinched", text: "When you told the Keyman your name, he flinched as if you'd struck him." },
     c_serge_visits: { title: "Every week", text: "Nadim: a Lacroix came to his door every week for fifteen years and talked to him through the steel. Then, in 2011, he stopped." }
   };
@@ -37,6 +38,7 @@
     ded_ruari_there: { title: "Ruari was there", text: "The bead in the snow came off Ruari Strachan's wrist.", from: [["c_kandi_bead", "c_kandi_worn"]] },
     ded_ruari: { title: "Ruari is the killer", text: "Soft voice, an accent, “sorry, love”, and the one who drinks at Honora's right hand. Ruari Strachan.", from: [["c_voice", "c_kandi_worn"], ["c_angel_word", "c_kandi_worn"]] },
     ded_list: { title: "The Compagnie chose them", text: "Every victim is in the Register, ticked in the Bourdon's hand. The killings aren't random. They're a list.", from: [["c_victim_list", "c_bourdon_list"]] },
+    ded_keyman: { title: "The Keyman is family", text: "A nameless old man on the Missing Line hums your grandfather's song, the one he put in the lock, and flinches at the name Lacroix.", from: [["c_six_notes", "c_meme_hum"], ["c_flinch", "c_meme_hum"]] },
     ded_wolf: { title: "Theory: a wolf did it", text: "Wolf hair in the fist, a Carillon bell to cover it. A loup-garou who knows the hunters' tricks.", from: [["c_wolfhair", "c_bellmark"]], theory: true },
     ded_lazare: { title: "Theory: Lazare did it", text: "A Hush-bell bruise, and the one hunter with no alibi for the second night.", from: [["c_bellmark", "c_lazare_absent"]], theory: true }
   };
@@ -78,7 +80,7 @@
     dentist: "", has_photo: false, photo: "", lutin: "", turned_back: 0, called: "", saved_agathe: "", window_talk: "", has_notebook: false, n1_memory: "", n1_gave_name: false, told_djinn: false, n1_ride: "", n1_reply_dario: "", n1_reply_lazare: "",
     opened_by: "", n1_nadim: "", n1_lied: false, n1_with: "", bell_failed: false,
     /* night two */
-    meme_told: false, serge_promise: false, meme_key: false, clarke_moved: false, n2_stance: "", plate_got: false, plate_how: "", has_key: false, took_hair: false, aime_tasted: false, n2_escort: "", saw_scarf: false,
+    meme_told: false, mireille_kind: false, know_true_name: false, meme_way: "", n2_crowd: "", met_mireille: false, keyman_asked: false, n2_ruari: "", serge_promise: false, meme_key: false, clarke_moved: false, n2_stance: "", plate_got: false, plate_how: "", has_key: false, took_hair: false, aime_tasted: false, n2_escort: "", saw_scarf: false,
     clarke_job: "",
     /* night three */
     fleurette_open: false, hours: 6, patrolled: false, saw_rose: false, bridge_nadim: false, beaver_dinner: false, honora_contract: false, fed_ruari: false,
@@ -145,7 +147,7 @@
     dario: {
       name: function () { return "Dario Santangelo"; }, short: "Dario", epithet: "Alpha of the Sept-Ans", romance: true,
       desc: function (v) {
-        return "<p>Alpha of the Sept-Ans, Montréal's loup-garou pack. He's thirty-one, broad and bearded, with a broken nose and a gold chain. He drives a tow truck, plays goalie in a beer league, and swears in French, English and Italian, often all three in one breath.</p>" +
+        return "<p>Alpha of the Sept-Ans, Montréal's loup-garou pack. He's thirty-one, broad and bearded, with a broken nose and a gold chain. He drives a tow truck, sings Céline at karaoke with total commitment, wears the lumpy red toque his nonna knitted him in every weather, and swears in French, English and Italian, often all three in one breath.</p>" +
           "<p>At twelve a priest told him boys like him were damned, so he stopped going to Mass. Seven Easters later, he turned. " + hush("When he turned, the Hush let go of him, and he remembered the boy on the next balcony, the one nobody else remembered.", v.thaw || v.know_affair) + "</p>" +
           (v.know_affair ? "<p>He calls Lazare <i>Enzo</i> when he thinks no one can hear. " + hush("It isn't a taunt. It's his name.", v.thaw) + "</p>" : "") +
           (v.manon_cut ? "<p>The Carillon cut Manon on the night of the Thaw. He hasn't forgiven anyone for it, including himself.</p>" : "");
@@ -291,7 +293,7 @@
   var map = [
     { night: 1, id: "n1_door", title: "The door", branches: { finesse: "Opened it by hand", force: "Drilled it", back: "Turned back" } },
     { night: 1, id: "n1_with", title: "After the bells", branches: { lazare: "Went with Lazare", dario: "Went with Dario", ran: "Ran for the van", played: "Played them off each other" } },
-    { night: 2, id: "n2_plate", title: "Nadim's name", branches: { stole: "Stole it", bargained: "Bargained for it", conned: "Conned the seller", favor: "Spent Aïmé's favor", lost: "Lost it" } },
+    { night: 2, id: "n2_plate", title: "Nadim's name", branches: { clarke: "Handed it to the Conductor", stole: "Palmed it for Nadim", bargained: "Made it your fee", conned: "Tricked the Conductor", favor: "Spent Aïmé's favor", lost: "Kept out of it" } },
     { night: 2, id: "n2_escort", title: "Walked home by", branches: { lazare: "Lazare", dario: "Dario", both: "Both of them", friends: "Your friends" } },
     { night: 3, id: "n3_first", title: "The first hour", branches: { dario: "Saint-Jude", lazare: "The patrol", rose: "Le Mardi Gras", nadim: "The bridge", gisele: "The Buanderie", club: "The Beaver Club", aime: "The funeral home", keyman: "The Keyman" } },
     { night: 4, id: "n4_dance", title: "The dance", branches: { won: "You led", lost: "He led" } },
@@ -470,7 +472,7 @@
     eyebrow: "Montréal · February",
     subtitle: "A dark romance in nine nights",
     motto: "Le fort a besoin de son gardien.",
-    sceneList: ["night1", "night2", "night3", "night4", "night5a", "night6a", "night5b", "night6b", "night7", "night8", "night9", "endings"],
+    sceneList: ["night1", "night2", "night2b", "night3", "night4", "night5a", "night6a", "night5b", "night6b", "night7", "night8", "night9", "endings"],
     startVars: startVars,
     clamp: clamp,
     opposed: opposed,
@@ -488,6 +490,7 @@
       "rel_keyman", "rel_bourdon", "rel_agathe", "rel_manon", "rel_lucille"],
     lookKeys: ["look_skin", "look_hair", "look_style", "look_beard", "look_eyes"],
     people: people,
+    contacts: { marc: "Marc-Andr\u00e9", philippe: "Philippe (dentist)", normande: "Normande", residence: "R\u00e9sidence Sainte-Marguerite", agathe_sms: "Agathe" },
     clues: clues,
     deductions: deductions,
     codex: codex,

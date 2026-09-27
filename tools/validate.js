@@ -183,7 +183,7 @@ function main() {
         case "text": {
           const m = /^(\w+)\s+(.+)$/.exec(a);
           if (!m) { errors.push(`${where}: bad *text`); break; }
-          if (m[1] !== "me" && m[1] !== "unknown") person(m[1], where);
+          if (m[1] !== "me" && m[1] !== "unknown" && !(cfg.contacts && cfg.contacts[m[1]])) person(m[1], where);
           checkText(m[2], where, temps);
           break;
         }

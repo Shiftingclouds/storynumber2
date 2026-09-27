@@ -307,8 +307,9 @@
       var row = el("div", { class: "msg" + (mine ? " me" : "") });
       if (!mine && t.who !== last) {
         row.appendChild(el("div", { class: "from" }, [
-          t.who === "unknown" ? el("span", { class: "nb-face unknown", text: "?" }) : face(t.who, "neutral", 36),
-          el("span", { text: t.who === "unknown" ? "Unknown number" : personShort(t.who) })
+          t.who === "unknown" ? el("span", { class: "nb-face unknown", text: "?" })
+            : cfg().contacts[t.who] ? el("span", { class: "nb-face unknown", text: cfg().contacts[t.who].charAt(0) }) : face(t.who, "neutral", 36),
+          el("span", { text: t.who === "unknown" ? "Unknown number" : cfg().contacts[t.who] || personShort(t.who) })
         ]));
       }
       row.appendChild(el("div", { class: "bubble", html: t.html }));

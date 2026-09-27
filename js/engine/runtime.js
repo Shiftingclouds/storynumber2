@@ -536,7 +536,7 @@
         flush();
         m = /^(\w+)\s+(.+)$/.exec(args.trim());
         if (!m) throw RuntimeError(this, "Bad *text: " + args);
-        if (m[1] !== "me" && m[1] !== "unknown") this.person(m[1]);
+        if (m[1] !== "me" && m[1] !== "unknown" && !(this.config.contacts && this.config.contacts[m[1]])) this.person(m[1]);
         blocks.push({ k: "text", who: m[1], html: this.render(m[2], st.pc) });
         st.pc++;
         return null;
