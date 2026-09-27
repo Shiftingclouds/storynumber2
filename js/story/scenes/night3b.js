@@ -100,7 +100,7 @@ Manon has a glass of red wine she hasn't touched and a plate she has. She watche
   #"Were you scared? The first time you changed?"
     *set rel_manon +5
     *set nerve +2
-    "Terrified," she says simply. "I was forty-six years old, alone in my mother's kitchen, on Easter Sunday, on all fours on the linoleum. I thought I was being punished." She almost smiles. "And then I heard howling, from very far away, across the whole city, from the east. Somebody had felt me turn. Dario. He was twenty-five. He came in his tow truck, with a blanket, and my mother made him coffee." She sips. "That's what a pack is, locksmith. Somebody who hears you, from across the city, and comes with a blanket."
+    "Terrified," she says simply. "I was forty-six years old, alone in my mother's kitchen, on Easter Sunday, on all fours on the linoleum. I thought I was being punished." She almost smiles. "And then I heard howling, from very far away, across the whole city, from the east. Somebody had felt me turn. Dario. He was twenty-one. He came in his tow truck, with a blanket, and my mother made him coffee." She sips. "That's what a pack is, locksmith. Somebody who hears you, from across the city, and comes with a blanket."
 *goto sj_karaoke
 
 *label sj_lore

@@ -29,16 +29,17 @@
     c_meme_hum: { title: "M\u00e9m\u00e9's song", text: "M\u00e9m\u00e9 hummed six notes as she drifted off. \u201cAur\u00e8le's song,\u201d she called it. \u201cHe put it in the lock.\u201d" },
     c_ruari_sorry: { title: "Sorry, love", text: "Ruari, lifting his mouth from your throat, dizzy and soft: \u201cSorry, love.\u201d The exact words." },
     c_torn_page: { title: "The torn page", text: "The Keyman keeps a page torn from a notebook, the only thing he came down the stairs with in 2011. The torn edge matches the page missing from Aur\u00e8le's notebook." },
+    c_furs_taste: { title: "Brother Olivier's last memory", text: "Aimé tasted the young hunter who died behind Saint-Jude: cold hands, a bell, a pale wrist stacked with plastic beads, “sorry, love”, and the smell of a cellar hung with furs." },
     c_flinch: { title: "The Keyman flinched", text: "When you told the Keyman your name, he flinched as if you'd struck him." },
     c_serge_visits: { title: "Every week", text: "Nadim: a Lacroix came to his door every week for fifteen years and talked to him through the steel. Then, in 2011, he stopped." }
   };
 
   var deductions = {
     ded_bite: { title: "The bell hid a bite", text: "The bruise isn't the wound. Someone bit them, then rang a bell over the bite to hide it. A vampire.", from: [["c_bellmark", "c_bite"]] },
-    ded_planted: { title: "The hair was planted", text: "The wolf hair came off a dead pelt. Somebody wants the pack blamed.", from: [["c_wolfhair", "c_pelt"], ["c_wolfhair", "c_pelt_room"]] },
+    ded_planted: { title: "The hair was planted", text: "The wolf hair came off a dead pelt. Somebody wants the pack blamed.", from: [["c_wolfhair", "c_pelt"], ["c_wolfhair", "c_pelt_room"], ["c_wolfhair", "c_furs_taste"]] },
     ded_bell: { title: "A stolen Carillon bell", text: "The killer rings a Hush-bell, and one went missing from the Carillon's own armory.", from: [["c_bellmark", "c_bell_stolen"]] },
     ded_ruari_there: { title: "Ruari was there", text: "The bead in the snow came off Ruari Strachan's wrist.", from: [["c_kandi_bead", "c_kandi_worn"]] },
-    ded_ruari: { title: "Ruari is the killer", text: "Soft voice, an accent, “sorry, love”, and the one who drinks at Honora's right hand. Ruari Strachan.", from: [["c_voice", "c_kandi_worn"], ["c_angel_word", "c_kandi_worn"], ["c_voice", "c_ruari_sorry"]] },
+    ded_ruari: { title: "Ruari is the killer", text: "Soft voice, an accent, “sorry, love”, and the one who drinks at Honora's right hand. Ruari Strachan.", from: [["c_voice", "c_kandi_worn"], ["c_angel_word", "c_kandi_worn"], ["c_voice", "c_ruari_sorry"], ["c_furs_taste", "c_kandi_worn"]] },
     ded_list: { title: "The Compagnie chose them", text: "Every victim is in the Register, ticked in the Bourdon's hand. The killings aren't random. They're a list.", from: [["c_victim_list", "c_bourdon_list"]] },
     ded_keyman: { title: "The Keyman is family", text: "A nameless old man on the Missing Line hums your grandfather's song, the one he put in the lock, and flinches at the name Lacroix.", from: [["c_six_notes", "c_meme_hum"], ["c_flinch", "c_meme_hum"], ["c_torn_page", "c_meme_hum"], ["c_torn_page", "c_six_notes"]] },
     ded_wolf: { title: "Theory: a wolf did it", text: "Wolf hair in the fist, a Carillon bell to cover it. A loup-garou who knows the hunters' tricks.", from: [["c_wolfhair", "c_bellmark"]], theory: true },
@@ -95,7 +96,7 @@
     bourdon_deal: false, read_register: false, know_keyman: false, angel_heard: false, ally_angel: false, reconciled: false,
     lazare_left_carillon: false, agathe_turned: false, manon_safe: false, manon_cut: false, lazare_inside: false,
     lazare_rehushed: false, lazare_restored: false, honora_alliance: "", canoe_alt: 5, canoe_crashed: false, change_rung: false,
-    visited_parents: false, mathis_out: false, n6_lane: "", nadim_taken: false, bourdon_knows: false,
+    visited_parents: false, mathis_out: false, n6_lane: "", nadim_taken: false, bourdon_knows: false, olivier_dead: false, n5_roof: "",
     /* night seven */
     keyman_known: false, keyman_forgiven: false, keyman_safe: false, keyman_taken: false, accused: "", ruari_fate: "",
     honora_turned: false, clarke_turned: false, invited_rose: false, ally_rose: false,
