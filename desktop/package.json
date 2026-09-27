@@ -1,0 +1,40 @@
+{
+  "name": "nuit-blanche",
+  "productName": "Nuit Blanche",
+  "version": "1.0.0",
+  "description": "Nuit Blanche — an interactive novel",
+  "author": "shiftingclouds",
+  "main": "main.js",
+  "scripts": {
+    "sync": "node ../tools/build.js && node -e \"require('fs').copyFileSync('../dist/nuit-blanche.html','app/nuit-blanche.html')\"",
+    "start": "npm run sync && electron .",
+    "dist:win": "npm run sync && electron-builder --win portable --x64"
+  },
+  "build": {
+    "appId": "com.shiftingclouds.nuitblanche",
+    "productName": "Nuit Blanche",
+    "files": [
+      "main.js",
+      "app/**",
+      "build/icon.png"
+    ],
+    "directories": {
+      "output": "release"
+    },
+    "win": {
+      "target": "portable",
+      "icon": "build/icon.ico",
+      "signAndEditExecutable": false
+    },
+    "portable": {
+      "artifactName": "NuitBlanche.exe"
+    },
+    "afterPack": "./afterPack.js"
+  },
+  "devDependencies": {
+    "electron": "^44.4.5",
+    "electron-builder": "^26.15.3",
+    "pe-library": "^2.0.1",
+    "resedit": "^3.1.0"
+  }
+}

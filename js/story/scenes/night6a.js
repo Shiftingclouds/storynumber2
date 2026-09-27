@@ -828,7 +828,7 @@ The Carillon keeps muffles for requiems: leather pads that strap onto one side o
 The bell chamber is a cage of oak beams in the dark, with ten bells hanging in a great frame. They're [i]up[/i], Lazare says: mouth to the sky, balanced on their stays, ready to swing. Their mouths gape. You have to climb down [i]into[/i] them, one by one, on the beams, and reach inside the bronze in the dark to get at the clapper. The biggest of them could drop you like a stone if anyone leaned on a rope below.
 
 *choice
-  *selectable_if (nerve >= 40) #Climb down into them yourself. One by one. Don't think about the ropes.
+  *selectable_if (nerve >= 30) #Climb down into them yourself. One by one. Don't think about the ropes.
     *set nerve +3
     You climb into the first bell's mouth with a headlamp in your teeth. It's like climbing into a well. The bronze is freezing and gives back your breathing in a hundred tiny echoes. You find the clapper, a great iron tongue as long as your arm, and strap the leather round its ball with your locksmith's fingers, buckle, buckle, tight, and climb out. Nine more.
 

@@ -175,6 +175,7 @@ for (let run = 0; run < RUNS; run++) {
   let page;
   try {
     page = rt.newGame({ seed, ng });
+    if (rng() < 0.2) rt.state.vars.steam = false; // some players fade to black
     let pages = 1;
     while (page.kind !== "ending") {
       if (UNTIL && (reachedVars || UNTILS.includes(rt.state.scene))) break;
