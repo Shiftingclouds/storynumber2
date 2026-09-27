@@ -546,10 +546,10 @@
     if (spec.cheek) { fig.hline(20, 22, 35, ramp[2]); fig.set(23, 36, ramp[2]); fig.hline(41, 43, 35, ramp[3]); fig.set(40, 36, ramp[3]); }
     if (spec.pencil) { fig.hline(30, 33, 38, HAIR.black[1]); fig.set(29, 39, HAIR.black[1]); fig.set(34, 39, HAIR.black[1]); }
     if (spec.toque) {
-      // a Canadiens toque: red, a blue band with a white stripe, a pompom
-      fig.poly([[18, 20], [46, 20], [44, 11], [38, 7], [26, 7], [20, 11]], function (x, y) { return x > 40 ? "#9c1426" : (x < 25 && y < 14 ? "#e3384a" : "#c8102e"); });
-      fig.hline(17, 47, 17, "#1b2f8a"); fig.hline(17, 47, 18, "#f2f2f2"); fig.hline(17, 47, 19, "#1b2f8a"); fig.hline(18, 46, 20, "#1b2f8a");
-      for (var tx = 20; tx <= 44; tx += 2) fig.set(tx, 12 + (tx % 4 === 0 ? 1 : 0), "#a8122a");
+      // his nonna's hand-knitted toque: lumpy red wool, a ribbed cuff, a white pompom
+      fig.poly([[18, 20], [46, 20], [44, 11], [38, 7], [26, 7], [20, 11]], function (x, y) { return x > 40 ? "#8e1c24" : (x < 25 && y < 14 ? "#d8424a" : "#b3242e"); });
+      for (var ty = 16; ty <= 20; ty++) for (var tx0 = 17; tx0 <= 47; tx0++) fig.set(tx0, ty, (tx0 % 2) ? "#9a1e28" : "#c23a42");
+      for (var tx = 20; tx <= 44; tx += 3) { fig.set(tx, 11 + (tx % 2), "#9a1e28"); fig.set(tx + 1, 13, "#9a1e28"); }
       fig.ellipse(32, 5, 3, 2.5, "#f2f2f2"); fig.set(31, 4, "#ffffff"); fig.set(34, 6, "#c9c9d1");
     }
     if (spec.scar) { fig.set(34, 44, ramp[0]); fig.set(35, 45, ramp[0]); }
@@ -760,11 +760,25 @@
     return P.toDataURL(d.canvas, "p:" + d.key);
   }
 
+  /** A 36×36 crop around the face, for toasts, options and phone avatars. */
+  function faceUrl(id, mood, vars) {
+    var d = draw(id, mood, vars);
+    var key = "f:" + d.key;
+    var crop = P.canvas(36, 36);
+    for (var y = 0; y < 36; y++) for (var x = 0; x < 36; x++) {
+      var p = d.canvas.get(x + 14, y + 8);
+      if (p) crop.set(x, y, p);
+    }
+    for (var i = 0; i < 36; i++) { crop.set(i, 0, INK); crop.set(i, 35, INK); crop.set(0, i, INK); crop.set(35, i, INK); }
+    return P.toDataURL(crop, key);
+  }
+
   NB.portraits = {
     ids: Object.keys(SPECS),
     specs: SPECS,
     draw: function (id, mood, vars) { return draw(id, mood, vars).canvas; },
     url: url,
+    faceUrl: faceUrl,
     lookOptions: { look_skin: SKIN_ORDER.length, look_hair: HAIR_ORDER.length, look_style: 5, look_beard: 4, look_eyes: EYE_ORDER.length },
     lookLabels: {
       look_skin: ["Porcelain", "Fair", "Olive", "Tan", "Brown", "Deep"],

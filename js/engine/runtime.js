@@ -75,6 +75,7 @@
       codex: [],
       nodes: {},
       undone: [],
+      asked: {},
       mood: ""
     };
     return this.run(null);
@@ -863,7 +864,7 @@
     var st = this.state;
     var sv = this.config.startVars;
     for (var k in sv) if (Object.prototype.hasOwnProperty.call(sv, k) && !Object.prototype.hasOwnProperty.call(st.vars, k)) st.vars[k] = clone(sv[k]);
-    ["met", "memories", "deductions", "nodes"].forEach(function (f) { if (!st[f]) st[f] = {}; });
+    ["met", "memories", "deductions", "nodes", "asked"].forEach(function (f) { if (!st[f]) st[f] = {}; });
     ["clues", "codex", "undone"].forEach(function (f) { if (!st[f]) st[f] = []; });
     if (st.mood === undefined) st.mood = "";
   };
@@ -932,6 +933,25 @@
       }
     }
     return { id: null };
+  };
+
+  /** Grant a clue or codex entry from outside the story (e.g. Ask Fleurette). Returns true if it was new. */
+  Runtime.prototype.grant = function (kind, id) {
+    var st = this.state;
+    if (kind === "clue") {
+      if (!this.config.clues[id] || st.clues.indexOf(id) >= 0) return false;
+      st.clues.push(id);
+      if (Object.prototype.hasOwnProperty.call(st.vars, id)) st.vars[id] = true;
+      this.refreshChoices();
+      return true;
+    }
+    if (kind === "codex") {
+      if (!this.config.codex[id] || st.codex.indexOf(id) >= 0) return false;
+      st.codex.push(id);
+      if (this.opts.onCodex) this.opts.onCodex(id);
+      return true;
+    }
+    return false;
   };
 
   /** Submit the portrait creator's choices. */

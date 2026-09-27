@@ -127,7 +127,7 @@ street was Dario Santangelo.
 he asks, every time.
 
 **Dario Santangelo**, 31. Alpha of the Sept-Ans.
-Broad, bearded and loud, with a broken nose, a gold chain and a beer-league goalie's knees. He drives a tow truck. He
+Broad, bearded and loud, with a broken nose, a gold chain and a lumpy red toque his nonna knitted. He drives a tow truck and sings Céline at karaoke with total commitment. He
 swears in French, English and Italian, sometimes in one sentence. At twelve, a priest told him boys like him were
 damned, so he stopped going to Mass. Seven years later, at nineteen, he turned, and *remembered*: the change broke the
 Hush for him and gave him back a best friend nobody else remembered existed. He went looking, and found a Carillon
