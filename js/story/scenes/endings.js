@@ -3,4 +3,6 @@ NB.scene("endings", String.raw`
 *ending white_night
 *label sleep_through
 *ending sleep_through
+*label sleeper
+*ending sleeper
 `);

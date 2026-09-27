@@ -25,13 +25,13 @@ You set the bag down and look at the door. It's a nice door, for a condo: solid 
 
     Four minutes. The dentist narrates every one of them. On the fifth, the cylinder turns under your fingers with a small, soft give that you have never once in your life stopped enjoying.
   #Look before you work. The deadbolt isn't even thrown. Only the latch.
-    *set wits +3
+    *set wits +2
     *set reckless %-5
     The bolt's throw-plate is empty. He didn't lock it; the door just latched behind him. You take a flat strip of spring steel from your bag, slide it into the gap by the strike plate, angle it down, and pop the latch in about nine seconds.
 
     The dentist stares at you as if you've performed a miracle. You don't tell him that anyone with a gym membership card could have done it. That's between you and his insurance company.
   #Swap the battery on the keypad. Sometimes the answer is stupider than the question.
-    *set wits +2
+    *set wits +1
     *set wry %+5
     You flip open the keypad's cover, pop out the dead nine-volt, put in one from your bag, and hand him the pad. He types his code, which you watch him type, which is his birthday.
 
@@ -299,7 +299,7 @@ You've been to this island a hundred times. La Ronde, every summer, screaming on
     You slide it in behind your licence. It sits against your hip like a hand.
   #Study it until your flashlight dims. Look for anything. Anything at all.
     *set photo "studied"
-    *set wits +3
+    *set wits +2
     You find three things. A second shadow in the grass, long, from whoever held the camera. A glint in your father's shirt pocket that might be keys. And your own twelve-year-old hands, in the picture, held stiffly at your sides with the fingers spread, the way you hold them when you've just washed them and don't want to touch anything.
 
     Or the way you hold them when you've just learned to play something.
@@ -488,14 +488,14 @@ The brass bands turn slowly in the air. Up close, the script on them is warm to 
     *set n1_nadim "asked"
     *set lore +5
     *set rel_nadim +5
-    *set wits +2
+    *set wits +1
     "A djinn," it says, without hesitating. "Of smokeless fire, from the hills above a city that wasn't called Beirut yet. Bought on a railway platform under this city in 1958, and chained here in 1967 by people who needed something to burn." A pause. "That's the truth. It's not the whole truth. The whole truth would take all night, and I don't think we have all night."
 
     You open the bands.
   #"What happens if I do?"
     *set n1_nadim "hesitated"
     *set reckless %-10
-    *set wits +2
+    *set wits +1
     "The lights go out all over the city," the fire says, "a little. Some things that were forgotten will start to be remembered. And I stop burning." The coals pulse. "I've been burning for fifty-nine years, locksmith. I'd like to stop."
 
     You look at the bands for a long moment. Then you open them.
@@ -530,7 +530,7 @@ He looks at his hands for a long time. He opens and closes them. At the edges he
     "People who needed something to burn," he says. "You'll meet them. They'll be very polite, and they'll shake your hand, and one of them will offer you a drink." His eyes go to the stairs. "Don't drink it."
   *hide_reuse #"Why did the lock open for me?"
     *set asks +1
-    *set wits +2
+    *set wits +1
     "Because your grandfather built it to," he says. "Only a Lacroix hand to open it, and only a Lacroix hand to close it. He was very proud of that. He told me so, through the door, the day he finished." A pause. "He cried, too. I don't think he knew I could hear."
   *hide_reuse #"Are you dangerous?"
     *set asks +1
@@ -679,7 +679,7 @@ What goes across his face isn't anger. It's fear.
     Lazare looks at you as if he'd like to ring the bell again, very hard, directly into your skull.
   #"You first. Who the hell are you people?"
     *set reckless %+5
-    *set wits +2
+    *set wits +1
     Agathe answers, because Lazare clearly won't. "The Carillon," she says, as if that explains it. When it doesn't: "We ring the bells. We keep the Hush. We make sure people like you don't have to know about things like that." She nods at the door. "Usually it works."
     *codex carillon
 
@@ -841,7 +841,7 @@ Finally Dario turns to you and spreads his hands. "Okay. Law of the Veillée, ev
     *remember dario You ran, and he let you.
   *selectable_if ((wits >= 35) or (charm >= 35)) #Play them against each other. "I'll go with whichever of you wins."
     *set n1_with "played"
-    *set wits +3
+    *set wits +2
     *set charm +3
     *set wry %+5
     *node n1_with played
@@ -880,7 +880,7 @@ Finally Dario turns to you and spreads his hands. "Okay. Law of the Veillée, ev
     #"You're supposed to take me to your Bourdon. Whatever it takes. Are you going to?"
       *set n1_ride "bourdon"
       *set rel_lazare +5
-      *set wits +2
+      *set wits +1
       His hands tighten on the wheel. "Yes," he says. Then, after the whole length of the Sainte-Catherine exit: "Not tonight."
 
       "Why not?"
@@ -969,7 +969,7 @@ Finally Dario turns to you and spreads his hands. "Okay. Law of the Veillée, ev
       *remember dario You wiped the gravy off his beard with your thumb, the first night.
     #"Desautels. The one with the bells. What's the story with you two?"
       *set n1_ride "lazare"
-      *set wits +3
+      *set wits +2
       "We go way back," Dario says. Something complicated goes on behind his eyes and then shuts. "He's a pain in my ass. Eat your fries."
 
       You eat your fries. You notice that he doesn't touch his for a full minute afterwards.
@@ -992,12 +992,12 @@ Finally Dario turns to you and spreads his hands. "Okay. Law of the Veillée, ev
   *choice speak
     #"No. But I'd like to. Tell me about him."
       *set rel_dario +5
-      *set wits +2
+      *set wits +1
       He opens his mouth. Something stops it. "Some other time," he says, and looks out at the snow. "It's a long story, and I only know the second half."
     #"You like him."
       *set rel_dario -2
       *set des_dario +5
-      *set wits +3
+      *set wits +2
       Dario laughs, loud and fake, and turns the radio on. "I like karaoke. I like poutine. I like big dumb trucks," he says. "Desautels is a pain in my ass."
 
       He drives the next four blocks with the back of his neck gone dark red.
@@ -1063,7 +1063,7 @@ The lutin looks up at you, deeply offended, and finishes the braid with a little
     The lutin watches you pull it apart with an expression of profound betrayal. He hops down off the bar, and on the way past he steals one of your fries from yesterday, still in your jacket pocket, somehow.
   #Ask him what the favor is.
     *set lutin "deal"
-    *set wits +2
+    *set wits +1
     *set lore +2
     The lutin considers. He points at your kit bag, then mimes turning a key, then points at himself and holds up one finger. One lock, one day.
 
@@ -1246,7 +1246,7 @@ You open the window. Cold air pours in around him. He doesn't come in. Up close,
     "I make, and I unmake," he says simply. "When I'm stronger, I'll be able to take back a moment for you. Something you did that you'd rather you hadn't. One at a time." The smoke shifts. "Wishes, your stories call them. It's a smaller thing than the stories say, and a bigger one."
   #"Who bought you, in 1958?"
     *set window_talk "who"
-    *set wits +3
+    *set wits +2
     *set rel_nadim +3
     The smoke goes still. "A man in a conductor's cap," he says, after a while. "On a railway platform under this city that isn't on any map. He had very good manners. He counted the money twice." The amber lights narrow. "You'll meet him. He'll be charming. Remember who he sold."
   #"Do you want to come in? You look cold."

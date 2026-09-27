@@ -49,7 +49,7 @@ In the nearest dryer, going round and round among the towels, there's a pair of 
   #"You were in love with him."
     *set gisele_way "love"
     *set rel_gisele +5
-    *set wits +3
+    *set wits +2
     The four women at the card table go absolutely silent. Monique stops knitting.
 
     Gisèle doesn't move for a moment. Then she laughs, one short bark, and the smoke goes everywhere. "Well," she says. "You've got his mouth, too. He could never leave a thing alone either." She taps her cigarette. "Yes. I was in love with him. In 1956. Before your grandmother. A long time before you."
@@ -121,7 +121,7 @@ Her face goes still.
     *remember gisele You folded a fitted sheet with her, the way your mother taught you.
   #"Why a tuning fork? What was in the towers?"
     *set gisele_way "fork"
-    *set wits +3
+    *set wits +2
     *set lore +3
     "If I knew that, boy, I'd have been a lot less angry for a lot longer." She lights another cigarette. "All I know is what the old stories say. Every bell that's blessed has a voice, and a big enough bell, rung on the great feasts for a hundred years, gets something living in the voice." She looks toward the east, toward the river and the old town. "The biggest bell on this island is in La Persévérance. Eleven tons. They call it Jean-Baptiste." She says the name as if it might hear her. "Ask it, if you ever get close enough. I never did."
     *codex angel
@@ -204,7 +204,7 @@ And they drink, one after another, standing: "To the Mother of All the Saints." 
 *choice speak
   *selectable_if (wits >= 35) #"Tidying." Hold her eyes. "Is that what you call what happened to Mireille Caron?"
     *set rel_honora -10
-    *set wits +3
+    *set wits +2
     *set nerve +2
     Nobody at the table moves. The string quartet, somewhere down the hall, plays on.
 
@@ -212,7 +212,7 @@ And they drink, one after another, standing: "To the Mother of All the Saints." 
 
     The subject is closed so smoothly you barely feel the door.
   #"What kind of tidying?"
-    *set wits +2
+    *set wits +1
     "Oh, the usual kind," says Honora. "Loose ends. Old business. When a spell as large as the Hush frays, Mr. Lacroix, it's a bit like a dam. The water finds every crack." She smiles. "Someone has to go round with a bucket."
   #Let it go. Eat the cheese.
     *set guarded %+5
@@ -267,7 +267,7 @@ It's a trophy room. Stuffed heads on the walls: moose, elk, a bear. Glass cases 
 
   *choice
     *selectable_if ((wits >= 30) or (took_hair)) #Look closely at the pelt. Really look.
-      *set wits +3
+      *set wits +2
       *clue c_pelt_room
       There are holes in it.
 
@@ -301,7 +301,7 @@ He stops close to you. Too close. He smells of cold skin and old smoke and, very
     *goto ruari_bite
   #"Is that what she sent you to do? Soften up the locksmith?"
     *set rel_ruari +10
-    *set wits +3
+    *set wits +2
     He laughs, low. "She didn't send me anywhere. She never does. She just leaves doors open and waits to see who walks through them." He looks at his glass. "You're right, though. It's what I'm for. Pretty and useless."
 
     "You keep saying that."
@@ -318,7 +318,7 @@ He stops close to you. Too close. He smells of cold skin and old smoke and, very
     *set guarded %+10
     He steps back too, at once, with a little bow, as if it's a dance he's lost fairly. "Probably wise," he says. "Most people aren't."
 *set n3_last "club"
-*set wits +2
+*set wits +1
 *return
 
 *label ruari_bite
@@ -372,7 +372,7 @@ It goes through you like cold water.
   He lets go of you. He licks his lip, and smiles, dreamy, and picks up his glass. "You taste like cheap coffee and good decisions," he says. "Come back anytime."
 *remember ruari You let him drink from you in the trophy room, under the wolf.
 *set n3_last "club"
-*set wits +2
+*set wits +1
 *return
 
 *label funeral_home
@@ -395,7 +395,7 @@ The prep room is in the basement: white tile, steel tables, a smell of cold and 
     *set guarded %-5
     He takes his glasses down and puts them on and looks at you through them as if checking you're real. "It's what we do," he says. "Someone has to be the last person who's gentle with them."
   #"Show me. Everything. Anything that doesn't look right."
-    *set wits +3
+    *set wits +2
     *set rel_aime +5
     Aimé nods, suddenly all business, and something steadies in him: this is a thing he's good at.
   #"You look terrible. When did you last sleep?"
@@ -497,7 +497,7 @@ He has a cigarette he doesn't light. He just holds it.
 
 He stands up at last and stubs out the cigarette he never lit. "Go," he says. "It's late. It's early. Whatever it is." At the door, he turns back. "Lacroix. If it happens again. Another one. Call me first. Before anybody. While it's fresh."
 *set n3_last "aime"
-*set wits +2
+*set wits +1
 *return
 
 *label keyman
@@ -528,7 +528,7 @@ It's a line from an old TV commercial. From the eighties. Your father used to sa
     *set guarded %-5
     You sit on another milk crate. The tea is terrible and very sweet, the way he's made it, three sugars without asking, the way you take it. You didn't tell him how you take it.
   #"Where did you learn that line? 'Only in Canada, you say'?"
-    *set wits +3
+    *set wits +2
     *set rel_keyman +5
     He frowns into the pot. "I don't know," he says. "It's just there. Like the song." He looks up at you, puzzled, almost frightened. "A lot of things are just there. I don't know where they come from. The Conductor says I shouldn't pick at them."
   #"How long have you been down here?"
@@ -628,7 +628,7 @@ He unfolds it. It's a page from a notebook, with a ragged torn edge along one si
       "I know," you say. "Keep it safe."
     #"Can I borrow it? Just for a night?"
       *set rel_keyman -5
-      *set wits +2
+      *set wits +1
       He goes pale and closes the box and holds it against his chest. "I'm sorry," he says. "I'm sorry. I can't. It's all I came with." He doesn't look at you again until you're halfway down the platform.
 *else
   "I don't know what it means," he says. "But I know it's the most important thing I have." He folds it up again, carefully, along its soft old creases. "Isn't that strange? To have the most important thing in your life, and not know what it is?"

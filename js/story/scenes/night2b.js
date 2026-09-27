@@ -103,7 +103,7 @@ Six brass studs. A song lock. And four hours ago, in a care home on Bannantyne, 
     *set plate_got true
     *set rel_nadim +10
     *set rel_clarke -5
-    *set wits +3
+    *set wits +2
     *node n2_plate conned
     "It's keyed to the owner," you say, straight-faced, "as well as the song. Aurèle always did it that way with anything precious. Somebody has to hold the lid while I play it." You nod at the smoke. "Him. It's his name."
 
@@ -220,7 +220,7 @@ Six notes. Down, and up, and one held at the end, like a question.
   *choice
     #"Where did you learn that song?"
       *set keyman_asked true
-      *set wits +2
+      *set wits +1
       The old man looks up. His eyes are blue-grey, pale, very kind, and completely empty of recognition. "The song?" he says. "I don't know. I've always known it." He frowns a little, as if you've asked him where he learned to breathe. "Do you know it too?"
 
       "My grandmother sings it."
@@ -258,7 +258,7 @@ He's already cutting it. You didn't ask for anything. He takes a plain brass bla
     *set rel_keyman +5
     "Everyone calls me the Keyman," he says. "I've been here since 2011. Before that..." He shrugs, a small helpless movement. "Before that I don't know. They say I came down the stairs one night with good hands and no name, and the Conductor gave me this corner." He smiles, and the smile is terribly familiar and you can't think why. "Good hands are enough, down here."
   #"Why me? Why do you think I'll need it?"
-    *set wits +3
+    *set wits +2
     *set rel_keyman +3
     He thinks about it seriously. "Because you look like someone who opens things," he says. "And sooner or later everybody who opens things needs a way back out."
   #Take the key and go. There's something about him you can't look at for long.
@@ -292,7 +292,7 @@ You step over it.
 *choice
   *hide_reuse #Kneel and look at her face.
     *set looked +1
-    *set wits +2
+    *set wits +1
     *clue c_bellmark
     Her face is calm. Her skin is cold, much colder than it should be after an hour. And at her left temple, just above the ear, there's a bruise, dark purple going black, in a very precise shape: a curve, a crescent, the exact width of the lip of a bell.
 
@@ -308,7 +308,7 @@ You step over it.
   *hide_reuse *if (c_wolfhair) #Take a few of those hairs. Fold them in a napkin, in your pocket.
     *set looked +1
     *set took_hair true
-    *set wits +2
+    *set wits +1
     You pull the paper napkin from the bagel shop out of your pocket and pinch a few of the hairs into it and fold it and put it away, fast, with your body between your hand and the crowd.
 
     They feel wrong between your fingers. Dry. Brittle. You don't know why that bothers you. You just know that if you'd pulled them out of a live animal in a fight, they wouldn't feel like old straw.
@@ -388,7 +388,7 @@ And then, both at once, they look at you.
     *set rel_dario +15
     *set rel_lazare +5
     *set rel_clarke +10
-    *set wits +3
+    *set wits +2
     You unfold the napkin and hold it up to the red lamp. The platform goes quiet.
 
     "Feel it," you say to Lazare. "Go on."
@@ -405,7 +405,7 @@ And then, both at once, they look at you.
     *set rel_clarke +10
     *set rel_lazare +5
     *set rel_dario +5
-    *set wits +3
+    *set wits +2
     "A bell bruise and wolf hair," you say. "One from each of you. On the same old woman, on neutral ground, on the one night the whole Veillée's down here to look at me." You stand up. "If I wanted a war, that's exactly the body I'd leave."
 
     Lazare's mouth closes. Dario's opens, and nothing comes out.
@@ -495,7 +495,7 @@ He's quiet for half a block. "It's a Carillon bell," he says finally. "Not mine.
 *choice speak
   #"Someone's trying to frame the wolves. And your order's name is on the weapon."
     *set rel_lazare +10
-    *set wits +2
+    *set wits +1
     "Yes," Lazare says, very low, as if saying it out loud costs him. "I know." He starts walking again. "I'll find out who. I'll find out, and then I'll deal with it myself."
   #"Are you worried it's one of your own?"
     *set rel_lazare +5
@@ -503,7 +503,7 @@ He's quiet for half a block. "It's a Carillon bell," he says finally. "Not mine.
     He doesn't answer. That's the answer.
   #"Why does it matter so much to you that it isn't the wolves?"
     *set des_lazare +5
-    *set wits +3
+    *set wits +2
     He stops so suddenly you nearly walk into him.
 
     "It doesn't," he says. "It doesn't matter to me at all. A loup-garou killed my parents." He says it like a catechism. Then, after a second, much quieter, as if to himself: "It matters because it's a lie. That's all. I don't like lies."
@@ -532,7 +532,7 @@ At the Buick he stops, keys in hand. "Come to the towers tomorrow night," he say
     It shouldn't do what it does to you. It does it anyway.
   #"Your Bourdon ordered you to bring me in whatever it takes. Why are you asking?"
     *set rel_lazare +5
-    *set wits +2
+    *set wits +1
     "Because I'd rather you came," he says, "than that I had to." He unlocks the car. "Get in. It's cold."
 
 He drives you to Verdun at exactly the speed limit, and when he drops you off outside the pharmacy he waits, with the engine running, until your light goes on upstairs.
@@ -617,7 +617,7 @@ In your coat pocket, very quietly, a tinny voice says: "Oh, [i]chéri[/i]."
 
 *choice
   #Say nothing. File it away.
-    *set wits +3
+    *set wits +2
     *set guarded %+5
     You say nothing. You file it away, in the place where you keep things you've noticed and aren't supposed to have.
   #"You two should get a room."
@@ -660,7 +660,7 @@ It's the most normal twenty minutes you've had in two days, and at some point, o
     *remember aime You thanked him, crying in his hearse.
   #"Aimé. What she was thinking about, at the end. Did it hurt her?"
     *set rel_aime +5
-    *set wits +2
+    *set wits +1
     Aimé keeps his eyes on the road. "No," he says. "Not the dying. It was quick. The part before that hurt. Not knowing her own daughter's name." He swallows. "That hurt for forty-three years."
   #"Fleurette. Somebody's killing people like her. Why?"
     *set lore +3

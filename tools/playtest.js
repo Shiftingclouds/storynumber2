@@ -16,6 +16,7 @@ const RUNS = Number(opt("runs", 3000));
 const BASE_SEED = Number(opt("seed", 1));
 const VERBOSE = !!opt("verbose", false);
 const UNTIL = opt("until", null);
+const UNTILS = UNTIL ? String(UNTIL).split(",") : [];
 const FOCUS = !!opt("focus", false);
 const SKILLS = ["hands", "nerve", "charm", "wits", "lore"];
 const MAX_PAGES = 6000;
@@ -37,6 +38,12 @@ let totalPages = 0, totalWords = 0, finished = 0, wishesSpent = 0, deductionsMad
 const wordsByScene = {};
 
 let currentWords = null;
+let reachedVars = null;
+const origGoto = NB.Runtime.prototype.gotoScene;
+NB.Runtime.prototype.gotoScene = function (name, label) {
+  if (UNTILS.includes(name) && !reachedVars) reachedVars = JSON.parse(JSON.stringify(this.state.vars));
+  return origGoto.call(this, name, label);
+};
 const origRender = NB.Runtime.prototype.render;
 NB.Runtime.prototype.render = function (src, lineIndex) {
   const key = this.state.scene + ":" + lineIndex;
@@ -162,12 +169,13 @@ for (let run = 0; run < RUNS; run++) {
   const trail = [];
   const words = {};
   currentWords = words;
+  reachedVars = null;
   let page;
   try {
     page = rt.newGame({ seed, ng });
     let pages = 1;
     while (page.kind !== "ending") {
-      if (UNTIL && rt.state.scene === UNTIL) break;
+      if (UNTIL && (reachedVars || UNTILS.includes(rt.state.scene))) break;
       if (++pages > MAX_PAGES) throw new Error("Too many pages (loop?)");
       if (rng() < 0.15) tryDeductions(rt, rng);
       if (page.kind === "choice") {
@@ -193,8 +201,8 @@ for (let run = 0; run < RUNS; run++) {
       }
     }
     totalPages += pages;
-    if (UNTIL && rt.state.scene === UNTIL) {
-      const v = rt.state.vars;
+    if (UNTIL && reachedVars) {
+      const v = reachedVars;
       const key = focus || "mixed";
       const d = statDist[key] || (statDist[key] = {});
       for (const sk of SKILLS.concat(["rel_lazare", "rel_dario", "rel_rose", "rel_nadim", "des_lazare", "des_dario", "des_rose", "des_nadim", "wishes"])) (d[sk] = d[sk] || []).push(v[sk]);
@@ -233,7 +241,7 @@ const optKeys = [...optionCount.keys()];
 const never = optKeys.filter((k) => !optionCount.get(k));
 console.log(`\nOptions chosen at least once: ${optKeys.length - never.length} / ${optKeys.length}`);
 if (never.length) { console.log("Never chosen (first 60):"); never.slice(0, 60).forEach((k) => console.log("  " + optionText.get(k))); }
-const relevant = UNTIL ? allTextLines.filter((k) => cfg.sceneList.indexOf(k.split(":")[0]) < cfg.sceneList.indexOf(UNTIL)) : allTextLines;
+const relevant = UNTIL ? allTextLines.filter((k) => cfg.sceneList.indexOf(k.split(":")[0]) < Math.min(...UNTILS.map((u) => cfg.sceneList.indexOf(u)))) : allTextLines;
 const shown = relevant.filter((k) => textLines.get(k));
 console.log(`\nText lines shown at least once: ${shown.length} / ${relevant.length} (${Math.round((100 * shown.length) / Math.max(1, relevant.length))}%)`);
 if (opt("unshown", false)) {

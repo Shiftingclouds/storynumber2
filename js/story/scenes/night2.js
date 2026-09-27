@@ -178,7 +178,7 @@ Six notes. A little falling tune, then a rise, then one held at the end, like a 
     Your grandmother's eyes open. For a second she looks at you with a kind of terror, and then with a kind of peace. "Yes," she says. "Like that. Just like that." And she sleeps.
   #Ask her one more question, while she's still here. "Mémé. Where did Papa go?"
     *set rel_lucille -5
-    *set wits +3
+    *set wits +2
     Her eyes flicker. "To the Line," she says, from very far away. "He said he'd be on the Line. He said, if anyone asks, Lucille, I'm on the Line." Her face creases. "Which line? I asked him. There's only the four."
 
     And she's gone again, into wherever she goes, humming.
@@ -218,7 +218,7 @@ Normande appears with a bowl of pea soup, a heel of bread and a look that means 
     *set rel_fleurette +3
     "About half," says Fleurette. "Normande serves anyone who can find the door. The other half are sleepers who can't see a thing and think the jukebox has a mind of its own." She pats it. "It does."
   #"Why is everyone staring at me?"
-    *set wits +2
+    *set wits +1
     "Because you're news, chéri." She waves at the room. "A sleeper who walked through a Carillon bell and opened a Compagnie seal on the same night. By now every creature on the island knows your name, your van, and your shoe size. By midnight, half of them will have decided they're in love with you, and the other half will have decided to kill you." She considers. "Some will manage both."
   #"I went to see my grandmother. She knew about the fort. She gave me this." Show her the key.
     *set rel_fleurette +5
@@ -318,7 +318,7 @@ Not all at once. But a woman with scales on her wrists wants you to look at a lo
     "Oh, chéri," says the pocket. "You're a natural."
   *selectable_if (wits >= 30) #Bluff. Tell them all you're booked, very important, very expensive. Let them wonder.
     *set n2_crowd "bluff"
-    *set wits +3
+    *set wits +2
     *set guarded %+5
     "I'm afraid I'm spoken for this week," you say, gravely, to everyone at once, like a man with an appointment book. "But I'll be taking commissions after Nuit blanche. Leave your name with Madame Fleurette."
 
@@ -425,7 +425,7 @@ He finally looks at you. His eyes are grey and very frank behind the glasses, an
     "You didn't hold your nose," he says finally. "Everybody else did. You were the only one who didn't. I used to think about that." He puts his glasses back on. "You don't owe me anything. But I owe you one now. A favor. That's how it works down here."
     *remember aime You apologised for Secondaire 3, fifteen years late.
   #"Could you do that to anyone? Read their last thoughts?"
-    *set wits +3
+    *set wits +2
     *set rel_aime +5
     "If they're dead," Aimé says carefully. "And if I'm very close to it. The sooner the better. After a few days it's just... static." He studies you. "Why?"
 
@@ -465,7 +465,7 @@ He hands you an envelope. Heavy cream paper, sealed with red wax pressed with a 
     "Only for regulars," he says. He looks at your throat, just for a second, and then back at your eyes, and you feel it like a hand. "Come to supper. We'll see what you're on."
   #"What does the Beaver Club want with a locksmith?"
     *set n2_ruari "sharp"
-    *set wits +3
+    *set wits +2
     "What does anyone want with a locksmith?" Ruari says. "Something opened. Something closed." He turns the glass in his fingers. The bracelets clack. "Honora doesn't tell me the why. I just carry the envelopes. Pretty and useless. It's my whole brand."
   #"Tell Mrs. Strachan I'll think about it."
     *set n2_ruari "cold"
@@ -474,7 +474,7 @@ He hands you an envelope. Heavy cream paper, sealed with red wax pressed with a 
   #"Nice bracelets."
     *set n2_ruari "kandi"
     *set rel_ruari +10
-    *set wits +2
+    *set wits +1
     He looks down at them as if he'd forgotten they were there. Something passes over his face, fast and raw, and is gone.
 
     "Solstice, '98," he says. "A warehouse on Wellington. Last night I was ever warm." He tugs his sleeves down over them. "Everybody who was there gave everybody else a bracelet. I kept all of mine."

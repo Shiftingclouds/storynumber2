@@ -41,7 +41,7 @@ The young wolf with the torn ear gets up off a pew. Luc. Seventeen, maybe. He's 
 
     "Nobody in this city can," says Dario. "That's why I have a tow truck."
   #"Why did you go for her? Just her?"
-    *set wits +3
+    *set wits +2
     *set lore +2
     Luc touches his torn ear. "The bell," he says. "The sound of it. When they cut me, when I was..." He stops. "Before. Before I was a wolf. My dad used to ring the bell at Mass. He was an altar server his whole life. He rang it when he threw me out." He shrugs, a teenager's shrug, enormous and fragile. "I hear a bell, I see red."
     *codex loup_garou
@@ -87,7 +87,7 @@ Manon has a glass of red wine she hasn't touched and a plate she has. She watche
 *choice speak
   #"Why did you leave?"
     *set rel_manon +5
-    *set wits +2
+    *set wits +1
     "Because one day I realised I believed in the children more than I believed in the order," she says. "And the order was very clear, when it came to it, which of the two it believed in." She turns the wineglass by the stem. "I walked out in my habit on a Tuesday in March. I took the 18 bus to my mother's. I've never been back." A small shrug. "Seven Easters later, here I am. God has a sense of humour. Or He doesn't, and that's funnier."
   #"Do you miss God?"
     *set rel_manon +10
@@ -199,7 +199,7 @@ On the last chorus he opens his eyes and looks straight at you and holds out his
 
   *choice speak
     #"Somebody rich. Somebody old. Somebody who hunts."
-      *set wits +3
+      *set wits +2
       *set rel_dario +5
       He looks at you, and you can see him thinking about the mountain, about the big stone houses, about the one club in this city that still toasts the fur trade.
     #"We'll find out. Together."
@@ -250,7 +250,7 @@ The stairs are narrow and cold and smell of old pigeons, and the belfry at the t
     *remember dario You kissed him in the bell tower at Saint-Jude.
   #"A friend who mattered."
     *set rel_dario +10
-    *set wits +3
+    *set wits +2
     He's quiet so long you think he won't answer.
 
     "The only one," he says finally. And then, fast, before you can ask anything else: "It's cold. Let's go down. Manon made coffee."
@@ -398,7 +398,7 @@ Lazare doesn't lower the iron. He looks at you, sideways, a single glance. You'r
     He looks at you over the drunk man's lolling head. "You keep doing that," he says. "Standing between things."
   #Say nothing. Watch what he does when he thinks it's his call alone.
     *set feeder "watched"
-    *set wits +3
+    *set wits +2
     You say nothing. He looks at you once more, as if waiting, and when you don't speak, he looks back at the girl for a long moment.
 
     Then he puts the iron away, and gives her a card, and three twenties, and an address in Griffintown, and she goes up the wall like a spider.
@@ -522,7 +522,7 @@ His face does something complicated and very private. He puts the phone back.
 
 "I have to go," he says. "I'll walk you down."
 *set n3_last "lazare"
-*set wits +2
+*set wits +1
 *return
 
 *label mardi_gras
@@ -574,7 +574,7 @@ He stands, and bows, a real bow from the waist, eighteenth-century, and gestures
     *set lore +2
     Rose looks delighted, as if you've passed a test he didn't expect you to pass. "Good," he says. "Someone's teaching you properly. The djinn, I expect." He moves the glass away from you with one finger. "It's only champagne. But you were right not to trust it. Don't trust anything in here that you haven't paid for."
   #"What's in it?"
-    *set wits +3
+    *set wits +2
     *set rel_rose +5
     "Champagne," says Rose. "Moët, 1921. A very good year, if you liked the twenties, which I did." He smiles. "You're asking the right questions in the wrong order. Most people ask what's in the glass before they ask who's pouring. You'll learn."
 
@@ -584,7 +584,7 @@ He stands, and bows, a real bow from the waist, eighteenth-century, and gestures
 *choice
   #"Who called me on Friday night? Who sent me to the fort?"
     *set rose_q "caller"
-    *set wits +2
+    *set wits +1
     Rose's smile changes, becomes gentler and somehow sadder.
 
     "Someone who loves you," he says, "and can't remember why."

@@ -91,6 +91,7 @@
     outfit: "", gisele_tip: false, party_talks: 0, nadim_danced: false, coat_seen: false, thaw_side: "", philippe_saw: false, remembered_bell: false, n4_rose_q: 0,
     cufflinks: false, overheard: false, rose_lead: 5, danced_won: false, know_affair: false, thaw: false, mem_notes: false, n4_told_lazare: false, path: "",
     /* nights five & six */
+    n5_walk: "", lazare_said_name: false, n5_bourdon: "", mathis_promise: false, agathe_help: false, lectern_how: "", angel_asked: "", n6_parents: "", change_how: "", n6_lazare: "",
     bourdon_deal: false, read_register: false, know_keyman: false, angel_heard: false, ally_angel: false, reconciled: false,
     lazare_left_carillon: false, agathe_turned: false, manon_safe: false, manon_cut: false, lazare_inside: false,
     lazare_rehushed: false, lazare_restored: false, honora_alliance: "", canoe_alt: 5, canoe_crashed: false, change_rung: false,

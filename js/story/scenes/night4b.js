@@ -80,7 +80,7 @@ Rose puts his gloved hand at the small of your back and takes your other hand in
     "Three," Rose says. "Clément Ouimet: the Bourdon, twenty-two years old, a novice with a good heart and a terrible fear of the dark. Honora Strachan, for the Club. And Everett Clarke, who sold them the djinn and then couldn't bear to watch what he'd sold." He turns you under his arm. "I witnessed. My ink made it hold. They call themselves the Compagnie. They think it sounds holy."
   *hide_reuse #"Did my father really dance with you?"
     *set n4_rose_q +1
-    *set wits +2
+    *set wits +1
     "In 1998," says Rose. "Here. Badly." A small smile. "He wanted to know how to open the fort from the outside. How to get the djinn out without the Carillon knowing. I told him the truth: he couldn't. The lock was built to open only for a Lacroix hand, from the front, with the song, and the bells would know." He's quiet a moment. "He said he'd find another way. I believe he did. I believe it cost him everything he was."
   *hide_reuse #"Who's killing the unmade?"
     *set n4_rose_q +1
@@ -108,7 +108,7 @@ Rose puts his gloved hand at the small of your back and takes your other hand in
     "Jean-Baptiste," he says. "An angel. The only one on this island who never agreed to any of it. It has been saying [i]no[/i] since 1967, and they've been ringing over it ever since, so nobody can hear." His voice is very low. "Angels don't forget, darling. And they don't forgive the way you'd like them to. If it ever gets its voice back, pray you're not standing where it's looking."
   *hide_reuse #"Enzo. Who is Enzo?"
     *set n4_rose_q +1
-    *set wits +3
+    *set wits +2
     Rose looks at you, and for a moment the amusement goes out of him entirely.
 
     "Someone who was stolen," he says. "A long time ago. From a kitchen on rue Jarry." The fiddle soars. "Ask the man in the toque. Or wait." He glances at the nearest clock. "Just wait a few minutes. You won't have to ask anyone anything."
@@ -405,7 +405,7 @@ Lazare makes a sound you've never heard a person make.
     You don't look away. You don't know if that's kindness or not.
   #"Dario. Tell him why you never stopped saying it."
     *set rel_dario +10
-    *set wits +2
+    *set wits +1
     Dario looks at you, startled. Then he looks at Lazare, and something breaks open in his face that's been locked for seven years.
 
     "Because it's your name," he says. "Because if I stopped saying it, there'd be nobody left in the whole world who knew it. And then you'd really be gone." His voice cracks. "I couldn't. I couldn't be the last one to forget you."

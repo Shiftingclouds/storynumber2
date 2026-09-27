@@ -37,7 +37,7 @@ And then, at the bottom of the trunk, three things that aren't jokes.
   #A plain black shirt and black trousers. Clean. Sharp. Invisible until you're not.
     *set outfit "black"
     *set guarded %+5
-    *set wits +2
+    *set wits +1
     Black on black. Nothing to catch the eye until the eye catches you. You look in the mirror behind the bar and see a man who could be a waiter or a hitman or a very expensive date.
 
     "Understated," says Fleurette. "Mysterious. A little bit Catholic." She nods slowly. "The devil will love it. He loves anything that looks like it has a secret."
@@ -78,7 +78,7 @@ Normande hands you a small velvet box, black, rubbed bald at the corners. Inside
   #"Tell me about Gaétan. Properly."
     *set cufflinks true
     *set rel_fleurette +10
-    *set wits +2
+    *set wits +1
     She's quiet for a while. Normande goes on pinning your hem as if nothing's happening.
 
     "He smelled of Brylcreem and cold coffee," Fleurette says finally. "He had a scar through one eyebrow from a fight at a tavern in Hochelaga, over me, before we'd even met. He'd heard somebody say a thing about the girls at the Montmartre and he hit him. Then he came to see what the fuss was about." She smiles at nothing. "He called me [i]ma belle[/i], never Fleurette, never Réal. Just [i]ma belle[/i]. As if it were my name." She looks at you. "That's all. That's the whole story. It's enough."
@@ -157,7 +157,7 @@ You don't walk up to them. You stop at the next table with your back half to the
 *choice
   *selectable_if (wits >= 40) #Listen properly. Be furniture. Nobody notices furniture.
     *set overheard true
-    *set wits +3
+    *set wits +2
     *goto p_heard
   *selectable_if (rel_fleurette >= 30) #Let Fleurette do it. Open the compact in your pocket, just a crack.
     *set overheard true
@@ -231,7 +231,7 @@ Nadim looks at the dance floor, and then at you, and then away.
     *set rel_nadim +10
     "No," he says honestly. "Too many people. Too much noise. Too many of them looking at me like a thing they'd like to own." He turns his glass. "But I wanted to see you dance. So." A small shrug. "I'm here."
   #"What do you know about the Beaver Club? About Honora?"
-    *set wits +3
+    *set wits +2
     *set rel_nadim +5
     *set lore +2
     His face goes still. "She came down the stairs once," he says. "In 1971. To look at me. She stood outside the door for an hour and said nothing at all, and then she said, [i]so you're what it costs[/i], and went away." He sets the glass down. "She's the one who'll want me back. When they come for me. It'll be her idea, and someone else's hands."
@@ -284,7 +284,7 @@ Ruari is on his own for once, at the end of the Club's table, turning an empty g
       *set rel_ruari +5
       He shuts his eyes for a second. "Don't," he says. "Don't say that to me in here, in front of her." But his hand, on the table, has moved half an inch toward yours.
     #"You said something. After. 'Sorry, love.' Why?"
-      *set wits +3
+      *set wits +2
       *set rel_ruari -5
       Something shutters in his face so fast you almost miss it. "Did I?" he says lightly. "I say it to everyone. It's a Glasgow thing." He looks away, at the door, at the clocks. "Everybody's sorry for something, eh."
   *goto p_ruari_end
@@ -296,7 +296,7 @@ Ruari is on his own for once, at the end of the Club's table, turning an empty g
       *set rel_ruari +10
       He looks at you sharply, as if you've read his diary. Then he laughs, not happily. "Everyone wants that story," he says. "Nobody wants the one after." He touches the bracelets. "Another time, locksmith. If there is one."
     #"Nice bracelets. You're missing one."
-      *set wits +3
+      *set wits +2
       He looks down. On his left wrist, among the stacked pink and green and blue, there's a gap in the pattern: a pink bracelet with its cord knotted short, as if it broke and he tied it back together without all its beads.
 
       "Snapped on a door handle," he says. "Clumsy." He tugs his sleeve down over it.
@@ -355,7 +355,7 @@ Dario meets you halfway across the floor, which means he walked fast.
     *set wry %+5
     "The toque is load-bearing," he says. "The toque stays." But he's pleased; you can see it in the tips of his ears.
   #"Why do you keep looking at the Carillon's corner?"
-    *set wits +3
+    *set wits +2
     *set rel_dario -3
     He stops looking at it so fast it's almost a flinch. "I'm not," he says. "I'm keeping an eye on the bell-ringers. It's my job. Pack business." He takes a long drink of his beer. "Anyway. Fleurette dressed you. That's what we were talking about."
   #"Is Luc all right? After the Line?"

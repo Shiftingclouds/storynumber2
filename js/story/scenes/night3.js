@@ -47,7 +47,7 @@ You sit on the stool by the jukebox. Normande puts a coffee in front of you with
     *set guarded %-5
     She looks at you for a long moment. "Because you can see me," she says. "Do you know how long it's been since somebody looked at me and saw a woman instead of a jukebox? Nine years. Nine years, chéri, of sequins for nobody." She sniffs. "And because you're going to get yourself killed without me, and I'd hate to share the jukebox."
   #"What's it going to cost me?"
-    *set wits +2
+    *set wits +1
     *set rel_fleurette +3
     "Oh, I'll think of something," Fleurette says airily. "I'm a woman of expensive tastes. When the time comes, I'll ask. And you'll say yes, because you're a gentleman." She pats your head without touching it. "You are a gentleman, aren't you? Under the smell?"
   #"Deal."
@@ -185,7 +185,7 @@ Your hands are shaking. You make them stop.
 *choice
   *hide_reuse #Look at the snow around him.
     *set looked +1
-    *set wits +2
+    *set wits +1
     *clue c_kandi_bead
     One line of footprints comes down Peel to the bottom of the stairs, his: big boots with the tread worn flat. There's a scuffle where he fell. And beside his hand, pressed into the snow as if somebody knelt on it, a single bright spot of colour.
 
@@ -205,7 +205,7 @@ Your hands are shaking. You make them stop.
     You recognise the door. It's the door at the foot of the towers of Notre-Dame.
   *hide_reuse *if (c_bellmark) #Look closer at the bruise. The same as Mireille's?
     *set looked +1
-    *set wits +2
+    *set wits +1
     The same. Exactly the same. The same curve, the same width, the same place above the left ear. Whoever did this has done it before, and they know exactly where to strike.
 *if looked < 2
   *goto body2
