@@ -99,15 +99,18 @@
     visited_parents: false, mathis_out: false, n6_lane: "", nadim_taken: false, bourdon_knows: false, olivier_dead: false, n5_roof: "",
     /* night seven */
     keyman_known: false, keyman_forgiven: false, keyman_safe: false, keyman_taken: false, accused: "", ruari_fate: "", n7_with: "", stolen_bell: false, has_serge_key: false, keyman_freed: "", meme_saw_serge: false, war_over: false, know_other_key: false, n7_guest: "",
-    honora_turned: false, clarke_turned: false, invited_rose: false, ally_rose: false,
+    honora_turned: false, clarke_turned: false, invited_rose: false, ally_rose: false, rose_bargain: false,
     /* night eight */
     intent: "", role_door: "", role_crowd: "", role_bells: "", role_beside: "", last_night: "", throuple_ready: false, voice: "", nadim_consent: false, fleurette_plan: false, n8_wish: false,
     ally_lazare: false, ally_dario: false, ally_gisele: false, ally_aime: false, ally_fleurette: false, ally_clarke: false,
     ally_manon: false, ally_keyman: false, ally_honora: false,
     /* night nine */
-    door_held: false, crowd_safe: false, bells_stopped: false, hush_fate: "", mc_fate: "", great_wish: "",
+    door_held: false, crowd_safe: false, bells_stopped: false, hush_fate: "", mc_fate: "", great_wish: "", world: "", price: "", nadim_free: false, n9_fell: "", agathe_fate: "", mathis_fate: "",
     lazare_fate: "alive", dario_fate: "alive", aime_fate: "alive", fleurette_fate: "", manon_fate: "", nadim_fate: "",
     keyman_fate: "", bourdon_fate: "", honora_fate: "", clarke_fate: "",
+    /* part two: lent */
+    chapter: 0, ch10_lunch: "", ch10_dinner: "", meme_key_back: false, funeral: "", time_lazare: 0, time_dario: 0, time_rose: 0, time_nadim: 0, time_serge: 0,
+    easter_due: false, mc_wolf: false, easter_how: "", angel_judgment: false, vignettes: "", nadim_sister: false, mathis_mother: false,
 
     /* New Game+ memories (set from the meta store when a New Game+ begins) */
     ngplus: false, runs: 0, mem_enzo: false, mem_keyman: false, mem_killer: false, mem_accord: false, mem_bells: false, mem_wolves: false
@@ -495,7 +498,7 @@
     eyebrow: "Montréal · February",
     subtitle: "Nine nights, and everything after",
     motto: "Le fort a besoin de son gardien.",
-    sceneList: ["night1", "night2", "night2b", "night3", "night3b", "night3c", "night4", "night4b", "night5a", "night6a", "night5b", "night6b", "night7", "night7b", "night8", "night8b", "night9", "endings"],
+    sceneList: ["night1", "night2", "night2b", "night3", "night3b", "night3c", "night4", "night4b", "night5a", "night6a", "night5b", "night6b", "night7", "night7b", "night8", "night8b", "night9", "night9b", "ch10", "ch11", "endings"],
     startVars: startVars,
     clamp: clamp,
     opposed: opposed,

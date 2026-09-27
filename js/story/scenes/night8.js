@@ -54,10 +54,7 @@ Your phone doesn't stop.
   He's on his back on the floor under the window with his head behind the pipes and a wrench in his hand, in your old jeans, which are too long for him, and he's humming. He's been at it for two hours, he says. It's been banging since 2021. It's a very badly fitted radiator.
 
   "Pass me the eleven," he says, without looking, holding out his hand. And you do, without thinking, the way you did when you were nine: you put the eleven-millimetre wrench into your father's palm, and his fingers close on it, and he says [i]merci, mon grand[/i], and neither of you says anything else for a very long time.
-  *if keyman_known
-    Later, he sits at your kitchen table with a cup of Red Rose and looks at the Polaroid on the fridge. "Tomorrow," he says. "The fort." He turns the cup. "I kept that door for fifteen years. I know every stone of it. Whatever you decide to do, {name}, I'll be there. I'll hold anything you need held."
-  *else
-    Later, he sits at your kitchen table with a cup of Red Rose and looks at the Polaroid on the fridge for a long time, with a small puzzled frown, the way you'd look at a word in a language you're only just learning. "That's my writing," he says, at last. "Isn't it." It isn't a question any more.
+  Later, he sits at your kitchen table with a cup of Red Rose and looks at the Polaroid on the fridge. "Tomorrow," he says. "The fort." He turns the cup. "I kept that door for fifteen years. I know every stone of it. Whatever you decide to do, {name}, I'll be there. I'll hold anything you need held."
 *elseif keyman_taken
   Your apartment's empty when you get home. The radiator's banging.
 
@@ -151,17 +148,11 @@ She looks at the chain round your neck.
 "Three, you do what Aurèle built that little key for."
 
 *page_break
-*if know_other_key
-  "It turns the lock into a question," you say. "For the one inside. Whether he'll stay, and on what terms. And he can say no."
+"It turns the lock into a question," you say. "For the one inside. Whether he'll stay, and on what terms. And he can say no."
 
-  Gisèle stares at you. The cigarette stops halfway to her mouth.
+Gisèle stares at you. The cigarette stops halfway to her mouth.
 
-  "Lucille told you," she says. And then, very quietly, to nobody: "Of course she did. Of course she knew. Fifty years round her neck." She puts the cigarette down. "Yes. That's what it does. It makes a Hush that the one holding it has agreed to. A lullaby somebody chose to sing." She looks at you. "It's the only kind of Hush that doesn't rot. And it's never been done, because nobody who's ever made one has ever been willing to ask."
-*else
-  "What's it for?" you ask. "Mémé said it was for the other thing."
-
-  "It turns the lock into a question," says Gisèle. "For the one inside. Whether he'll stay, and on what terms. And he can say no." She looks at you. "It makes a Hush the one holding it has agreed to. A lullaby somebody chose to sing. It's the only kind that doesn't rot. And it's never been done, because nobody who's ever made one has ever been willing to ask."
-  *set know_other_key true
+"Lucille told you," she says. And then, very quietly, to nobody: "Of course she did. Of course she knew. Fifty years round her neck." She puts the cigarette down. "Yes. That's what it does. It makes a Hush that the one holding it has agreed to. A lullaby somebody chose to sing." She looks at you. "It's the only kind of Hush that doesn't rot. And it's never been done, because nobody who's ever made one has ever been willing to ask."
 
 "But you can't just turn a key," Gisèle says. "Not for that. There's four things you need, and if you're missing one, it doesn't work, and you've made a mess on the one night the whole city's awake to see it." She counts on her fingers. "The little key, round your neck. A witch to weave it, because a new Hush isn't a lock, it's a spell, and it's a hell of a spell. A voice the whole city can hear, to sing it over them. And the djinn has to say yes." She looks at you. "Freely. Not because he owes you. Not because you wished it. Yes."
 
@@ -217,15 +208,10 @@ The whole laundromat is looking at you. The dryers go round.
 
 *label requirements
 "The key," says Gisèle.
-*if meme_key
-  *set reqs +1
-  You pull it out on its chain, from under your shirt: the little gold cross, and behind it the small brass key with the cross in a circle. The whole laundromat leans in to look. Monique stops knitting.
+*set reqs +1
+You pull it out on its chain, from under your shirt: the little gold cross, and behind it the small brass key with the cross in a circle. The whole laundromat leans in to look. Monique stops knitting.
 
-  "Lucille's," Gisèle says softly. "Round her neck for fifty years. Good. One."
-*else
-  You don't have it. You never went to see Mémé on Saturday; or you did, and you didn't get it. Gisèle's face falls, just a little.
-
-  "Then that's one we'll have to find," she says. "Lucille's still got it, maybe. Ask her. Tonight, if you have to."
+"Lucille's," Gisèle says softly. "Round her neck for fifty years. Good. One."
 
 "The witch," says Gisèle.
 *if favor_gisele or (rel_gisele >= 30)

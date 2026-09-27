@@ -478,6 +478,7 @@ You stand beside him at the rail. The cold's savage. Down below, the city: the o
   #"Not in. Not yet. But if it comes to it on Saturday, and there's nobody else, will you hold the Hush? For a price?"
     *set rel_rose +5
     *set owe_rose true
+    *set rose_bargain true
     *node n7_rose bargained
     *set wits +2
     Rose looks at you for a long time.

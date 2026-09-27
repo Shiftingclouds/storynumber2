@@ -275,11 +275,19 @@
 
   /* ---------------- story rendering ---------------- */
 
-  var NIGHT_WORDS = ["", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"];
+  var NIGHT_WORDS = ["", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen"];
+  // Nights One to Nine, then chapters of Parts Two and Three, then the epilogue.
+  function nightLabel(n) {
+    n = +n;
+    if (!n) return "";
+    if (n <= 9) return "Night " + NIGHT_WORDS[n];
+    if (n >= 18) return "Epilogue";
+    return "Chapter " + (NIGHT_WORDS[n] || n);
+  }
 
   function chapterCard(b) {
     var art = b.art && NB.cards.ids.indexOf(b.art) >= 0 ? b.art : null;
-    var label = /^\d+$/.test(b.num) ? "Night " + (NIGHT_WORDS[+b.num] || b.num) : b.num;
+    var label = /^\d+$/.test(b.num) ? nightLabel(b.num) : b.num;
     return el("div", { class: "nb-chapter" }, [
       art ? pixImg(NB.cards.url(art), NB.cards.W * 3, NB.cards.H * 3, "nb-card", "") : null,
       el("div", { class: "cap" }, [el("span", { class: "num", text: label }), el("span", { class: "title", text: b.title })])
@@ -687,7 +695,7 @@
     var v = vars();
     if (!inGame() || ui.view === "title" || !v.night) { hud.hidden = true; return; }
     hud.hidden = false;
-    hud.appendChild(el("span", { class: "night", text: "Night " + (NIGHT_WORDS[v.night] || v.night) }));
+    hud.appendChild(el("span", { class: "night", text: nightLabel(v.night) }));
     var flakes = el("span", { class: "hush", title: "The Hush: " + v.hush + "%", "aria-label": "The Hush, " + v.hush + " percent" });
     var n = Math.ceil(v.hush / 20);
     for (var i = 0; i < 5; i++) flakes.appendChild(icon(i < n ? "flake" : "flake_gone", 2));
@@ -712,7 +720,7 @@
     var menu = el("div", { class: "menu" });
     if (live) {
       var night = auto.state && auto.state.vars && auto.state.vars.night;
-      menu.appendChild(el("button", { class: "nb-btn primary", text: "Continue" + (night ? " · Night " + NIGHT_WORDS[night] : ""), onclick: continueGame }));
+      menu.appendChild(el("button", { class: "nb-btn primary", text: "Continue" + (night ? " · " + nightLabel(night) : ""), onclick: continueGame }));
     }
     var confirmBox = el("div", { class: "nb-note-box", hidden: true }, [
       el("div", { text: "Starting over replaces your autosave. Your manual saves are kept." }),
@@ -1129,7 +1137,7 @@
     c.map.forEach(function (n) { (nights[n.night] = nights[n.night] || []).push(n); });
     var tree = el("div", { class: "nb-map" });
     Object.keys(nights).forEach(function (night) {
-      var col = el("div", { class: "night" }, [el("div", { class: "nh", text: "Night " + NIGHT_WORDS[night] })]);
+      var col = el("div", { class: "night" }, [el("div", { class: "nh", text: nightLabel(night) })]);
       nights[night].forEach(function (node) {
         var seen = ui.meta.nodes[node.id] || {};
         var box = el("div", { class: "node" }, [el("div", { class: "nt", text: node.title })]);
@@ -1164,7 +1172,7 @@
     if (!snap || !snap.state) return "Empty";
     var st = snap.state;
     var name = st.vars && st.vars.name ? st.vars.name : "";
-    var ch = st.chapter ? (/^\d+$/.test(st.chapter.num) ? "Night " + NIGHT_WORDS[+st.chapter.num] : st.chapter.num) + ": " + st.chapter.title : "The beginning";
+    var ch = st.chapter ? (/^\d+$/.test(st.chapter.num) ? nightLabel(st.chapter.num) : st.chapter.num) + ": " + st.chapter.title : "The beginning";
     return (name ? name + " · " : "") + ch;
   }
   function when(t) { if (!t) return ""; try { return new Date(t).toLocaleString(); } catch (e) { return ""; } }
@@ -1206,7 +1214,7 @@
       Object.keys(cps.list).sort().forEach(function (k) {
         var cp = cps.list[k];
         cl.appendChild(el("div", { class: "nb-slot" }, [
-          el("div", {}, [el("div", { class: "label", text: "Night " + (NIGHT_WORDS[+cp.num] || cp.num) + ": " + cp.title }), el("div", { class: "meta", text: when(cp.at) })]),
+          el("div", {}, [el("div", { class: "label", text: nightLabel(cp.num) + ": " + cp.title }), el("div", { class: "meta", text: when(cp.at) })]),
           el("div", { class: "btns" }, [el("button", { class: "nb-btn", text: "Restart from here", onclick: function () {
             stopNarrator();
             ui.rt = makeRuntime();
