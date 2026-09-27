@@ -98,10 +98,10 @@
     lazare_rehushed: false, lazare_restored: false, honora_alliance: "", canoe_alt: 5, canoe_crashed: false, change_rung: false,
     visited_parents: false, mathis_out: false, n6_lane: "", nadim_taken: false, bourdon_knows: false, olivier_dead: false, n5_roof: "",
     /* night seven */
-    keyman_known: false, keyman_forgiven: false, keyman_safe: false, keyman_taken: false, accused: "", ruari_fate: "",
+    keyman_known: false, keyman_forgiven: false, keyman_safe: false, keyman_taken: false, accused: "", ruari_fate: "", n7_with: "", stolen_bell: false, has_serge_key: false, keyman_freed: "", meme_saw_serge: false, war_over: false, know_other_key: false, n7_guest: "",
     honora_turned: false, clarke_turned: false, invited_rose: false, ally_rose: false,
     /* night eight */
-    intent: "", role_door: "", role_crowd: "", role_bells: "", role_beside: "", last_night: "", throuple_ready: false,
+    intent: "", role_door: "", role_crowd: "", role_bells: "", role_beside: "", last_night: "", throuple_ready: false, voice: "", nadim_consent: false, fleurette_plan: false, n8_wish: false,
     ally_lazare: false, ally_dario: false, ally_gisele: false, ally_aime: false, ally_fleurette: false, ally_clarke: false,
     ally_manon: false, ally_keyman: false, ally_honora: false,
     /* night nine */
@@ -495,7 +495,7 @@
     eyebrow: "Montréal · February",
     subtitle: "Nine nights, and everything after",
     motto: "Le fort a besoin de son gardien.",
-    sceneList: ["night1", "night2", "night2b", "night3", "night3b", "night3c", "night4", "night4b", "night5a", "night6a", "night5b", "night6b", "night7", "night8", "night9", "endings"],
+    sceneList: ["night1", "night2", "night2b", "night3", "night3b", "night3c", "night4", "night4b", "night5a", "night6a", "night5b", "night6b", "night7", "night7b", "night8", "night8b", "night9", "endings"],
     startVars: startVars,
     clamp: clamp,
     opposed: opposed,
