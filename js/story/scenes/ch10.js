@@ -315,35 +315,42 @@ It's the strangest thing. You've been through a siege and a flying canoe and a b
 *choice
   *if (laz_ok and (des_lazare >= 40)) #@lazare Lazare. Somewhere with a tablecloth. He's never been on a date.
     *set ch10_dinner "lazare"
+    *node ch10_dinner lazare
     *set romance "lazare"
     *set time_lazare +1
     *goto d_lazare
   *if ((dario_fate != "dead") and (des_dario >= 40)) #@dario Dario. He'll want to cook. Let him.
     *set ch10_dinner "dario"
+    *node ch10_dinner dario
     *set romance "dario"
     *set time_dario +1
     *goto d_dario
   *if (laz_ok and (dario_fate != "dead") and (slept_both or throuple_ready)) #Both of them. Somewhere with a table for three, and a waiter who doesn't blink.
     *set ch10_dinner "both"
+    *node ch10_dinner both
     *set romance "both"
     *set time_lazare +1
     *set time_dario +1
     *goto d_both
   *if ((slept_rose or (des_rose >= 40)) and (price != "rose")) #@rose Rose. At Le Mardi Gras. Where it's always the last hour before Lent, and it's Lent now.
     *set ch10_dinner "rose"
+    *node ch10_dinner rose
     *set romance "rose"
     *set time_rose +1
     *goto d_rose
   *if ((nadim_fate = "free") and (rel_nadim >= 30)) #@nadim Nadim. He's never had a Tim Hortons. Or a phone. Start somewhere.
     *set ch10_dinner "nadim"
+    *node ch10_dinner nadim
     *set time_nadim +1
     *goto d_nadim
   *if (keyman_safe and (keyman_fate != "dead") and (keyman_fate != "gardien")) #@keyman Your father. Just the two of you. At the diner on Wellington where he used to take you.
     *set ch10_dinner "serge"
+    *node ch10_dinner serge
     *set time_serge +1
     *goto d_serge
   #Nobody. Chez Normande. A rye and ginger and a pickled egg.
     *set ch10_dinner "alone"
+    *node ch10_dinner alone
     *goto d_alone
 
 *label d_lazare

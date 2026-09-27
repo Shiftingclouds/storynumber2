@@ -280,6 +280,7 @@ It's the first time he's ever asked you anything. You realise that as he says it
 *choice
   #"I release you. The debt. All of it. Whatever's left." Say it, and mean it.
     *set nadim_free true
+    *node ch14_debt released
     *set wishes 0
     *set rel_nadim +20
     *set des_nadim +10
@@ -298,12 +299,14 @@ It's the first time he's ever asked you anything. You realise that as he says it
     *remember nadim In April, by the river, you released his debt. He said no to you for the first time, and then got you a coffee anyway.
   #"Not yet. I'm sorry. I might still need them. For June."
     *set rel_nadim -5
+    *node ch14_debt kept
     *set wits +2
     Nadim nods slowly. He doesn't argue. He can't argue. That's the whole point.
 
     "Of course," he says. "Of course. June." He looks at the river. "I understand." You can hear that he does. You can also hear the voice in him that says [i]you have to[/i].
   #"Ask me again at the Saint-Jean. After. If there's an after."
     *set rel_nadim +5
+    *node ch14_debt later
     "After," says Nadim. He smiles. "Everyone always says after." He looks at you. "I'll hold you to it, creditor. I've got a very good memory. It's the only thing they couldn't take."
 
 *label april_end

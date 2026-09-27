@@ -329,14 +329,20 @@
     { night: 4, id: "n4_dance", title: "The dance", branches: { won: "You led", lost: "He led" } },
     { night: 4, id: "n4_coat", title: "The coat room", branches: { revealed: "Stepped in", slipped: "Slipped away", joked: "Made a joke", stayed: "Stayed", three: "The three of you" } },
     { night: 4, id: "n4_split", title: "The split", branches: { bells: "Followed Lazare", wolves: "Followed Dario" } },
-    { night: 5, id: "n5_path", title: "Night Five", branches: { bells: "La Persévérance", wolves: "Saint-Jude" } },
-    { night: 6, id: "n6_path", title: "Night Six", branches: { bells: "Change-Ringing", wolves: "La Chasse-galerie" } },
+    { night: 5, id: "n5_path", title: "Where you stood", branches: { bells: "La Persévérance", wolves: "Saint-Jude" } },
+    { night: 6, id: "n6_path", title: "The way in", branches: { bells: "Change-Ringing", wolves: "La Chasse-galerie" } },
     { night: 6, id: "n6_leads", title: "Lazare and Dario", branches: { reconciled: "Reconciled", broken: "Broken" } },
     { night: 7, id: "n7_father", title: "The Keyman", branches: { saved: "Saved him", taken: "He was taken" } },
     { night: 7, id: "n7_accuse", title: "The accusation", branches: { ruari: "Ruari", honora: "Honora", compagnie: "The Compagnie", pack: "The pack", lazare: "Lazare", none: "No one" } },
     { night: 7, id: "n7_rose", title: "Rose's offer", branches: { invited: "Invited him", refused: "Refused", bargained: "Bargained" } },
     { night: 8, id: "n8_last", title: "The last night", branches: { lazare: "Lazare", dario: "Dario", both: "Both", rose: "Rose", friends: "Friends", lucille: "Mémé", alone: "Alone" } },
-    { night: 9, id: "n9_lock", title: "At the lock", branches: { rebound: "Closed it on Nadim", lock: "Took his place", gardien: "Your father took it", fallen: "Broke it forever", remade: "Remade the Hush", rose: "Rose's bargain", wished: "The great wish" } }
+    { night: 9, id: "n9_lock", title: "At the lock", branches: { rebound: "Closed it on Nadim", lock: "Took his place", gardien: "Your father took it", fallen: "Broke it forever", remade: "Remade the Hush", rose: "Rose's bargain", wished: "The great wish" } },
+    { night: 10, id: "ch10_dinner", title: "The first dinner", branches: { lazare: "Lazare", dario: "Dario", both: "Both of them", rose: "Rose", nadim: "Nadim", serge: "Your father", alone: "Alone" } },
+    { night: 12, id: "ch12_cellar", title: "Holy Saturday", branches: { both: "Brought them both out", aime: "Brought Aimé out", none: "Came out alone" } },
+    { night: 13, id: "ch13_easter", title: "Seven Easters", branches: { confessed: "Confessed", wolf: "Turned", rose: "Rose took it", wish: "Wished it away" } },
+    { night: 14, id: "ch14_debt", title: "Nadim's debt", branches: { released: "Released it", kept: "Kept it", later: "Asked for time" } },
+    { night: 16, id: "ch16_eve", title: "The last night before", branches: { lazare: "Lazare", dario: "Dario", both: "Both", rose: "Rose", nadim: "Nadim", friends: "Everyone", alone: "Alone" } },
+    { night: 17, id: "ch17_angel", title: "The angel's fire", branches: { calmed: "Sang it calm", bound: "Bound it", freed: "Sent it home", stood: "Stood in the fire", covenant: "The covenant", spent: "Wished it spent", judged: "Let it judge" } }
   ];
 
   /* ---------------- Ask Fleurette ---------------- */
@@ -378,10 +384,30 @@
       ? "<b>Night Five.</b> Inside the Carillon: the Bourdon's confession, the Register of the unmade, and a voice in the great bell."
       : "<b>Night Five.</b> The siege at Saint-Jude, the pack, and a war council on the Line." + (v.lazare_rehushed ? " The Bourdon re-Hushed Lazare." : ""));
     if (v.night >= 6) out.push(v.path === "bells"
-      ? "<b>Night Six.</b> Rue Jarry. Then you rang the wrong change, and the angel spoke. The Compagnie took Nadim."
-      : "<b>Night Six.</b> The chasse-galerie flew to the towers to bring Lazare out. The Compagnie took Nadim.");
-    if (v.night >= 7) out.push("<b>Night Seven.</b> " + (v.keyman_known ? "You found your father." : "") + " The Compagnie's dinner" + (v.accused ? ", and your accusation." : "."));
-    if (v.night >= 8) out.push("<b>Night Eight.</b> The plan, and the last night before Nuit blanche.");
+      ? "<b>Night Six.</b> Rue Jarry, on Enzo's birthday" + (v.n6_parents === "told" ? ", where he told his mother his name" : v.n6_parents === "birthday" ? ", where his mother sang to him without knowing him" : "") + (v.reconciled ? ", and a cannoli on a step: he and Dario, reconciled." : ".") +
+        (v.angel_heard ? " At three in the morning you stopped the peal, and the angel spoke to the whole island." : " At three in the morning the Carillon rang its peal, and the angel was drowned.") +
+        (v.lazare_left_carillon ? " Lazare put his bell down and walked out of the Carillon." : "") + " The Club took Nadim."
+      : "<b>Night Six.</b> Rosa gave Dario a cake for nobody. Rose signed the ink, and the chasse-galerie flew to the towers" + (v.canoe_crashed ? ", and crashed on the roof of Notre-Dame" : "") + ". " +
+        (v.lazare_restored ? "Under the great bell, Lazare remembered." : v.lazare_inside ? "You brought Lazare out." : "Lazare came with you, not knowing why.") + (v.reconciled ? " At dawn, in the lane on Jarry, he and Dario shared the cake." : "") + " The Club took Nadim.");
+    if (v.night >= 7) out.push("<b>Night Seven.</b> " + (v.keyman_known ? "On the Missing Line, your father remembered your name. " : "On the Missing Line, you found the Keyman. ") +
+      (v.keyman_taken && !v.keyman_safe ? "Ruari carried him off to the Club. " : "") + "At the Accord's table" +
+      (v.accused === "none" || !v.accused ? " you kept your counsel." : v.accused === "pack" || v.accused === "lazare" ? " you accused the wrong one." : " you named the killer" + (v.honora_turned ? ", and turned Honora." : ".")) +
+      (v.invited_rose ? " On the porch you invited Rose in." : "") + " At three, Mémé told you what the little key is for.");
+    if (v.night >= 8) out.push("<b>Night Eight.</b> The council at the laundromat" + ({ close: ": you meant to close the lock", "break": ": you meant to break it", remake: ": you meant to remake it by consent", ask: ": you meant to ask Nadim first" }[v.intent] || "") + ". The plan. The last night before, " +
+      ({ lazare: "with Lazare", dario: "with Dario", both: "with both of them", rose: "with Rose", friends: "at Chez Normande", lucille: "with Mémé", alone: "alone by the river" }[v.last_night] || "") + ". Nadim, in a dream, " + (v.nadim_consent ? "said yes." : "said ask me at the lock."));
+    if (v.night >= 9) out.push("<b>Nuit blanche.</b> " + ({
+      rebound: "You closed the lock on Nadim, and the city slept.", gardien: "Your father took the lock, and Nadim walked free.", fallen: "You broke the lock, and the city woke up.",
+      remade: "You turned the lock into a question, and Nadim said yes.", rose: "Rose took the Hush in his bare hands.", wished: "You wished the Accord undone."
+    }[v.hush_fate] || "") + (v.lazare_fate === "dead" ? " Lazare died in the vault." : v.dario_fate === "dead" ? " Dario died in the vault." : v.keyman_fate === "dead" ? " Your father died in the vault." : "") +
+      (v.fleurette_fate === "gone" && v.night < 17 ? " Fleurette's name went up on every screen, and she went." : ""));
+    if (v.night >= 10) out.push("<b>Ash.</b> The morning after." + (v.funeral ? " A funeral at " + (v.funeral === "dario" ? "Saint-Jude" : v.funeral === "gisele" ? "the laundromat" : "Bélanger & Fils") + "." : "") + " Mémé knew you by name and asked for her key." + (v.ch10_lunch ? " Lunch on rue Jarry." : "") + " At 3:33 every bell in the city rang once, by itself.");
+    if (v.night >= 11) out.push("<b>The Forty Days.</b> March, and a life with people in it. The bells counted down at 3:33. The pack counted your Easters: seven.");
+    if (v.night >= 12) out.push("<b>Holy Week.</b> The bells flew to Rome. The Club took Aimé, and Nadim's sister Zeina, and on Holy Saturday you went into the cellar under the mountain" + (v.zeina_free ? " and brought them both out." : v.aime_safe ? " and brought Aimé out." : ".") + (v.price_freed ? " In the silence, you opened the bands." : ""));
+    if (v.night >= 13) out.push("<b>Easter.</b> " + ({ confessed: "You made your confession at Father Lemieux's kitchen table.", wolf: "You turned, at sunrise, with the pack.", rose: "Rose took your curse into his hand.", wish: "You spent a wish on seven Easters." }[v.easter_how] || "") + " At noon the bells came home, and the angel with them: on the feast of the Baptist, fire.");
+    if (v.night >= 14) out.push("<b>The Thaw.</b> The ice went out. Mémé died on the fifteenth of April, holding your hand." + (v.nadim_free ? " You released Nadim's debt." : ""));
+    if (v.night >= 15) out.push("<b>Lilacs.</b> May, the tam-tams, the questions. Aurèle's tuning fork: the song can calm the angel, bind it, or set it free.");
+    if (v.night >= 16) out.push("<b>The Longest Days.</b> The third plan, and the last night before the fire.");
+    if (v.night >= 17) out.push("<b>La Saint-Jean.</b> " + ({ calmed: "You sang it its name, and it listened.", bound: "You sang it its name, and bound it to wait.", freed: "You sang it its name, and it went home.", stood: "You stood in the fire between it and them.", covenant: "It blessed a Hush that asks.", spent: "Nadim spent its anger for you.", judged: "It judged." }[v.angel_end] || ""));
     return out;
   }
 
@@ -494,6 +520,8 @@
     if ((m = /^met_(\w+)$/.exec(e))) return "Requires having met " + ((people[m[1]] && people[m[1]].short) || m[1]);
     if ((m = /^mem_(\w+)$/.exec(e))) return "Requires a memory from another night";
     if (/^hours\s*>=\s*(\d)$/.test(e)) return "Not enough hours left before dawn";
+    if ((m = /^\(?time_(\w+)(?:\s*\+\s*time_\w+\)?)?\s*>=\s*(\d)$/.exec(e))) return "Requires time together: spend weeks with " + ({ lazare: "Lazare", dario: "Dario and Lazare", rose: "Rose", nadim: "Nadim", serge: "your father" }[m[1]] || m[1]) + " in the chapters after Nuit blanche";
+    if ((m = /^(des|rel)_(\w+)\s*>=\s*(\d+)$/.exec(e))) return (m[1] === "des" ? "Requires more desire between you and " : "Requires more trust from ") + ((people[m[2]] && people[m[2]].short) || m[2]);
     return "";
   }
 

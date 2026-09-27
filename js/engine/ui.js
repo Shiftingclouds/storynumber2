@@ -1449,5 +1449,13 @@
     }
   }
 
-  NB.ui = { boot: boot, _ui: ui };
+  // Testing hook: jump straight to a scene (and optionally set variables) in the current game.
+  function jump(scene, label, vars) {
+    if (!ui.rt || !ui.rt.state) return;
+    Object.keys(vars || {}).forEach(function (k) { ui.rt.state.vars[k] = vars[k]; });
+    ui.rt.gotoScene(scene, label);
+    act(function () { return ui.rt.run(null); });
+  }
+
+  NB.ui = { boot: boot, _ui: ui, _jump: jump };
 })(window);

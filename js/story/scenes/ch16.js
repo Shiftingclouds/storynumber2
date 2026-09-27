@@ -186,31 +186,38 @@ It doesn't get dark. That's the thing. At eleven o'clock the sky over the mounta
 Who do you spend it with?
 
 *choice
-  *selectable_if (laz_ok and (des_lazare >= 50) and (rel_lazare >= 50)) #@lazare Lazare.
+  *selectable_if (laz_ok and (des_lazare >= 50) and (rel_lazare >= 50) and (time_lazare >= 1)) #@lazare Lazare.
     *set last_before "lazare"
+    *node ch16_eve lazare
     *set final_romance "lazare"
     *goto lb_lazare
-  *selectable_if (dar_ok and (des_dario >= 50) and (rel_dario >= 50)) #@dario Dario.
+  *selectable_if (dar_ok and (des_dario >= 50) and (rel_dario >= 50) and (time_dario >= 1)) #@dario Dario.
     *set last_before "dario"
+    *node ch16_eve dario
     *set final_romance "dario"
     *goto lb_dario
-  *selectable_if (laz_ok and dar_ok and throuple_ready and (des_lazare >= 50) and (des_dario >= 50)) #Both of them.
+  *selectable_if (laz_ok and dar_ok and throuple_ready and (des_lazare >= 50) and (des_dario >= 50) and ((time_lazare + time_dario) >= 3)) #Both of them.
     *set last_before "both"
+    *node ch16_eve both
     *set final_romance "both"
     *goto lb_both
-  *selectable_if (met_rose and (price != "rose") and (des_rose >= 50)) #@rose Rose.
+  *selectable_if (met_rose and (price != "rose") and (des_rose >= 50) and (time_rose >= 1)) #@rose Rose.
     *set last_before "rose"
+    *node ch16_eve rose
     *set final_romance "rose"
     *goto lb_rose
-  *selectable_if (nadim_free and (nadim_q = "yes") and (des_nadim >= 40)) #@nadim Nadim.
+  *selectable_if (nadim_free and (nadim_q = "yes") and (des_nadim >= 40) and (time_nadim >= 1)) #@nadim Nadim.
     *set last_before "nadim"
+    *node ch16_eve nadim
     *set final_romance "nadim"
     *goto lb_nadim
   #Everyone. The back steps at Saint-Jude, or Chez Normande, or the laundromat roof. All of them. No bed tonight.
     *set last_before "friends"
+    *node ch16_eve friends
     *goto lb_friends
   #Nobody. The river. The van. The island across the water.
     *set last_before "alone"
+    *node ch16_eve alone
     *goto lb_alone
 
 *label lb_lazare

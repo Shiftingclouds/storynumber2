@@ -188,19 +188,97 @@ You go round the city, the way you did a year ago, the way you always do now.
     Jean-Baptiste is in the bronze. At 3:33 on Nuit blanche, it rings once, by itself, for nobody. For everybody.
 
 *page_break
+*mood eve
+The city remembers things. Small ones. The ones nobody would think to write down.
+*if twenties = "boxing"
+  The gym on Wellington, where you boxed four nights a week in your twenties, has a new sign in the window: [i]Wolves welcome. Bring your own tape.[/i] The owner says it's a joke. It isn't.
+*elseif twenties = "bar"
+  The bar on Sainte-Catherine where you tended bar in your twenties has a photograph behind the till now, of a drag queen in a teal gown, that nobody remembers putting up.
+*elseif twenties = "shop"
+  Your grandfather's bench in the back of the shop still has the vice bolted to it. You've finished the lock that was in it.
+*else
+  You finally finished the criminology certificate at Concordia, two courses a semester. Your final paper was on unsolved deaths in Montréal in February 2026. You got a B. The professor wrote [i]fanciful[/i] in the margin.
+*if opened_by = "force"
+  There's a drill hole in the steel plate on the powder-house door, where you put your grandfather's mark in the crosshairs and apologised to him out loud. Nobody's ever fixed it. You've decided it's character.
+*else
+  There's no mark on the steel plate of the powder-house door. You opened it the way he'd have wanted, a year ago, and it's never shown a scratch.
+*if n1_ride = "gravy"
+  Dario still honks twice every time he drives the tow truck past the Longueuil end of the bridge, where he fed you poutine at four in the morning on the first night.
+*elseif n1_ride = "scar"
+  Lazare still touches the scar on his chin when he's thinking. He knows where it came from now. He tells the story at parties, badly, and Dario corrects him.
+*if n1_gave_name
+  You gave Nadim your name first, in the vault, before you knew what it was worth. He's never forgotten. He says it was the first gift anyone gave him in sixty-eight years.
+*if meme_way = "serge"
+  Mémé called you Serge, the first time. You let her. You never told anyone you did that. You think, now, that she knew all along.
+*if mireille_daughter
+  In October, with Aimé, you found Josée Caron. She's fifty-four and teaches piano in Longueuil and had a mother nobody remembered. Aimé told her the last clear thing in her mother's head was a little girl doing homework at a kitchen table. She has the index card now, in a frame.
+*if n3_sang = "duet"
+  Every Friday at Chez Jude, when Dario sings Céline on the altar, he stops on the last chorus and points at you, and you get up there, and you're both flat.
+*if climbed
+  You climbed to the top of the Jacques Cartier Bridge once, in the snow, for a djinn. You've never told your father. He'd have a heart attack.
+*if feeder = "mercy"
+  A girl with a burn-less forearm works nights at the O-négatif bar on the Line now. She tells everyone a hunter let her go in an alley in Griffintown, once, because a locksmith asked him to.
+*elseif feeder = "harsh"
+  A girl with a burn on her forearm the shape of a bar of iron works nights at the O-négatif bar on the Line. She's never forgiven the hunter. She's not sure about you.
+*if gisele_way = "sheets"
+  Every Saturday at the laundromat, somebody folds a fitted sheet perfectly, corners into corners. The girls say it's Gisèle. It might be.
+*if nadim_danced
+  You danced a bossa nova with a djinn once, at a devil's party, under the ticking clocks. He still hums it.
+*if n5_roof = "howled"
+  You howled with the pack on the roof of Saint-Jude once, badly, as a human. They still do the impression. Luc does it best.
+*if lazare_said_name
+  In a cell in La Persévérance, he said his name to you before he said it to anyone. [i]Lorenzo.[/i] You've never let him forget it.
+*if change_rung
+  On the night of the great peal you asked Lazare to ring the tenor, and he did. You think about that, some nights. About what the bell would have said.
+*if n6_lane = "three"
+  There's a step behind rue Jarry, on the Santangelo side, built for two boys. Three men have sat on it, crushed together, in the snow. Rosa Ferrante shouts at them from the window every time. Then she brings them coffee.
+*if meme_fort
+  You carried your grandmother down the stairs of the powder house once, at half past three in the morning, to see her son. Ghislaine never told anyone. She sends you a card every April.
+*if hw_thursday = "willibrord"
+  On Holy Thursday you sat in the front pew at Saint-Willibrord for your mother. Father Lemieux saw. He's saved it for you every Sunday since.
+*if song_how = "free"
+  At 3:33, some nights, you still wake up. And there's nothing. Just the radiator, and the city. You don't know if you miss it.
+*if kissed_nadim or slept_nadim
+  A djinn asked you, once, on an old Expo path, whether he could kiss you. He tells everyone about it. He says it was the first question he ever asked.
+*if throuple_yes
+  There's a piece of paper, folded small, in Lazare's breast pocket. [i]We'd like the three of us to be something. On purpose. Out loud.[/i] He takes it out and reads it when he thinks nobody's looking.
+*if nadim_sister and zeina_free
+  Zeina runs the laundromat and has made it profitable. She does Thérèse's hair on Thursdays. She still hits her brother on the chest with both fists every time she sees him, and then holds on.
+
+*page_break
 *mood white
 And you.
+*if ally_lazare or ally_dario or ally_aime or ally_fleurette or ally_clarke or ally_honora or ally_keyman or ally_gisele or ally_manon
+  On the anniversary, everyone who stood with you on Nuit blanche comes to the laundromat roof.
+  *if ally_lazare
+    Lazare, who held what you asked him to hold.
+  *if ally_dario
+    Dario, who held the door, or the crowd, or your hand.
+  *if ally_manon
+    Manon, who led the grace.
+  *if ally_aime
+    Aimé, in his good tie.
+  *if ally_clarke
+    The Conductor, in his cap, who took a side.
+  *if ally_honora
+    Honora, in fur, who tidied.
+  *if ally_keyman
+    Your father, who kept the fort for fifteen years before you.
+  *if ally_gisele
+    The girls from the laundromat, with gin.
+  *if ally_fleurette
+    And an empty space on the jukebox that everyone leaves room for.
 *if mc_wolf
   You run with the pack at the full moon, and wear a tuque in every weather, and have never, since Easter, been alone.
 *if mc_fate = "burned"
   You have scars on both hands from the Saint-Jean. White, like frost. They don't hurt. When you pick a lock now, you can feel the pins through them more clearly than you ever could before.
 You're a locksmith. You've still got the van. At three in the morning, when somebody's locked out somewhere in this city, your phone rings, and you go.
 
+*page_break
 It's Nuit blanche. Half a million people in the streets, and the métro running all night, and the screens lit on every building, and the whole island awake.
 
 Where are you at 3:33?
 
-*page_break
 *if final_romance = "lazare"
   *achieve lazare_heart
 *if final_romance = "dario"

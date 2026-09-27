@@ -443,6 +443,12 @@ And on a table beside him, in a circle of iron filings, a brass lamp. Old. Beaut
   *set zeina_free true
 *elseif plan >= 5
   *set aime_safe true
+*if zeina_free
+  *node ch12_cellar both
+*elseif aime_safe
+  *node ch12_cellar aime
+*else
+  *node ch12_cellar none
 *page_break
 *if zeina_free
   You come up the servants' stairs into the cold with Aimé on your arm and the lamp in your hands, and nobody stops you, because everybody in Strachan House is at the front door, or on an island in the river, looking the wrong way.

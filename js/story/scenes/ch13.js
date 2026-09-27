@@ -28,16 +28,20 @@ You've got two hours and forty minutes. Four ways you know of.
 *choice
   #Go to confession. Saint-Willibrord. Your mother's church. Before dawn. Do it properly, the way she would have wanted.
     *set easter_how "confessed"
+    *node ch13_easter confessed
     *goto confess
   #Go up the mountain. Find the pack. Turn with them at sunrise. Don't be alone for it.
     *set easter_how "wolf"
+    *node ch13_easter wolf
     *set mc_wolf true
     *goto turn
   *if (met_rose and ((rel_rose >= 30) or invited_rose or slept_rose)) #Go to Le Mardi Gras. Ask Rose to hold the curse for you. He'll want something for it.
     *set easter_how "rose"
+    *node ch13_easter rose
     *goto rose_curse
   *if (wishes >= 1) #Spend a wish. Unmake the count. Nadim can take seven Easters back as easily as a moment.
     *set easter_how "wish"
+    *node ch13_easter wish
     *set wishes -1
     *set wishes_used +1
     *goto wished

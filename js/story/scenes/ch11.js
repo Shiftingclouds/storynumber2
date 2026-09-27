@@ -563,7 +563,6 @@ But this time, you're awake. And this time, under it, you hear it clearly, like 
 
 Seven days to Easter.
 
-*set chapter 11
 *page_break Chapter Twelve
 *goto_scene ch12
 `);

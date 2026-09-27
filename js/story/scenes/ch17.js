@@ -543,6 +543,20 @@ The sleepers remember a fire on the Saint-Jean that got out of control. The news
 
 *comment ---------------------------------------------------------------- AFTER
 *label after
+*if angel_end = "calmed"
+  *node ch17_angel calmed
+*elseif angel_end = "bound"
+  *node ch17_angel bound
+*elseif angel_end = "freed"
+  *node ch17_angel freed
+*elseif angel_end = "stood"
+  *node ch17_angel stood
+*elseif angel_end = "covenant"
+  *node ch17_angel covenant
+*elseif angel_end = "spent"
+  *node ch17_angel spent
+*elseif angel_end = "judged"
+  *node ch17_angel judged
 *page_break
 *mood snow
 Dawn on the twenty-fourth of June. The feast of Saint John the Baptist.
